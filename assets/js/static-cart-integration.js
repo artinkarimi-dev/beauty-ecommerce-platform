@@ -59,6 +59,11 @@
 
         const productIdentity = getProductIdentity(button);
 
+        if (button.dataset.productPurchasable === "false") {
+            markUnavailable(button);
+            return;
+        }
+
         if (productIdentity === null) {
             markUnavailable(button);
             return;

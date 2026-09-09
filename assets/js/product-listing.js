@@ -111,6 +111,11 @@
         button.textContent = options.buttonText;
         button.dataset.productSlug = product.slug;
 
+        if (product.is_purchasable === false || product.price_amount === null) {
+            button.disabled = true;
+            button.textContent = "فعلا قابل خرید نیست";
+            button.setAttribute("aria-disabled", "true");
+        }
         bottom.append(price, button);
         info.append(category, title, description, bottom);
         card.append(image, info);

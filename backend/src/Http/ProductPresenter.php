@@ -22,6 +22,9 @@ final class ProductPresenter
             'price_label' => $priceLabel,
             'image' => $product['image'],
             'stock' => (int) $product['stock'],
+
+            'is_purchasable' => $priceAmount !== null && (int) $product['stock'] > 0,
+
             'category' => [
                 'name' => $product['category_name'],
                 'slug' => $product['category_slug'],

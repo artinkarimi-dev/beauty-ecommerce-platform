@@ -88,7 +88,22 @@ try {
             exit;
         }
 
+        if ($product['price_amount'] === null) {
+
+
+            JsonResponse::error('PRICE_UNAVAILABLE', 'Product requires price confirmation before ordering.', 409);
+
+
+            exit;
+
+
+        }
+
+
+
         $productId = (int) $product['id'];
+
+
         $availableStock = (int) $product['stock'];
         $cartItems = SessionCart::items();
         $existingQuantity = isset($cartItems[(int) $productId]) ? (int) $cartItems[(int) $productId] : 0;
