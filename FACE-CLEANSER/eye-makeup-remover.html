@@ -731,14 +731,9 @@
                     <span class="counter" id="wishlistCount">0</span>
                 </button>
 
-                <button
-                    class="header-btn"
-                    type="button"
-                    aria-label="سبد خرید"
-                >
+                <a class="header-btn" href="../cart.html" aria-label="سبد خرید">
                     🛒
-                    <span class="counter" id="cartCount">0</span>
-                </button>
+                </a>
 
             </div>
 
@@ -947,7 +942,6 @@
                             <button
                                 class="add-cart"
                                 type="button"
-                                onclick="addToCart('پاک کننده دو فاز آرایش چشم')"
                             >
                                 افزودن به سبد
                             </button>
@@ -1012,7 +1006,6 @@
                             <button
                                 class="add-cart"
                                 type="button"
-                                onclick="addToCart('پاک کننده آرایش چشم پوست حساس')"
                             >
                                 افزودن به سبد
                             </button>
@@ -1073,7 +1066,6 @@
                             <button
                                 class="add-cart"
                                 type="button"
-                                onclick="addToCart('پاک کننده آرایش ضدآب چشم')"
                             >
                                 افزودن به سبد
                             </button>
@@ -1138,7 +1130,6 @@
                             <button
                                 class="add-cart"
                                 type="button"
-                                onclick="addToCart('پاک کننده آرایش چشم بدون عطر')"
                             >
                                 افزودن به سبد
                             </button>
@@ -1199,7 +1190,6 @@
                             <button
                                 class="add-cart"
                                 type="button"
-                                onclick="addToCart('محلول پاک کننده روزانه آرایش چشم')"
                             >
                                 افزودن به سبد
                             </button>
@@ -1264,7 +1254,6 @@
                             <button
                                 class="add-cart"
                                 type="button"
-                                onclick="addToCart('پاک کننده دو فاز آرایش ضدآب')"
                             >
                                 افزودن به سبد
                             </button>
@@ -1475,23 +1464,7 @@
                     toast.classList.remove("show");
 
                 },2200);
-        }
-
-
-        function addToCart(name){
-
-            cartCount++;
-
-            cartCounter.textContent =
-                cartCount;
-
-            showToast(
-                "«" + name + "» به سبد خرید اضافه شد."
-            );
-        }
-
-
-        function toggleWishlist(button){
+        }function toggleWishlist(button){
 
             button.classList.toggle("active");
 
@@ -1659,6 +1632,7 @@
         );
 
     </script>
+<script src="../assets/js/static-cart-integration.js" defer></script>
 
 </body>
 </html>

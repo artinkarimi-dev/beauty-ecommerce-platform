@@ -69,6 +69,6 @@
     }
 
     document.addEventListener("DOMContentLoaded", function () {
-        document.querySelectorAll(".add-btn").forEach(initButton);
+        document.querySelectorAll(".add-btn, .add-cart").forEach(initButton);
     });
 }());

@@ -731,10 +731,9 @@
                     <span class="counter" id="wishlistCount">0</span>
                 </button>
 
-                <button class="header-btn" type="button" aria-label="سبد خرید">
+                <a class="header-btn" href="../cart.html" aria-label="سبد خرید">
                     🛒
-                    <span class="counter" id="cartCount">0</span>
-                </button>
+                </a>
 
             </div>
 
@@ -925,7 +924,6 @@
                             <button
                                 class="add-cart"
                                 type="button"
-                                onclick="addToCart('فوم شست‌وشوی آبرسان')"
                             >
                                 افزودن به سبد
                             </button>
@@ -986,7 +984,6 @@
                             <button
                                 class="add-cart"
                                 type="button"
-                                onclick="addToCart('فوم شست‌وشوی پوست چرب')"
                             >
                                 افزودن به سبد
                             </button>
@@ -1045,7 +1042,6 @@
                             <button
                                 class="add-cart"
                                 type="button"
-                                onclick="addToCart('فوم شست‌وشوی پوست حساس')"
                             >
                                 افزودن به سبد
                             </button>
@@ -1106,7 +1102,6 @@
                             <button
                                 class="add-cart"
                                 type="button"
-                                onclick="addToCart('فوم شست‌وشوی کرمی')"
                             >
                                 افزودن به سبد
                             </button>
@@ -1165,7 +1160,6 @@
                             <button
                                 class="add-cart"
                                 type="button"
-                                onclick="addToCart('فوم شست‌وشوی روزانه')"
                             >
                                 افزودن به سبد
                             </button>
@@ -1226,7 +1220,6 @@
                             <button
                                 class="add-cart"
                                 type="button"
-                                onclick="addToCart('فوم شست‌وشوی کنترل چربی')"
                             >
                                 افزودن به سبد
                             </button>
@@ -1369,23 +1362,7 @@
             window.toastTimer = setTimeout(() => {
                 toast.classList.remove("show");
             },2200);
-        }
-
-
-        function addToCart(productName){
-
-            cartCount++;
-
-            cartCountElement.textContent =
-                cartCount;
-
-            showToast(
-                "«" + productName + "» به سبد خرید اضافه شد."
-            );
-        }
-
-
-        function toggleWishlist(button){
+        }function toggleWishlist(button){
 
             button.classList.toggle("active");
 
@@ -1533,6 +1510,7 @@
             }
         );
     </script>
+<script src="../assets/js/static-cart-integration.js" defer></script>
 
 </body>
 </html>

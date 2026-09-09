@@ -705,10 +705,9 @@
                 <span class="counter" id="wishlistCount">0</span>
             </button>
 
-            <button class="header-btn" title="سبد خرید">
+            <a class="header-btn" href="../cart.html" title="سبد خرید" aria-label="سبد خرید">
                 🛒
-                <span class="counter" id="cartCount">0</span>
-            </button>
+            </a>
 
         </div>
     </div>
@@ -914,7 +913,6 @@
 
                         <button
                             class="add-cart"
-                            onclick="addToCart('ژل شست‌وشوی صورت آبرسان')"
                         >
                             افزودن به سبد
                         </button>
@@ -977,7 +975,6 @@
 
                         <button
                             class="add-cart"
-                            onclick="addToCart('ژل شست‌وشوی پوست چرب')"
                         >
                             افزودن به سبد
                         </button>
@@ -1036,7 +1033,6 @@
 
                         <button
                             class="add-cart"
-                            onclick="addToCart('ژل شست‌وشوی پوست حساس')"
                         >
                             افزودن به سبد
                         </button>
@@ -1099,7 +1095,6 @@
 
                         <button
                             class="add-cart"
-                            onclick="addToCart('ژل شست‌وشوی پوست خشک')"
                         >
                             افزودن به سبد
                         </button>
@@ -1158,7 +1153,6 @@
 
                         <button
                             class="add-cart"
-                            onclick="addToCart('ژل شست‌وشوی روزانه')"
                         >
                             افزودن به سبد
                         </button>
@@ -1221,7 +1215,6 @@
 
                         <button
                             class="add-cart"
-                            onclick="addToCart('ژل شست‌وشوی روشن کننده')"
                         >
                             افزودن به سبد
                         </button>
@@ -1280,7 +1273,6 @@
 
                         <button
                             class="add-cart"
-                            onclick="addToCart('ژل شست‌وشوی عمیق')"
                         >
                             افزودن به سبد
                         </button>
@@ -1339,7 +1331,6 @@
 
                         <button
                             class="add-cart"
-                            onclick="addToCart('ژل شست‌وشوی بدون سولفات')"
                         >
                             افزودن به سبد
                         </button>
@@ -1402,7 +1393,6 @@
 
                         <button
                             class="add-cart"
-                            onclick="addToCart('ژل شست‌وشوی مینرال')"
                         >
                             افزودن به سبد
                         </button>
@@ -1561,20 +1551,7 @@
         setTimeout(() => {
             toast.classList.remove("show");
         }, 2200);
-    }
-
-    function addToCart(productName) {
-
-        cartCount++;
-
-        document.getElementById("cartCount").textContent = cartCount;
-
-        showToast(
-            "«" + productName + "» به سبد خرید اضافه شد."
-        );
-    }
-
-    function toggleWishlist(button) {
+    }function toggleWishlist(button) {
 
         button.classList.toggle("active");
 
@@ -1692,6 +1669,7 @@
         });
 
 </script>
+<script src="../assets/js/static-cart-integration.js" defer></script>
 
 </body>
 </html>
