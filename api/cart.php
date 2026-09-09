@@ -54,9 +54,10 @@ if ($method !== 'GET') {
     }
 
     $productId = filter_var($payload['product_id'] ?? null, FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]);
+    $productSlug = isset($payload['product_slug']) ? trim((string) $payload['product_slug']) : null;
 
-    if ($productId === false) {
-        JsonResponse::error('VALIDATION_ERROR', 'product_id must be a positive integer.', 422);
+    if ($productId === false && ($productSlug === null || preg_match('/\A[a-z0-9][a-z0-9-]{1,199}\z/', $productSlug) !== 1)) {
+        JsonResponse::error('VALIDATION_ERROR', 'product_id or product_slug is required.', 422);
         exit;
     }
 
@@ -75,14 +76,20 @@ try {
     $repository = new ProductRepository($pdo);
 
     if ($method === 'POST' || $method === 'PATCH') {
-        $products = $repository->findActiveByIds([(int) $productId]);
+        if ($productId !== false) {
+            $products = $repository->findActiveByIds([(int) $productId]);
+            $product = $products[0] ?? null;
+        } else {
+            $product = $productSlug === null ? null : $repository->findActiveBySlug($productSlug);
+        }
 
-        if ($products === []) {
+        if ($product === null) {
             JsonResponse::error('NOT_FOUND', 'Product was not found.', 404);
             exit;
         }
 
-        $availableStock = (int) $products[0]['stock'];
+        $productId = (int) $product['id'];
+        $availableStock = (int) $product['stock'];
         $cartItems = SessionCart::items();
         $existingQuantity = isset($cartItems[(int) $productId]) ? (int) $cartItems[(int) $productId] : 0;
         $requestedQuantity = $method === 'POST' ? $existingQuantity + (int) $quantity : (int) $quantity;
@@ -98,7 +105,14 @@ try {
             SessionCart::set((int) $productId, (int) $quantity);
         }
     } elseif ($method === 'DELETE') {
-        SessionCart::remove((int) $productId);
+        if ($productId === false) {
+            $product = $productSlug === null ? null : $repository->findActiveBySlug($productSlug);
+            $productId = $product === null ? 0 : (int) $product['id'];
+        }
+
+        if ((int) $productId > 0) {
+            SessionCart::remove((int) $productId);
+        }
     }
 
     $cartItems = SessionCart::items();

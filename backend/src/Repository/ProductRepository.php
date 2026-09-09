@@ -149,6 +149,32 @@ final class ProductRepository
         return $statement->fetchAll();
     }
 
+
+    public function findActiveBySlug(string $slug): ?array
+    {
+        $statement = $this->pdo->prepare('
+            SELECT
+                p.id,
+                p.name,
+                p.slug,
+                p.description,
+                p.price_amount,
+                p.price_label,
+                p.image,
+                p.stock,
+                c.name AS category_name,
+                c.slug AS category_slug
+            FROM products p
+            INNER JOIN categories c ON c.id = p.category_id
+            WHERE p.is_active = 1
+                AND p.slug = :slug
+            LIMIT 1
+        ');
+        $statement->execute([':slug' => $slug]);
+        $product = $statement->fetch();
+
+        return $product === false ? null : $product;
+    }
     private function findByWhere(string $where, array $bindings, int $page, int $perPage, string $sort): array
     {
         $offset = ($page - 1) * $perPage;

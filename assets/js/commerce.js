@@ -145,11 +145,18 @@
         });
     }
 
-    async function addToCart(productId, quantity) {
-        return mutateCart("POST", {
-            product_id: productId,
+    async function addToCart(product, quantity) {
+        const body = {
             quantity: quantity || 1
-        });
+        };
+
+        if (typeof product === "string") {
+            body.product_slug = product;
+        } else {
+            body.product_id = product;
+        }
+
+        return mutateCart("POST", body);
     }
 
     async function createOrder(customer) {

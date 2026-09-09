@@ -6,7 +6,11 @@
     const successText = "✓ اضافه شد";
     const retryText = "دوباره تلاش کنید";
 
-    function getProductId(button) {
+    function getProductIdentity(button) {
+        if (button.dataset.productSlug) {
+            return button.dataset.productSlug;
+        }
+
         const rawValue = button.dataset.productId || "";
         const productId = Number(rawValue);
 
@@ -21,7 +25,7 @@
         button.setAttribute("aria-disabled", "true");
     }
 
-    async function handleClick(button, productId) {
+    async function handleClick(button, productIdentity) {
         if (!window.AlkamooneCommerce || typeof window.AlkamooneCommerce.addToCart !== "function") {
             button.textContent = retryText;
             return;
@@ -33,7 +37,7 @@
         button.textContent = loadingText;
 
         try {
-            await window.AlkamooneCommerce.addToCart(productId, 1);
+            await window.AlkamooneCommerce.addToCart(productIdentity, 1);
             button.textContent = successText;
         } catch (error) {
             button.textContent = retryText;
@@ -53,9 +57,9 @@
 
         button.dataset.staticCartReady = "true";
 
-        const productId = getProductId(button);
+        const productIdentity = getProductIdentity(button);
 
-        if (productId === null) {
+        if (productIdentity === null) {
             markUnavailable(button);
             return;
         }
@@ -63,7 +67,7 @@
         button.type = "button";
         button.addEventListener("click", function () {
             if (!button.disabled) {
-                handleClick(button, productId);
+                handleClick(button, productIdentity);
             }
         });
     }
