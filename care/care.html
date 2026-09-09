@@ -1,0 +1,2255 @@
+```html
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <!-- =====================================================
+         01 — DOCUMENT META
+         ===================================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="دسته‌بندی محصولات مراقبتی فروشگاه BEAUTY"
+    >
+
+    <meta
+        name="keywords"
+        content="مراقبت پوست، آبرسان، ضدآفتاب، تونر، ماسک، اسنس"
+    >
+
+    <title>مراقبتی | BEAUTY</title>
+
+
+    <!-- =====================================================
+         02 — INTERNAL CSS
+         فعلاً CSS داخل همین فایل است.
+         بعداً می‌توانیم آن را به style.css منتقل کنیم.
+         ===================================================== -->
+
+    <style>
+
+        /* =====================================================
+           02.01 — RESET
+           ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* =====================================================
+           02.02 — ROOT VARIABLES
+           ===================================================== */
+
+        :root {
+
+            --primary: #183f36;
+            --primary-dark: #102f29;
+
+            --secondary: #b18a52;
+
+            --background: #f7f8f6;
+            --surface: #ffffff;
+            --surface-soft: #eef3f0;
+
+            --text: #202824;
+            --text-light: #74807b;
+
+            --border: #dfe6e2;
+
+            --radius-small: 10px;
+            --radius-medium: 16px;
+            --radius-large: 22px;
+
+            --container: 1380px;
+
+            --shadow:
+                0 8px 30px rgba(20, 45, 38, 0.06);
+
+            --transition:
+                0.25s ease;
+        }
+
+
+        /* =====================================================
+           02.03 — BASE
+           ===================================================== */
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            min-width: 320px;
+
+            background: var(--background);
+
+            color: var(--text);
+
+            font-family:
+                Tahoma,
+                Arial,
+                sans-serif;
+
+            line-height: 1.8;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        select {
+            font-family: inherit;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+
+        /* =====================================================
+           02.04 — CONTAINER
+           ===================================================== */
+
+        .container {
+
+            width:
+                min(
+                    calc(100% - 40px),
+                    var(--container)
+                );
+
+            margin-inline: auto;
+        }
+
+
+        /* =====================================================
+           02.05 — TOP BAR
+           ===================================================== */
+
+        .top-bar {
+
+            min-height: 34px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 5px 15px;
+
+            background: var(--primary);
+
+            color: #ffffff;
+
+            font-size: 11px;
+
+            text-align: center;
+        }
+
+
+        /* =====================================================
+           02.06 — HEADER
+           ===================================================== */
+
+        .site-header {
+
+            background: var(--surface);
+
+            border-bottom:
+                1px solid var(--border);
+        }
+
+        .header-main {
+
+            min-height: 82px;
+
+            display: grid;
+
+            grid-template-columns:
+                190px
+                minmax(250px, 1fr)
+                190px;
+
+            align-items: center;
+
+            gap: 25px;
+        }
+
+
+        /* =====================================================
+           02.07 — LOGO
+           ===================================================== */
+
+        .logo {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: var(--primary);
+
+            font-size: 18px;
+
+            font-weight: 800;
+        }
+
+        .logo-mark {
+
+            width: 42px;
+
+            height: 42px;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 12px;
+
+            background: var(--primary);
+
+            color: #ffffff;
+
+            font-size: 18px;
+
+            font-weight: 800;
+        }
+
+
+        /* =====================================================
+           02.08 — SEARCH
+           ===================================================== */
+
+        .search-box {
+
+            position: relative;
+
+            width: 100%;
+        }
+
+        .search-box input {
+
+            width: 100%;
+
+            height: 46px;
+
+            padding:
+                0
+                50px
+                0
+                18px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 12px;
+
+            background: var(--surface-soft);
+
+            color: var(--text);
+
+            outline: none;
+
+            transition:
+                border-color var(--transition);
+        }
+
+        .search-box input:focus {
+
+            border-color:
+                var(--primary);
+        }
+
+        .search-button {
+
+            position: absolute;
+
+            top: 6px;
+
+            right: 6px;
+
+            width: 34px;
+
+            height: 34px;
+
+            border: 0;
+
+            border-radius: 9px;
+
+            background: var(--primary);
+
+            color: #ffffff;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           02.09 — HEADER ACTIONS
+           ===================================================== */
+
+        .header-actions {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: flex-end;
+
+            gap: 8px;
+        }
+
+        .header-action {
+
+            width: 40px;
+
+            height: 40px;
+
+            display: grid;
+
+            place-items: center;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 11px;
+
+            background: var(--surface);
+
+            color: var(--primary);
+
+            transition:
+                all var(--transition);
+        }
+
+        .header-action:hover {
+
+            background:
+                var(--surface-soft);
+
+            border-color:
+                var(--primary);
+        }
+
+
+        /* =====================================================
+           02.10 — NAVIGATION
+           ===================================================== */
+
+        .main-navigation {
+
+            border-top:
+                1px solid var(--border);
+        }
+
+        .navigation-list {
+
+            min-height: 50px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 30px;
+
+            list-style: none;
+
+            overflow-x: auto;
+
+            scrollbar-width: none;
+        }
+
+        .navigation-list::-webkit-scrollbar {
+            display: none;
+        }
+
+        .navigation-link {
+
+            position: relative;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            min-height: 50px;
+
+            white-space: nowrap;
+
+            color: var(--text);
+
+            font-size: 12px;
+
+            font-weight: 600;
+        }
+
+        .navigation-link:hover {
+
+            color: var(--primary);
+        }
+
+        .navigation-link.active {
+
+            color: var(--primary);
+        }
+
+        .navigation-link.active::after {
+
+            content: "";
+
+            position: absolute;
+
+            right: 0;
+
+            left: 0;
+
+            bottom: 0;
+
+            height: 2px;
+
+            background:
+                var(--secondary);
+        }
+
+
+        /* =====================================================
+           02.11 — BREADCRUMB
+           ===================================================== */
+
+        .breadcrumb {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding:
+                20px
+                0
+                14px;
+
+            color: var(--text-light);
+
+            font-size: 10px;
+        }
+
+        .breadcrumb-current {
+
+            color: var(--primary);
+
+            font-weight: 700;
+        }
+
+
+        /* =====================================================
+           02.12 — PAGE HERO
+           ===================================================== */
+
+        .page-hero {
+
+            position: relative;
+
+            min-height: 300px;
+
+            display: flex;
+
+            align-items: center;
+
+            overflow: hidden;
+
+            border-radius:
+                var(--radius-large);
+
+            background:
+                linear-gradient(
+                    120deg,
+                    #e6efeb 0%,
+                    #f8f5ef 100%
+                );
+        }
+
+        .page-hero::after {
+
+            content: "CARE";
+
+            position: absolute;
+
+            left: -10px;
+
+            bottom: -75px;
+
+            color:
+                rgba(24, 63, 54, 0.045);
+
+            font-size: 170px;
+
+            font-weight: 900;
+
+            line-height: 1;
+
+            pointer-events: none;
+        }
+
+        .hero-content {
+
+            position: relative;
+
+            z-index: 2;
+
+            width: 100%;
+
+            padding: 50px;
+        }
+
+        .hero-label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: var(--secondary);
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+        }
+
+        .hero-title {
+
+            color: var(--primary);
+
+            font-size:
+                clamp(
+                    34px,
+                    5vw,
+                    58px
+                );
+
+            font-weight: 800;
+
+            line-height: 1.2;
+        }
+
+        .hero-description {
+
+            max-width: 680px;
+
+            margin-top: 15px;
+
+            color: var(--text-light);
+
+            font-size: 12px;
+
+            line-height: 2;
+        }
+
+
+        /* =====================================================
+           02.13 — SECTION
+           ===================================================== */
+
+        .content-section {
+
+            padding:
+                60px
+                0;
+        }
+
+        .section-heading {
+
+            display: flex;
+
+            align-items: flex-end;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            margin-bottom: 25px;
+        }
+
+        .section-heading h2 {
+
+            color: var(--primary);
+
+            font-size: 25px;
+
+            line-height: 1.4;
+        }
+
+        .section-heading p {
+
+            margin-top: 5px;
+
+            color: var(--text-light);
+
+            font-size: 10px;
+        }
+
+
+        /* =====================================================
+           02.14 — CATEGORY GRID
+           ===================================================== */
+
+        .category-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
+
+            gap: 17px;
+        }
+
+
+        /* =====================================================
+           02.15 — CATEGORY CARD
+           ===================================================== */
+
+        .category-card {
+
+            position: relative;
+
+            min-height: 210px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: flex-end;
+
+            padding: 23px;
+
+            overflow: hidden;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                var(--radius-medium);
+
+            background:
+                var(--surface);
+
+            box-shadow:
+                0 3px 15px
+                rgba(20, 45, 38, 0.025);
+
+            transition:
+                transform var(--transition),
+                border-color var(--transition),
+                box-shadow var(--transition);
+        }
+
+        .category-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: -40px;
+
+            left: -40px;
+
+            width: 130px;
+
+            height: 130px;
+
+            border-radius: 50%;
+
+            background:
+                var(--surface-soft);
+
+            transition:
+                transform var(--transition);
+        }
+
+        .category-card:hover {
+
+            transform:
+                translateY(-5px);
+
+            border-color:
+                rgba(24, 63, 54, 0.35);
+
+            box-shadow:
+                var(--shadow);
+        }
+
+        .category-card:hover::before {
+
+            transform:
+                scale(1.3);
+        }
+
+
+        /* =====================================================
+           02.16 — CATEGORY ICON
+           ===================================================== */
+
+        .category-icon {
+
+            position: relative;
+
+            z-index: 2;
+
+            width: 52px;
+
+            height: 52px;
+
+            display: grid;
+
+            place-items: center;
+
+            margin-bottom: auto;
+
+            border-radius: 15px;
+
+            background:
+                var(--surface-soft);
+
+            color: var(--primary);
+
+            font-size: 22px;
+        }
+
+
+        /* =====================================================
+           02.17 — CATEGORY TEXT
+           ===================================================== */
+
+        .category-card h3 {
+
+            position: relative;
+
+            z-index: 2;
+
+            color: var(--primary);
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+        .category-card p {
+
+            position: relative;
+
+            z-index: 2;
+
+            margin-top: 3px;
+
+            color: var(--text-light);
+
+            font-size: 9px;
+        }
+
+        .category-arrow {
+
+            position: absolute;
+
+            left: 20px;
+
+            bottom: 21px;
+
+            color: var(--secondary);
+
+            font-size: 18px;
+        }
+
+
+        /* =====================================================
+           02.18 — SUBCATEGORY CARDS
+           ===================================================== */
+
+        .special-categories {
+
+            margin-top: 60px;
+
+            padding: 30px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                var(--radius-medium);
+
+            background:
+                var(--surface);
+        }
+
+        .special-title {
+
+            margin-bottom: 20px;
+
+            color: var(--primary);
+
+            font-size: 18px;
+        }
+
+        .special-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 12px;
+        }
+
+        .special-card {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            padding:
+                15px
+                17px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 12px;
+
+            background:
+                var(--background);
+
+            transition:
+                all var(--transition);
+        }
+
+        .special-card:hover {
+
+            background:
+                var(--surface-soft);
+
+            border-color:
+                var(--primary);
+        }
+
+        .special-card strong {
+
+            color: var(--text);
+
+            font-size: 11px;
+        }
+
+        .special-card span {
+
+            color: var(--secondary);
+
+            font-size: 15px;
+        }
+
+
+        /* =====================================================
+           02.19 — EMPTY PRODUCT AREA
+           ===================================================== */
+
+        .product-placeholder {
+
+            margin-top: 45px;
+
+            padding:
+                45px
+                25px;
+
+            border:
+                1px dashed
+                var(--border);
+
+            border-radius:
+                var(--radius-medium);
+
+            background:
+                var(--surface);
+
+            text-align: center;
+        }
+
+        .placeholder-icon {
+
+            width: 62px;
+
+            height: 62px;
+
+            display: grid;
+
+            place-items: center;
+
+            margin:
+                0
+                auto
+                15px;
+
+            border-radius: 50%;
+
+            background:
+                var(--surface-soft);
+
+            color: var(--primary);
+
+            font-size: 25px;
+        }
+
+        .product-placeholder h3 {
+
+            color: var(--primary);
+
+            font-size: 16px;
+        }
+
+        .product-placeholder p {
+
+            max-width: 550px;
+
+            margin:
+                7px
+                auto
+                0;
+
+            color: var(--text-light);
+
+            font-size: 10px;
+        }
+
+
+        /* =====================================================
+           02.20 — FOOTER
+           ===================================================== */
+
+        .site-footer {
+
+            margin-top: 30px;
+
+            padding:
+                50px
+                0
+                20px;
+
+            background:
+                var(--primary-dark);
+
+            color: #ffffff;
+        }
+
+        .footer-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1.5fr
+                repeat(3, 1fr);
+
+            gap: 35px;
+        }
+
+        .footer-column h3 {
+
+            margin-bottom: 12px;
+
+            color: #ffffff;
+
+            font-size: 13px;
+        }
+
+        .footer-column p,
+        .footer-column a {
+
+            display: block;
+
+            color:
+                #b8c9c3;
+
+            font-size: 10px;
+
+            line-height: 2.5;
+        }
+
+        .footer-column a:hover {
+
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+
+            margin-top: 35px;
+
+            padding-top: 18px;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,0.1);
+
+            color:
+                #8fa7a0;
+
+            font-size: 9px;
+
+            text-align: center;
+        }
+
+
+        /* =====================================================
+           02.21 — RESPONSIVE TABLET
+           ===================================================== */
+
+        @media (max-width: 1100px) {
+
+            .header-main {
+
+                grid-template-columns:
+                    160px
+                    minmax(200px, 1fr)
+                    160px;
+            }
+
+            .category-grid {
+
+                grid-template-columns:
+                    repeat(3, minmax(0, 1fr));
+            }
+
+            .special-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+        }
+
+
+        /* =====================================================
+           02.22 — RESPONSIVE TABLET SMALL
+           ===================================================== */
+
+        @media (max-width: 850px) {
+
+            .header-main {
+
+                grid-template-columns:
+                    1fr
+                    auto;
+
+                padding:
+                    14px
+                    0;
+            }
+
+            .search-box {
+
+                grid-column:
+                    1 / -1;
+
+                grid-row: 2;
+            }
+
+            .category-grid {
+
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
+
+            .footer-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .hero-content {
+
+                padding: 38px;
+            }
+        }
+
+
+        /* =====================================================
+           02.23 — RESPONSIVE MOBILE
+           ===================================================== */
+
+        @media (max-width: 580px) {
+
+            .container {
+
+                width:
+                    calc(100% - 24px);
+            }
+
+            .top-bar {
+
+                font-size: 9px;
+            }
+
+            .logo {
+
+                font-size: 16px;
+            }
+
+            .logo-mark {
+
+                width: 38px;
+
+                height: 38px;
+            }
+
+            .header-actions {
+
+                gap: 5px;
+            }
+
+            .header-action {
+
+                width: 36px;
+
+                height: 36px;
+            }
+
+            .navigation-list {
+
+                gap: 22px;
+            }
+
+            .page-hero {
+
+                min-height: 300px;
+
+                border-radius:
+                    var(--radius-medium);
+            }
+
+            .hero-content {
+
+                padding:
+                    30px
+                    22px;
+            }
+
+            .page-hero::after {
+
+                font-size: 100px;
+
+                bottom: -35px;
+            }
+
+            .hero-title {
+
+                font-size: 36px;
+            }
+
+            .hero-description {
+
+                font-size: 10px;
+            }
+
+            .content-section {
+
+                padding:
+                    42px
+                    0;
+            }
+
+            .section-heading {
+
+                align-items: flex-start;
+
+                flex-direction: column;
+            }
+
+            .category-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 12px;
+            }
+
+            .category-card {
+
+                min-height: 170px;
+            }
+
+            .special-categories {
+
+                padding: 20px;
+            }
+
+            .special-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 25px;
+            }
+        }
+
+
+        /* =====================================================
+           02.24 — VERY SMALL MOBILE
+           ===================================================== */
+
+        @media (max-width: 380px) {
+
+            .header-actions .header-action:first-child {
+
+                display: none;
+            }
+
+            .hero-title {
+
+                font-size: 31px;
+            }
+
+            .category-card {
+
+                min-height: 155px;
+
+                padding: 19px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         03 — TOP BAR
+         ===================================================== -->
+
+    <div class="top-bar">
+
+        ارسال سریع | پشتیبانی آنلاین | تضمین اصالت کالا
+
+    </div>
+
+
+    <!-- =====================================================
+         04 — SITE HEADER
+         ===================================================== -->
+
+    <header class="site-header">
+
+        <div class="container">
+
+            <div class="header-main">
+
+
+                <!-- ==============================
+                     LOGO
+                =============================== -->
+
+                <a
+                    href="../index.html"
+                    class="logo"
+                    aria-label="صفحه اصلی BEAUTY"
+                >
+
+                    <span class="logo-mark">
+                        B
+                    </span>
+
+                    <span>
+                        BEAUTY
+                    </span>
+
+                </a>
+
+
+                <!-- ==============================
+                     SEARCH
+                =============================== -->
+
+                <form
+                    class="search-box"
+                    action="#"
+                    method="get"
+                >
+
+                    <input
+                        type="search"
+                        name="search"
+                        placeholder="جستجوی محصول، برند یا دسته‌بندی..."
+                        aria-label="جستجوی محصول"
+                    >
+
+                    <button
+                        type="submit"
+                        class="search-button"
+                        aria-label="جستجو"
+                    >
+                        ⌕
+                    </button>
+
+                </form>
+
+
+                <!-- ==============================
+                     HEADER ACTIONS
+                =============================== -->
+
+                <div class="header-actions">
+
+                    <a
+                        href="#"
+                        class="header-action"
+                        aria-label="علاقه‌مندی‌ها"
+                    >
+                        ♡
+                    </a>
+
+                    <a
+                        href="#"
+                        class="header-action"
+                        aria-label="حساب کاربری"
+                    >
+                        ♙
+                    </a>
+
+                    <a
+                        href="#"
+                        class="header-action"
+                        aria-label="سبد خرید"
+                    >
+                        🛒
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             05 — MAIN NAVIGATION
+        ================================================== -->
+
+        <nav
+            class="main-navigation"
+            aria-label="منوی اصلی"
+        >
+
+            <div class="container">
+
+                <ul class="navigation-list">
+
+                    <li>
+                        <a
+                            href="../index.html"
+                            class="navigation-link"
+                        >
+                            خانه
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="care.html"
+                            class="navigation-link active"
+                        >
+                            مراقبتی
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="../makeup/makeup.html"
+                            class="navigation-link"
+                        >
+                            لوازم آرایشی
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="../hygiene/hygiene.html"
+                            class="navigation-link"
+                        >
+                            لوازم بهداشتی
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="../korean/korean.html"
+                            class="navigation-link"
+                        >
+                            محصولات کره‌ای
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="../brands/brands.html"
+                            class="navigation-link"
+                        >
+                            برندها
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =====================================================
+         06 — MAIN CONTENT
+         ===================================================== -->
+
+    <main>
+
+
+        <!-- =================================================
+             06.01 — BREADCRUMB
+        ================================================== -->
+
+        <div class="container">
+
+            <nav
+                class="breadcrumb"
+                aria-label="مسیر صفحه"
+            >
+
+                <a href="../index.html">
+                    خانه
+                </a>
+
+                <span>
+                    /
+                </span>
+
+                <span class="breadcrumb-current">
+                    مراقبتی
+                </span>
+
+            </nav>
+
+        </div>
+
+
+        <!-- =================================================
+             06.02 — HERO
+        ================================================== -->
+
+        <section>
+
+            <div class="container">
+
+                <div class="page-hero">
+
+                    <div class="hero-content">
+
+                        <span class="hero-label">
+                            BEAUTY / SKIN CARE
+                        </span>
+
+                        <h1 class="hero-title">
+                            مراقبتی
+                        </h1>
+
+                        <p class="hero-description">
+
+                            مجموعه کامل محصولات مراقبت از پوست،
+                            صورت، بدن، چشم، لب و مو.
+                            از این قسمت می‌توانی دسته‌بندی موردنظر
+                            خودت را انتخاب کنی.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             06.03 — MAIN CARE CATEGORIES
+        ================================================== -->
+
+        <section
+            class="content-section"
+            aria-labelledby="care-categories-title"
+        >
+
+            <div class="container">
+
+
+                <!-- SECTION HEADING -->
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <h2 id="care-categories-title">
+                            دسته‌بندی مراقبتی
+                        </h2>
+
+                        <p>
+                            انتخاب دسته موردنظر برای مشاهده محصولات
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CATEGORY GRID -->
+
+                <div class="category-grid">
+
+
+                    <!-- ==============================
+                         FACE MIST
+                    =============================== -->
+
+                    <a
+                        href="face-mist.html"
+                        class="category-card"
+                    >
+
+                        <div class="category-icon">
+                            ✦
+                        </div>
+
+                        <h3>
+                            اسپره صورت
+                        </h3>
+
+                        <p>
+                            مشاهده محصولات
+                        </p>
+
+                        <span class="category-arrow">
+                            ←
+                        </span>
+
+                    </a>
+
+
+                    <!-- ==============================
+                         FACE PEELING
+                    =============================== -->
+
+                    <a
+                        href="face-peeling.html"
+                        class="category-card"
+                    >
+
+                        <div class="category-icon">
+                            ◇
+                        </div>
+
+                        <h3>
+                            پلینگ صورت
+                        </h3>
+
+                        <p>
+                            مشاهده محصولات
+                        </p>
+
+                        <span class="category-arrow">
+                            ←
+                        </span>
+
+                    </a>
+
+
+                    <!-- ==============================
+                         FACE MASK
+                    =============================== -->
+
+                    <a
+                        href="face-mask.html"
+                        class="category-card"
+                    >
+
+                        <div class="category-icon">
+                            ◉
+                        </div>
+
+                        <h3>
+                            ماسک صورت
+                        </h3>
+
+                        <p>
+                            مشاهده محصولات
+                        </p>
+
+                        <span class="category-arrow">
+                            ←
+                        </span>
+
+                    </a>
+
+
+                    <!-- ==============================
+                         MOISTURIZER
+                    =============================== -->
+
+                    <a
+                        href="moisturizer-hydrator.html"
+                        class="category-card"
+                    >
+
+                        <div class="category-icon">
+                            💧
+                        </div>
+
+                        <h3>
+                            مرطوب کننده و آبرسان
+                        </h3>
+
+                        <p>
+                            مشاهده محصولات
+                        </p>
+
+                        <span class="category-arrow">
+                            ←
+                        </span>
+
+                    </a>
+
+
+                    <!-- ==============================
+                         SCRUB / EXFOLIATOR
+                    =============================== -->
+
+                    <a
+                        href="scrub-exfoliator.html"
+                        class="category-card"
+                    >
+
+                        <div class="category-icon">
+                            ✧
+                        </div>
+
+                        <h3>
+                            اسکراب و لایه‌بردار پوست
+                        </h3>
+
+                        <p>
+                            مشاهده محصولات
+                        </p>
+
+                        <span class="category-arrow">
+                            ←
+                        </span>
+
+                    </a>
+
+
+                    <!-- ==============================
+                         SUNSCREEN
+                    =============================== -->
+
+                    <a
+                        href="sunscreen.html"
+                        class="category-card"
+                    >
+
+                        <div class="category-icon">
+                            ☼
+                        </div>
+
+                        <h3>
+                            ضدآفتاب
+                        </h3>
+
+                        <p>
+                            مشاهده محصولات
+                        </p>
+
+                        <span class="category-arrow">
+                            ←
+                        </span>
+
+                    </a>
+
+
+                    <!-- ==============================
+                         SKIN REPAIR
+                    =============================== -->
+
+                    <a
+                        href="skin-repair.html"
+                        class="category-card"
+                    >
+
+                        <div class="category-icon">
+                            ♡
+                        </div>
+
+                        <h3>
+                            ترمیم کننده پوست
+                        </h3>
+
+                        <p>
+                            مشاهده محصولات
+                        </p>
+
+                        <span class="category-arrow">
+                            ←
+                        </span>
+
+                    </a>
+
+
+                    <!-- ==============================
+                         TONER
+                    =============================== -->
+
+                    <a
+                        href="toner.html"
+                        class="category-card"
+                    >
+
+                        <div class="category-icon">
+                            ◇
+                        </div>
+
+                        <h3>
+                            تونر پوست
+                        </h3>
+
+                        <p>
+                            مشاهده محصولات
+                        </p>
+
+                        <span class="category-arrow">
+                            ←
+                        </span>
+
+                    </a>
+
+
+                    <!-- ==============================
+                         ANTI SPOT / BRIGHTENING
+                    =============================== -->
+
+                    <a
+                        href="anti-spot-brightening.html"
+                        class="category-card"
+                    >
+
+                        <div class="category-icon">
+                            ✦
+                        </div>
+
+                        <h3>
+                            ضدلک و روشن کننده
+                        </h3>
+
+                        <p>
+                            مشاهده محصولات
+                        </p>
+
+                        <span class="category-arrow">
+                            ←
+                        </span>
+
+                    </a>
+
+
+                    <!-- ==============================
+                         ESSENCE
+                    =============================== -->
+
+                    <a
+                        href="essence.html"
+                        class="category-card"
+                    >
+
+                        <div class="category-icon">
+                            ✧
+                        </div>
+
+                        <h3>
+                            اسنس
+                        </h3>
+
+                        <p>
+                            مشاهده محصولات
+                        </p>
+
+                        <span class="category-arrow">
+                            ←
+                        </span>
+
+                    </a>
+
+
+                    <!-- ==============================
+                         ANTI AGING / LIFTING
+                    =============================== -->
+
+                    <a
+                        href="anti-aging-lifting.html"
+                        class="category-card"
+                    >
+
+                        <div class="category-icon">
+                            ♢
+                        </div>
+
+                        <h3>
+                            جوانساز و لیفت کننده
+                        </h3>
+
+                        <p>
+                            مشاهده محصولات
+                        </p>
+
+                        <span class="category-arrow">
+                            ←
+                        </span>
+
+                    </a>
+
+
+                    <!-- ==============================
+                         FACE CLEANSERS
+                         دارای زیرمجموعه
+                    =============================== -->
+
+                    <a
+                        href="face-cleansers.html"
+                        class="category-card"
+                    >
+
+                        <div class="category-icon">
+                            ⌁
+                        </div>
+
+                        <h3>
+                            پاک کننده صورت
+                        </h3>
+
+                        <p>
+                            دارای زیرمجموعه
+                        </p>
+
+                        <span class="category-arrow">
+                            ←
+                        </span>
+
+                    </a>
+
+
+                    <!-- ==============================
+                         BODY CARE
+                         دارای زیرمجموعه
+                    =============================== -->
+
+                    <a
+                        href="body-care.html"
+                        class="category-card"
+                    >
+
+                        <div class="category-icon">
+                            ○
+                        </div>
+
+                        <h3>
+                            مراقبت بدن
+                        </h3>
+
+                        <p>
+                            دارای زیرمجموعه
+                        </p>
+
+                        <span class="category-arrow">
+                            ←
+                        </span>
+
+                    </a>
+
+
+                    <!-- ==============================
+                         EYE CARE
+                         دارای زیرمجموعه
+                    =============================== -->
+
+                    <a
+                        href="eye-care.html"
+                        class="category-card"
+                    >
+
+                        <div class="category-icon">
+                            ◉
+                        </div>
+
+                        <h3>
+                            مراقبت چشم
+                        </h3>
+
+                        <p>
+                            دارای زیرمجموعه
+                        </p>
+
+                        <span class="category-arrow">
+                            ←
+                        </span>
+
+                    </a>
+
+
+                    <!-- ==============================
+                         LIP CARE
+                         دارای زیرمجموعه
+                    =============================== -->
+
+                    <a
+                        href="lip-care.html"
+                        class="category-card"
+                    >
+
+                        <div class="category-icon">
+                            ♡
+                        </div>
+
+                        <h3>
+                            مراقبت لب
+                        </h3>
+
+                        <p>
+                            دارای زیرمجموعه
+                        </p>
+
+                        <span class="category-arrow">
+                            ←
+                        </span>
+
+                    </a>
+
+
+                    <!-- ==============================
+                         HAIR PRODUCTS
+                         دارای زیرمجموعه
+                    =============================== -->
+
+                    <a
+                        href="hair-products.html"
+                        class="category-card"
+                    >
+
+                        <div class="category-icon">
+                            ✺
+                        </div>
+
+                        <h3>
+                            محصولات مو
+                        </h3>
+
+                        <p>
+                            دارای زیرمجموعه
+                        </p>
+
+                        <span class="category-arrow">
+                            ←
+                        </span>
+
+                    </a>
+
+                </div>
+
+
+                <!-- =================================================
+                     06.04 — SPECIAL CATEGORY SUMMARY
+                     برای دسته‌هایی که زیرمجموعه دارند
+                ================================================== -->
+
+                <div class="special-categories">
+
+                    <h3 class="special-title">
+                        دسته‌های دارای زیرمجموعه
+                    </h3>
+
+                    <div class="special-grid">
+
+
+                        <!-- FACE CLEANSER -->
+
+                        <a
+                            href="face-cleansers.html"
+                            class="special-card"
+                        >
+
+                            <strong>
+                                پاک کننده صورت
+                            </strong>
+
+                            <span>
+                                ۶ زیرمجموعه
+                            </span>
+
+                        </a>
+
+
+                        <!-- BODY -->
+
+                        <a
+                            href="body-care.html"
+                            class="special-card"
+                        >
+
+                            <strong>
+                                مراقبت بدن
+                            </strong>
+
+                            <span>
+                                ۱۱ زیرمجموعه
+                            </span>
+
+                        </a>
+
+
+                        <!-- EYE -->
+
+                        <a
+                            href="eye-care.html"
+                            class="special-card"
+                        >
+
+                            <strong>
+                                مراقبت چشم
+                            </strong>
+
+                            <span>
+                                ۴ زیرمجموعه
+                            </span>
+
+                        </a>
+
+
+                        <!-- LIP -->
+
+                        <a
+                            href="lip-care.html"
+                            class="special-card"
+                        >
+
+                            <strong>
+                                مراقبت لب
+                            </strong>
+
+                            <span>
+                                ۲ زیرمجموعه
+                            </span>
+
+                        </a>
+
+
+                        <!-- HAIR -->
+
+                        <a
+                            href="hair-products.html"
+                            class="special-card"
+                        >
+
+                            <strong>
+                                محصولات مو
+                            </strong>
+
+                            <span>
+                                ۲ گروه اصلی
+                            </span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     06.05 — PRODUCT PLACEHOLDER
+                     محصولات واقعی توسط کارفرما اضافه می‌شوند.
+                ================================================== -->
+
+                <div class="product-placeholder">
+
+                    <div class="placeholder-icon">
+                        🛍
+                    </div>
+
+                    <h3>
+                        محصولات این دسته
+                    </h3>
+
+                    <p>
+
+                        در این مرحله محصولی به صورت دستی
+                        قرار داده نشده است.
+                        محصولات بعداً توسط مدیریت فروشگاه
+                        اضافه می‌شوند و این قسمت به دیتابیس
+                        متصل خواهد شد.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         07 — FOOTER
+         ===================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+
+                <!-- ==============================
+                     ABOUT
+                =============================== -->
+
+                <div class="footer-column">
+
+                    <h3>
+                        BEAUTY
+                    </h3>
+
+                    <p>
+
+                        فروشگاه تخصصی محصولات زیبایی،
+                        مراقبتی و بهداشتی.
+
+                    </p>
+
+                </div>
+
+
+                <!-- ==============================
+                     CATEGORIES
+                =============================== -->
+
+                <div class="footer-column">
+
+                    <h3>
+                        دسته‌بندی‌ها
+                    </h3>
+
+                    <a href="care.html">
+                        مراقبتی
+                    </a>
+
+                    <a href="../makeup/makeup.html">
+                        لوازم آرایشی
+                    </a>
+
+                    <a href="../hygiene/hygiene.html">
+                        لوازم بهداشتی
+                    </a>
+
+                </div>
+
+
+                <!-- ==============================
+                     STORE
+                =============================== -->
+
+                <div class="footer-column">
+
+                    <h3>
+                        فروشگاه
+                    </h3>
+
+                    <a href="../korean/korean.html">
+                        محصولات کره‌ای
+                    </a>
+
+                    <a href="../brands/brands.html">
+                        برندها
+                    </a>
+
+                </div>
+
+
+                <!-- ==============================
+                     SUPPORT
+                =============================== -->
+
+                <div class="footer-column">
+
+                    <h3>
+                        پشتیبانی
+                    </h3>
+
+                    <a href="#">
+                        تماس با ما
+                    </a>
+
+                    <a href="#">
+                        سوالات متداول
+                    </a>
+
+                    <a href="#">
+                        قوانین و مقررات
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==============================
+                 COPYRIGHT
+            =============================== -->
+
+            <div class="footer-bottom">
+
+                © 2026 BEAUTY — تمامی حقوق محفوظ است.
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+</body>
+</html>

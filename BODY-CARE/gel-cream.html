@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ژل کرم | ALKAMOONE</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        :root {
+            --green:#183f36;
+            --dark:#102f29;
+            --gold:#b18a52;
+            --bg:#f7f8f6;
+            --soft:#eef3f0;
+            --text:#202824;
+            --muted:#74807b;
+            --border:#dfe6e2;
+        }
+
+        * {
+            box-sizing:border-box;
+            margin:0;
+            padding:0;
+        }
+
+        body {
+            font-family:Tahoma,Arial,sans-serif;
+            background:var(--bg);
+            color:var(--text);
+            line-height:1.8;
+        }
+
+        a {
+            color:inherit;
+            text-decoration:none;
+        }
+
+        button,input,select {
+            font:inherit;
+        }
+
+        .container {
+            width:min(1380px,calc(100% - 40px));
+            margin:auto;
+        }
+
+        .topbar {
+            background:var(--green);
+            color:white;
+            text-align:center;
+            padding:7px;
+            font-size:11px;
+        }
+
+        header {
+            background:white;
+            border-bottom:1px solid var(--border);
+        }
+
+        .header-main {
+            min-height:82px;
+            display:grid;
+            grid-template-columns:190px 1fr 190px;
+            align-items:center;
+            gap:25px;
+        }
+
+        .logo {
+            color:var(--green);
+            font-size:23px;
+            font-weight:900;
+            letter-spacing:1px;
+        }
+
+        .search input {
+            width:100%;
+            height:46px;
+            padding:0 18px;
+            border:1px solid var(--border);
+            border-radius:12px;
+            background:var(--soft);
+            outline:none;
+        }
+
+        .actions {
+            display:flex;
+            justify-content:flex-end;
+            gap:8px;
+        }
+
+        .action {
+            width:42px;
+            height:42px;
+            display:grid;
+            place-items:center;
+            border:1px solid var(--border);
+            border-radius:10px;
+            background:white;
+            cursor:pointer;
+        }
+
+        nav {
+            border-top:1px solid var(--border);
+        }
+
+        nav ul {
+            min-height:50px;
+            display:flex;
+            align-items:center;
+            gap:30px;
+            list-style:none;
+            overflow-x:auto;
+        }
+
+        nav a {
+            white-space:nowrap;
+            font-size:12px;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color:var(--gold);
+        }
+
+        .breadcrumb {
+            padding:20px 0;
+            color:var(--muted);
+            font-size:10px;
+        }
+
+        .breadcrumb span {
+            margin:0 8px;
+            color:#aab5b0;
+        }
+
+        .hero {
+            padding:45px;
+            border:1px solid var(--border);
+            border-radius:22px;
+            background:linear-gradient(120deg,#e8f0ea,#f3eee7);
+        }
+
+        .hero-label {
+            color:var(--gold);
+            font-size:10px;
+            font-weight:bold;
+        }
+
+        .hero h1 {
+            color:var(--green);
+            font-size:clamp(30px,5vw,46px);
+            margin:8px 0;
+        }
+
+        .hero p {
+            max-width:720px;
+            color:var(--muted);
+            font-size:12px;
+        }
+
+        .category-links {
+            display:flex;
+            gap:9px;
+            overflow-x:auto;
+            padding:20px 0 0;
+        }
+
+        .category-links a {
+            flex:0 0 auto;
+            padding:8px 14px;
+            background:white;
+            border:1px solid var(--border);
+            border-radius:20px;
+            color:var(--muted);
+            font-size:10px;
+        }
+
+        .category-links a.active {
+            background:var(--green);
+            border-color:var(--green);
+            color:white;
+        }
+
+        .layout {
+            padding:45px 0 70px;
+            display:grid;
+            grid-template-columns:235px 1fr;
+            gap:25px;
+        }
+
+        .sidebar {
+            height:fit-content;
+            padding:20px;
+            background:white;
+            border:1px solid var(--border);
+            border-radius:16px;
+        }
+
+        .sidebar h2 {
+            color:var(--green);
+            font-size:16px;
+            margin-bottom:20px;
+        }
+
+        .filter-group {
+            padding-bottom:18px;
+            margin-bottom:18px;
+            border-bottom:1px solid var(--border);
+        }
+
+        .filter-group:last-child {
+            border-bottom:0;
+            margin-bottom:0;
+        }
+
+        .filter-group h3 {
+            font-size:12px;
+            margin-bottom:10px;
+        }
+
+        .filter {
+            display:flex;
+            align-items:center;
+            gap:8px;
+            color:var(--muted);
+            font-size:10px;
+            margin:9px 0;
+        }
+
+        .filter input {
+            accent-color:var(--green);
+        }
+
+        .products-head {
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            margin-bottom:18px;
+        }
+
+        .products-head h2 {
+            color:var(--green);
+            font-size:19px;
+        }
+
+        .products-count {
+            color:var(--muted);
+            font-size:10px;
+            margin-top:3px;
+        }
+
+        .sort {
+            padding:9px 12px;
+            border:1px solid var(--border);
+            border-radius:9px;
+            background:white;
+            outline:none;
+        }
+
+        .product-grid {
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:16px;
+        }
+
+        .product-card {
+            background:white;
+            border:1px solid var(--border);
+            border-radius:16px;
+            overflow:hidden;
+            transition:.2s;
+        }
+
+        .product-card:hover {
+            transform:translateY(-3px);
+            box-shadow:0 12px 25px rgba(24,63,54,.07);
+        }
+
+        .product-image {
+            height:210px;
+            display:grid;
+            place-items:center;
+            background:var(--soft);
+            color:var(--green);
+            font-size:42px;
+            position:relative;
+        }
+
+        .product-image small {
+            position:absolute;
+            bottom:14px;
+            font-size:9px;
+            color:var(--muted);
+        }
+
+        .badge {
+            position:absolute;
+            top:12px;
+            right:12px;
+            background:var(--gold);
+            color:white;
+            padding:4px 8px;
+            border-radius:6px;
+            font-size:8px;
+        }
+
+        .heart {
+            position:absolute;
+            left:12px;
+            top:12px;
+            width:30px;
+            height:30px;
+            border:1px solid var(--border);
+            background:white;
+            border-radius:50%;
+            cursor:pointer;
+            color:var(--green);
+        }
+
+        .heart.active {
+            color:#9b4d43;
+        }
+
+        .product-info {
+            padding:15px;
+        }
+
+        .product-category {
+            color:var(--gold);
+            font-size:9px;
+        }
+
+        .product-title {
+            color:var(--green);
+            font-size:13px;
+            margin:4px 0;
+        }
+
+        .product-description {
+            color:var(--muted);
+            font-size:9px;
+            min-height:36px;
+        }
+
+        .rating {
+            margin-top:7px;
+            color:var(--gold);
+            font-size:9px;
+        }
+
+        .product-bottom {
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            margin-top:12px;
+            gap:8px;
+        }
+
+        .price {
+            color:var(--green);
+            font-size:11px;
+            font-weight:bold;
+        }
+
+        .add-btn {
+            border:0;
+            border-radius:8px;
+            padding:7px 11px;
+            background:var(--green);
+            color:white;
+            cursor:pointer;
+            font-size:9px;
+        }
+
+        .add-btn:hover {
+            background:var(--dark);
+        }
+
+        footer {
+            background:var(--dark);
+            color:white;
+            padding:45px 0 20px;
+        }
+
+        .footer-grid {
+            display:grid;
+            grid-template-columns:1.5fr repeat(3,1fr);
+            gap:30px;
+        }
+
+        footer h3 {
+            font-size:13px;
+            margin-bottom:10px;
+        }
+
+        footer p,
+        footer a {
+            display:block;
+            color:#b8c9c3;
+            font-size:10px;
+            margin-bottom:7px;
+        }
+
+        .copyright {
+            margin-top:30px;
+            padding-top:15px;
+            border-top:1px solid rgba(255,255,255,.1);
+            text-align:center;
+            color:#8fa7a0;
+            font-size:9px;
+        }
+
+        @media(max-width:950px) {
+            .header-main {
+                grid-template-columns:1fr auto;
+                padding:14px 0;
+            }
+
+            .search {
+                grid-column:1/-1;
+                grid-row:2;
+            }
+
+            .layout {
+                grid-template-columns:1fr;
+            }
+
+            .product-grid {
+                grid-template-columns:repeat(2,1fr);
+            }
+        }
+
+        @media(max-width:600px) {
+            .container {
+                width:calc(100% - 24px);
+            }
+
+            .hero {
+                padding:28px 22px;
+            }
+
+            .products-head {
+                flex-direction:column;
+                align-items:stretch;
+                gap:12px;
+            }
+
+            .product-grid,
+            .footer-grid {
+                grid-template-columns:1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="topbar">
+    ارسال سفارش‌ها و پشتیبانی آنلاین ALKAMOONE
+</div>
+
+<header>
+
+    <div class="container header-main">
+
+        <a href="../index.html" class="logo">
+            ALKAMOONE
+        </a>
+
+        <div class="search">
+            <input type="search" placeholder="جستجو در محصولات آلکامون...">
+        </div>
+
+        <div class="actions">
+            <button class="action">♙</button>
+            <button class="action">♡</button>
+            <button class="action">🛒</button>
+        </div>
+
+    </div>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="../index.html">خانه</a></li>
+                <li><a href="../SKIN-CARE/index.html">محصولات مراقبتی</a></li>
+                <li><a href="body-care.html" class="active">مراقبت بدن</a></li>
+                <li><a href="../HAIR-CARE/index.html">محصولات مو</a></li>
+                <li><a href="../LIP-CARE/index.html">مراقبت لب</a></li>
+            </ul>
+        </div>
+    </nav>
+
+</header>
+
+<main class="container">
+
+    <div class="breadcrumb">
+        <a href="../index.html">خانه</a>
+        <span>›</span>
+        <a href="body-care.html">مراقبت بدن</a>
+        <span>›</span>
+        ژل کرم
+    </div>
+
+    <section class="hero">
+
+        <div class="hero-label">
+            BODY CARE / GEL CREAM
+        </div>
+
+        <h1>
+            ژل کرم
+        </h1>
+
+        <p>
+            مجموعه ژل کرم‌های سبک و کاربردی برای روتین مراقبت
+            از پوست بدن با حس لطافت و رطوبت.
+        </p>
+
+        <div class="category-links">
+
+            <a href="body-care.html">همه محصولات بدن</a>
+            <a href="body-oil.html">روغن بدن</a>
+            <a href="body-sunscreen.html">ضدآفتاب بدن</a>
+            <a href="body-wash.html">شوینده بدن</a>
+            <a href="body-cream.html">کرم بدن</a>
+            <a href="body-butter.html">کره بدن</a>
+            <a href="body-lotion.html">لوسیون بدن</a>
+            <a href="body-mask-scrub.html">ماسک و اسکراب بدن</a>
+            <a href="hand-foot-cream.html">کرم دست و پا</a>
+            <a href="gel-cream.html" class="active">ژل کرم</a>
+
+        </div>
+
+    </section>
+
+    <section class="layout">
+
+        <aside class="sidebar">
+
+            <h2>فیلتر محصولات</h2>
+
+            <div class="filter-group">
+
+                <h3>بافت محصول</h3>
+
+                <label class="filter">
+                    <input type="checkbox">
+                    سبک
+                </label>
+
+                <label class="filter">
+                    <input type="checkbox">
+                    ژلی
+                </label>
+
+                <label class="filter">
+                    <input type="checkbox">
+                    زودجذب
+                </label>
+
+            </div>
+
+            <div class="filter-group">
+
+                <h3>ویژگی</h3>
+
+                <label class="filter">
+                    <input type="checkbox">
+                    آبرسان
+                </label>
+
+                <label class="filter">
+                    <input type="checkbox">
+                    مرطوب‌کننده
+                </label>
+
+                <label class="filter">
+                    <input type="checkbox">
+                    خنک‌کننده
+                </label>
+
+            </div>
+
+            <div class="filter-group">
+
+                <h3>مناسب برای</h3>
+
+                <label class="filter">
+                    <input type="checkbox">
+                    پوست خشک
+                </label>
+
+                <label class="filter">
+                    <input type="checkbox">
+                    پوست معمولی
+                </label>
+
+                <label class="filter">
+                    <input type="checkbox">
+                    پوست حساس
+                </label>
+
+            </div>
+
+        </aside>
+
+        <section>
+
+            <div class="products-head">
+
+                <div>
+                    <h2>ژل کرم</h2>
+                    <div class="products-count">۸ محصول</div>
+                </div>
+
+                <select class="sort">
+                    <option>مرتب‌سازی: محبوب‌ترین</option>
+                    <option>جدیدترین</option>
+                    <option>ارزان‌ترین</option>
+                    <option>گران‌ترین</option>
+                </select>
+
+            </div>
+
+            <div class="product-grid">
+
+                <article class="product-card">
+
+                    <div class="product-image">
+                        <span class="badge">پرفروش</span>
+                        <button class="heart">♡</button>
+                        🧴
+                        <small>GEL CREAM</small>
+                    </div>
+
+                    <div class="product-info">
+                        <div class="product-category">GEL MOISTURE</div>
+                        <h3 class="product-title">ژل کرم آبرسان بدن</h3>
+                        <p class="product-description">
+                            بافت سبک برای رطوبت‌رسانی و مراقبت روزانه از پوست بدن.
+                        </p>
+                        <div class="rating">★★★★★</div>
+
+                        <div class="product-bottom">
+                            <div class="price">تماس بگیرید</div>
+                            <button class="add-btn">افزودن به سبد</button>
+                        </div>
+                    </div>
+
+                </article>
+
+                <article class="product-card">
+
+                    <div class="product-image">
+                        <button class="heart">♡</button>
+                        💧
+                        <small>HYDRATING GEL</small>
+                    </div>
+
+                    <div class="product-info">
+                        <div class="product-category">HYDRATING CARE</div>
+                        <h3 class="product-title">ژل کرم مرطوب‌کننده</h3>
+                        <p class="product-description">
+                            مناسب روتین روزانه و ایجاد حس نرمی و رطوبت روی پوست.
+                        </p>
+                        <div class="rating">★★★★★</div>
+
+                        <div class="product-bottom">
+                            <div class="price">تماس بگیرید</div>
+                            <button class="add-btn">افزودن به سبد</button>
+                        </div>
+                    </div>
+
+                </article>
+
+                <article class="product-card">
+
+                    <div class="product-image">
+                        <span class="badge">جدید</span>
+                        <button class="heart">♡</button>
+                        🫧
+                        <small>LIGHT TEXTURE</small>
+                    </div>
+
+                    <div class="product-info">
+                        <div class="product-category">LIGHT CARE</div>
+                        <h3 class="product-title">ژل کرم سبک بدن</h3>
+                        <p class="product-description">
+                            بافت سبک و مناسب برای استفاده در روتین روزانه.
+                        </p>
+                        <div class="rating">★★★★☆</div>
+
+                        <div class="product-bottom">
+                            <div class="price">تماس بگیرید</div>
+                            <button class="add-btn">افزودن به سبد</button>
+                        </div>
+                    </div>
+
+                </article>
+
+                <article class="product-card">
+
+                    <div class="product-image">
+                        <button class="heart">♡</button>
+                        💧
+                        <small>FRESH MOISTURE</small>
+                    </div>
+
+                    <div class="product-info">
+                        <div class="product-category">FRESH CARE</div>
+                        <h3 class="product-title">ژل کرم خنک‌کننده بدن</h3>
+                        <p class="product-description">
+                            انتخابی سبک برای ایجاد حس تازگی در روتین مراقبت بدن.
+                        </p>
+                        <div class="rating">★★★★★</div>
+
+                        <div class="product-bottom">
+                            <div class="price">تماس بگیرید</div>
+                            <button class="add-btn">افزودن به سبد</button>
+                        </div>
+                    </div>
+
+                </article>
+
+                <article class="product-card">
+
+                    <div class="product-image">
+                        <button class="heart">♡</button>
+                        🧴
+                        <small>DAILY HYDRATION</small>
+                    </div>
+
+                    <div class="product-info">
+                        <div class="product-category">DAILY CARE</div>
+                        <h3 class="product-title">ژل کرم روزانه بدن</h3>
+                        <p class="product-description">
+                            مناسب استفاده روزانه برای تکمیل روتین مراقبتی بدن.
+                        </p>
+                        <div class="rating">★★★★★</div>
+
+                        <div class="product-bottom">
+                            <div class="price">تماس بگیرید</div>
+                            <button class="add-btn">افزودن به سبد</button>
+                        </div>
+                    </div>
+
+                </article>
+
+                <article class="product-card">
+
+                    <div class="product-image">
+                        <button class="heart">♡</button>
+                        🌿
+                        <small>SOOTHING GEL</small>
+                    </div>
+
+                    <div class="product-info">
+                        <div class="product-category">SOOTHING CARE</div>
+                        <h3 class="product-title">ژل کرم آرامش‌بخش پوست</h3>
+                        <p class="product-description">
+                            بافت سبک برای استفاده در روتین مراقبت و لطافت پوست.
+                        </p>
+                        <div class="rating">★★★★☆</div>
+
+                        <div class="product-bottom">
+                            <div class="price">تماس بگیرید</div>
+                            <button class="add-btn">افزودن به سبد</button>
+                        </div>
+                    </div>
+
+                </article>
+
+                <article class="product-card">
+
+                    <div class="product-image">
+                        <span class="badge">محبوب</span>
+                        <button class="heart">♡</button>
+                        💧
+                        <small>INTENSE HYDRATION</small>
+                    </div>
+
+                    <div class="product-info">
+                        <div class="product-category">INTENSE MOISTURE</div>
+                        <h3 class="product-title">ژل کرم آبرسان قوی</h3>
+                        <p class="product-description">
+                            انتخابی برای روتین مراقبتی پوست‌هایی که به رطوبت نیاز دارند.
+                        </p>
+                        <div class="rating">★★★★★</div>
+
+                        <div class="product-bottom">
+                            <div class="price">تماس بگیرید</div>
+                            <button class="add-btn">افزودن به سبد</button>
+                        </div>
+                    </div>
+
+                </article>
+
+                <article class="product-card">
+
+                    <div class="product-image">
+                        <button class="heart">♡</button>
+                        🧴
+                        <small>BODY GEL CREAM</small>
+                    </div>
+
+                    <div class="product-info">
+                        <div class="product-category">BODY CARE</div>
+                        <h3 class="product-title">ژل کرم نرم‌کننده بدن</h3>
+                        <p class="product-description">
+                            مناسب استفاده روزانه برای داشتن پوستی نرم و لطیف.
+                        </p>
+                        <div class="rating">★★★★★</div>
+
+                        <div class="product-bottom">
+                            <div class="price">تماس بگیرید</div>
+                            <button class="add-btn">افزودن به سبد</button>
+                        </div>
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+    </section>
+
+</main>
+
+<footer>
+
+    <div class="container footer-grid">
+
+        <div>
+            <h3>ALKAMOONE</h3>
+            <p>فروشگاه تخصصی محصولات زیبایی و مراقبتی.</p>
+            <p>انتخابی ساده برای یک روتین مراقبتی کامل.</p>
+        </div>
+
+        <div>
+            <h3>دسته‌بندی‌ها</h3>
+            <a href="body-care.html">مراقبت بدن</a>
+            <a href="gel-cream.html">ژل کرم</a>
+            <a href="body-lotion.html">لوسیون بدن</a>
+        </div>
+
+        <div>
+            <h3>خدمات</h3>
+            <a href="#">پیگیری سفارش</a>
+            <a href="#">پشتیبانی</a>
+            <a href="#">قوانین و مقررات</a>
+        </div>
+
+        <div>
+            <h3>ارتباط با ما</h3>
+            <p>پشتیبانی آنلاین</p>
+            <p>هر روز از ۹ تا ۲۱</p>
+        </div>
+
+    </div>
+
+    <div class="container copyright">
+        © 2026 ALKAMOONE - تمامی حقوق محفوظ است.
+    </div>
+
+</footer>
+
+<script>
+    document.querySelectorAll(".heart").forEach(button => {
+        button.addEventListener("click", function() {
+            this.classList.toggle("active");
+            this.textContent =
+                this.classList.contains("active") ? "♥" : "♡";
+        });
+    });
+
+    document.querySelectorAll(".add-btn").forEach(button => {
+        button.addEventListener("click", function() {
+            const original = this.textContent;
+            this.textContent = "✓ اضافه شد";
+
+            setTimeout(() => {
+                this.textContent = original;
+            }, 1200);
+        });
+    });
+</script>
+
+</body>
+</html>

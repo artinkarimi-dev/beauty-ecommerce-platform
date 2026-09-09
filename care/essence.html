@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>اسنس صورت | BEAUTY</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #183f36;
+            --primary-dark: #102f29;
+            --secondary: #b18a52;
+
+            --background: #f7f8f6;
+            --surface: #ffffff;
+            --surface-soft: #eef3f0;
+
+            --text: #202824;
+            --text-light: #74807b;
+
+            --border: #dfe6e2;
+            --container: 1380px;
+        }
+
+        body {
+            min-width: 320px;
+            background: var(--background);
+            color: var(--text);
+            font-family: Tahoma, Arial, sans-serif;
+            line-height: 1.8;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        input,
+        select,
+        button {
+            font-family: inherit;
+        }
+
+        .container {
+            width: min(calc(100% - 40px), var(--container));
+            margin-inline: auto;
+        }
+
+        .top-bar {
+            min-height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px 15px;
+            background: var(--primary);
+            color: white;
+            font-size: 11px;
+        }
+
+        .site-header {
+            background: white;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-main {
+            min-height: 82px;
+            display: grid;
+            grid-template-columns: 190px minmax(250px, 1fr) 190px;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary);
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .logo-mark {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 12px;
+            background: var(--primary);
+            color: white;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            height: 46px;
+            padding: 0 50px 0 18px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--surface-soft);
+            outline: none;
+        }
+
+        .search-button {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            width: 34px;
+            height: 34px;
+            border: none;
+            border-radius: 9px;
+            background: var(--primary);
+            color: white;
+            cursor: pointer;
+        }
+
+        .header-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        .header-action {
+            width: 40px;
+            height: 40px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--border);
+            border-radius: 11px;
+        }
+
+        .main-navigation {
+            border-top: 1px solid var(--border);
+        }
+
+        .navigation-list {
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            list-style: none;
+            overflow-x: auto;
+        }
+
+        .navigation-link {
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .breadcrumb {
+            display: flex;
+            gap: 8px;
+            padding: 20px 0 14px;
+            color: var(--text-light);
+            font-size: 10px;
+            flex-wrap: wrap;
+        }
+
+        .page-header {
+            padding: 38px 42px;
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            background: linear-gradient(120deg, #e6efeb, #f8f5ef);
+        }
+
+        .page-label {
+            color: var(--secondary);
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .page-title {
+            margin-top: 6px;
+            color: var(--primary);
+            font-size: clamp(30px, 5vw, 46px);
+        }
+
+        .page-description {
+            margin-top: 10px;
+            color: var(--text-light);
+            font-size: 11px;
+        }
+
+        .products-section {
+            padding: 45px 0 70px;
+        }
+
+        .products-layout {
+            display: grid;
+            grid-template-columns: 230px minmax(0, 1fr);
+            gap: 25px;
+        }
+
+        .filter-panel {
+            padding: 20px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+        }
+
+        .filter-title {
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-size: 15px;
+        }
+
+        .filter-group {
+            padding-bottom: 18px;
+            margin-bottom: 18px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .filter-group:last-child {
+            border-bottom: none;
+        }
+
+        .filter-group h3 {
+            margin-bottom: 10px;
+            font-size: 11px;
+        }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            color: var(--text-light);
+            font-size: 10px;
+        }
+
+        .products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+
+        .products-header h2 {
+            color: var(--primary);
+            font-size: 18px;
+        }
+
+        .products-count {
+            color: var(--text-light);
+            font-size: 10px;
+        }
+
+        .sort-select {
+            min-width: 170px;
+            height: 40px;
+            padding: 0 12px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: white;
+        }
+
+        .empty-products {
+            min-height: 330px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 35px;
+            background: white;
+            border: 1px dashed var(--border);
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .empty-icon {
+            width: 66px;
+            height: 66px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 15px;
+            border-radius: 50%;
+            background: var(--surface-soft);
+            color: var(--primary);
+            font-size: 25px;
+        }
+
+        .empty-products h3 {
+            color: var(--primary);
+            font-size: 17px;
+        }
+
+        .empty-products p {
+            margin-top: 8px;
+            color: var(--text-light);
+            font-size: 10px;
+        }
+
+        .site-footer {
+            padding: 50px 0 20px;
+            background: var(--primary-dark);
+            color: white;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr repeat(3, 1fr);
+            gap: 35px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 12px;
+            font-size: 13px;
+        }
+
+        .footer-column p,
+        .footer-column a {
+            display: block;
+            color: #b8c9c3;
+            font-size: 10px;
+            line-height: 2.5;
+        }
+
+        .footer-bottom {
+            margin-top: 35px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255,255,255,.1);
+            text-align: center;
+            color: #8fa7a0;
+            font-size: 9px;
+        }
+
+        @media (max-width: 800px) {
+            .header-main {
+                grid-template-columns: 1fr auto;
+                padding: 14px 0;
+            }
+
+            .search-box {
+                grid-column: 1 / -1;
+                grid-row: 2;
+            }
+
+            .products-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 560px) {
+            .container {
+                width: calc(100% - 24px);
+            }
+
+            .page-header {
+                padding: 28px 22px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-bar">
+        ارسال سریع | پشتیبانی آنلاین | تضمین اصالت کالا
+    </div>
+
+    <header class="site-header">
+
+        <div class="container">
+
+            <div class="header-main">
+
+                <a href="../index.html" class="logo">
+                    <span class="logo-mark">B</span>
+                    <span>BEAUTY</span>
+                </a>
+
+                <form class="search-box">
+                    <input
+                        type="search"
+                        placeholder="جستجوی محصول، برند یا دسته‌بندی..."
+                    >
+
+                    <button
+                        type="submit"
+                        class="search-button"
+                    >
+                        ⌕
+                    </button>
+                </form>
+
+                <div class="header-actions">
+                    <a href="#" class="header-action">♡</a>
+                    <a href="#" class="header-action">♙</a>
+                    <a href="#" class="header-action">🛒</a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <nav class="main-navigation">
+
+            <div class="container">
+
+                <ul class="navigation-list">
+
+                    <li>
+                        <a href="../index.html" class="navigation-link">
+                            خانه
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="care.html" class="navigation-link">
+                            مراقبتی
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../makeup/makeup.html" class="navigation-link">
+                            لوازم آرایشی
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../hygiene/hygiene.html" class="navigation-link">
+                            لوازم بهداشتی
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../korean/korean.html" class="navigation-link">
+                            محصولات کره‌ای
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../brands/brands.html" class="navigation-link">
+                            برندها
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <div class="container">
+
+            <nav class="breadcrumb">
+                <a href="../index.html">خانه</a>
+                <span>/</span>
+                <a href="care.html">مراقبتی</a>
+                <span>/</span>
+                <span>اسنس صورت</span>
+            </nav>
+
+        </div>
+
+        <section>
+
+            <div class="container">
+
+                <header class="page-header">
+
+                    <span class="page-label">
+                        CARE / ESSENCE
+                    </span>
+
+                    <h1 class="page-title">
+                        اسنس صورت
+                    </h1>
+
+                    <p class="page-description">
+                        انواع اسنس برای روتین مراقبت از پوست.
+                    </p>
+
+                </header>
+
+            </div>
+
+        </section>
+
+        <section class="products-section">
+
+            <div class="container">
+
+                <div class="products-layout">
+
+                    <aside class="filter-panel">
+
+                        <h2 class="filter-title">
+                            فیلتر محصولات
+                        </h2>
+
+                        <div class="filter-group">
+
+                            <h3>نوع پوست</h3>
+
+                            <label class="filter-option">
+                                <input type="checkbox">
+                                پوست خشک
+                            </label>
+
+                            <label class="filter-option">
+                                <input type="checkbox">
+                                پوست چرب
+                            </label>
+
+                            <label class="filter-option">
+                                <input type="checkbox">
+                                پوست مختلط
+                            </label>
+
+                            <label class="filter-option">
+                                <input type="checkbox">
+                                پوست حساس
+                            </label>
+
+                        </div>
+
+                        <div class="filter-group">
+
+                            <h3>کاربرد</h3>
+
+                            <label class="filter-option">
+                                <input type="checkbox">
+                                آبرسان
+                            </label>
+
+                            <label class="filter-option">
+                                <input type="checkbox">
+                                تغذیه کننده
+                            </label>
+
+                            <label class="filter-option">
+                                <input type="checkbox">
+                                روشن کننده
+                            </label>
+
+                            <label class="filter-option">
+                                <input type="checkbox">
+                                مراقبتی
+                            </label>
+
+                        </div>
+
+                        <div class="filter-group">
+
+                            <h3>برند</h3>
+
+                            <label class="filter-option">
+                                <input type="checkbox">
+                                برند اول
+                            </label>
+
+                            <label class="filter-option">
+                                <input type="checkbox">
+                                برند دوم
+                            </label>
+
+                            <label class="filter-option">
+                                <input type="checkbox">
+                                برند سوم
+                            </label>
+
+                        </div>
+
+                    </aside>
+
+                    <div>
+
+                        <div class="products-header">
+
+                            <div>
+
+                                <h2>
+                                    محصولات اسنس
+                                </h2>
+
+                                <p class="products-count">
+                                    محصولات توسط مدیریت فروشگاه اضافه خواهند شد.
+                                </p>
+
+                            </div>
+
+                            <select class="sort-select">
+                                <option>جدیدترین</option>
+                                <option>محبوب‌ترین</option>
+                                <option>ارزان‌ترین</option>
+                                <option>گران‌ترین</option>
+                            </select>
+
+                        </div>
+
+                        <article class="empty-products">
+
+                            <div class="empty-icon">
+                                ✧
+                            </div>
+
+                            <h3>
+                                هنوز محصولی اضافه نشده است
+                            </h3>
+
+                            <p>
+                                محصولات این بخش پس از اتصال به دیتابیس فروشگاه نمایش داده می‌شوند.
+                            </p>
+
+                        </article>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div class="footer-column">
+
+                    <h3>BEAUTY</h3>
+
+                    <p>
+                        فروشگاه تخصصی محصولات زیبایی، مراقبتی و بهداشتی.
+                    </p>
+
+                </div>
+
+                <div class="footer-column">
+
+                    <h3>دسته‌بندی‌ها</h3>
+
+                    <a href="care.html">مراقبتی</a>
+                    <a href="../makeup/makeup.html">لوازم آرایشی</a>
+                    <a href="../hygiene/hygiene.html">لوازم بهداشتی</a>
+
+                </div>
+
+                <div class="footer-column">
+
+                    <h3>فروشگاه</h3>
+
+                    <a href="../korean/korean.html">
+                        محصولات کره‌ای
+                    </a>
+
+                    <a href="../brands/brands.html">
+                        برندها
+                    </a>
+
+                </div>
+
+                <div class="footer-column">
+
+                    <h3>پشتیبانی</h3>
+
+                    <a href="#">تماس با ما</a>
+                    <a href="#">سوالات متداول</a>
+                    <a href="#">قوانین و مقررات</a>
+
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                © 2026 BEAUTY — تمامی حقوق محفوظ است.
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>

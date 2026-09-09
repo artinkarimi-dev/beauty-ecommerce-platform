@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>مراقبت از مو | ALKAMOONE</title>
+
+<style>
+:root {
+    --green:#183f36;
+    --dark:#102f29;
+    --gold:#b18a52;
+    --bg:#f7f8f6;
+    --soft:#eef3f0;
+    --text:#202824;
+    --muted:#74807b;
+    --border:#dfe6e2;
+}
+
+* {
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body {
+    font-family:Tahoma,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.8;
+}
+
+a {
+    color:inherit;
+    text-decoration:none;
+}
+
+button,input,select {
+    font:inherit;
+}
+
+.container {
+    width:min(1380px,calc(100% - 40px));
+    margin:auto;
+}
+
+.topbar {
+    background:var(--green);
+    color:white;
+    text-align:center;
+    padding:7px;
+    font-size:11px;
+}
+
+header {
+    background:white;
+    border-bottom:1px solid var(--border);
+}
+
+.header-main {
+    min-height:82px;
+    display:grid;
+    grid-template-columns:190px 1fr 190px;
+    align-items:center;
+    gap:25px;
+}
+
+.logo {
+    color:var(--green);
+    font-size:23px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+.search input {
+    width:100%;
+    height:46px;
+    padding:0 18px;
+    border:1px solid var(--border);
+    border-radius:12px;
+    background:var(--soft);
+    outline:none;
+}
+
+.actions {
+    display:flex;
+    justify-content:flex-end;
+    gap:8px;
+}
+
+.action {
+    width:42px;
+    height:42px;
+    display:grid;
+    place-items:center;
+    border:1px solid var(--border);
+    border-radius:10px;
+    background:white;
+    cursor:pointer;
+}
+
+nav {
+    border-top:1px solid var(--border);
+}
+
+nav ul {
+    min-height:50px;
+    display:flex;
+    align-items:center;
+    gap:30px;
+    list-style:none;
+    overflow-x:auto;
+}
+
+nav a {
+    white-space:nowrap;
+    font-size:12px;
+}
+
+nav a:hover,
+nav a.active {
+    color:var(--gold);
+}
+
+.breadcrumb {
+    padding:20px 0;
+    color:var(--muted);
+    font-size:10px;
+}
+
+.hero {
+    padding:45px;
+    border:1px solid var(--border);
+    border-radius:22px;
+    background:linear-gradient(120deg,#e8f0ea,#f3eee7);
+}
+
+.hero-label {
+    color:var(--gold);
+    font-size:10px;
+    font-weight:bold;
+}
+
+.hero h1 {
+    color:var(--green);
+    font-size:clamp(30px,5vw,46px);
+    margin:8px 0;
+}
+
+.hero p {
+    max-width:720px;
+    color:var(--muted);
+    font-size:12px;
+}
+
+.layout {
+    padding:45px 0 70px;
+    display:grid;
+    grid-template-columns:235px 1fr;
+    gap:25px;
+}
+
+.sidebar {
+    height:fit-content;
+    padding:20px;
+    background:white;
+    border:1px solid var(--border);
+    border-radius:16px;
+}
+
+.sidebar h2 {
+    color:var(--green);
+    font-size:16px;
+    margin-bottom:20px;
+}
+
+.filter-group {
+    padding-bottom:18px;
+    margin-bottom:18px;
+    border-bottom:1px solid var(--border);
+}
+
+.filter-group:last-child {
+    border-bottom:0;
+    margin-bottom:0;
+}
+
+.filter-group h3 {
+    font-size:12px;
+    margin-bottom:10px;
+}
+
+.filter {
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:var(--muted);
+    font-size:10px;
+    margin:9px 0;
+}
+
+.filter input {
+    accent-color:var(--green);
+}
+
+.products-head {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
+}
+
+.products-head h2 {
+    color:var(--green);
+    font-size:19px;
+}
+
+.sort {
+    padding:9px 12px;
+    border:1px solid var(--border);
+    border-radius:9px;
+    background:white;
+}
+
+.product-grid {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+}
+
+.product-card {
+    background:white;
+    border:1px solid var(--border);
+    border-radius:16px;
+    overflow:hidden;
+}
+
+.product-image {
+    height:190px;
+    display:grid;
+    place-items:center;
+    background:var(--soft);
+    color:var(--green);
+    font-size:42px;
+}
+
+.product-info {
+    padding:15px;
+}
+
+.product-category {
+    color:var(--gold);
+    font-size:9px;
+}
+
+.product-title {
+    color:var(--green);
+    font-size:13px;
+    margin:4px 0;
+}
+
+.product-description {
+    color:var(--muted);
+    font-size:9px;
+}
+
+.product-bottom {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-top:12px;
+}
+
+.price {
+    color:var(--green);
+    font-size:11px;
+    font-weight:bold;
+}
+
+.add-btn {
+    border:0;
+    border-radius:8px;
+    padding:7px 11px;
+    background:var(--green);
+    color:white;
+    cursor:pointer;
+    font-size:9px;
+}
+
+footer {
+    background:var(--dark);
+    color:white;
+    padding:45px 0 20px;
+}
+
+.footer-grid {
+    display:grid;
+    grid-template-columns:1.5fr repeat(3,1fr);
+    gap:30px;
+}
+
+footer h3 {
+    font-size:13px;
+    margin-bottom:10px;
+}
+
+footer p,
+footer a {
+    display:block;
+    color:#b8c9c3;
+    font-size:10px;
+    margin-bottom:7px;
+}
+
+.copyright {
+    margin-top:30px;
+    padding-top:15px;
+    border-top:1px solid rgba(255,255,255,.1);
+    text-align:center;
+    color:#8fa7a0;
+    font-size:9px;
+}
+
+@media(max-width:950px) {
+    .header-main {
+        grid-template-columns:1fr auto;
+        padding:14px 0;
+    }
+
+    .search {
+        grid-column:1/-1;
+        grid-row:2;
+    }
+
+    .layout {
+        grid-template-columns:1fr;
+    }
+
+    .product-grid {
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px) {
+    .container {
+        width:calc(100% - 24px);
+    }
+
+    .hero {
+        padding:28px 22px;
+    }
+
+    .products-head {
+        flex-direction:column;
+        align-items:stretch;
+        gap:12px;
+    }
+
+    .product-grid,
+    .footer-grid {
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+ارسال سفارش‌ها و پشتیبانی آنلاین ALKAMOONE
+</div>
+
+<header>
+
+<div class="container header-main">
+
+<a href="../index.html" class="logo">ALKAMOONE</a>
+
+<div class="search">
+<input type="search" placeholder="جستجو در محصولات آلکامون...">
+</div>
+
+<div class="actions">
+<button class="action">♙</button>
+<button class="action">♡</button>
+<button class="action">🛒</button>
+</div>
+
+</div>
+
+<nav>
+<div class="container">
+<ul>
+<li><a href="../index.html">خانه</a></li>
+<li><a href="../CARE/care.html">محصولات مراقبتی</a></li>
+<li><a href="hair-products.html" class="active">محصولات مو</a></li>
+<li><a href="hair-shampoo.html">شامپو</a></li>
+<li><a href="../LIP-CARE/index.html">مراقبت لب</a></li>
+</ul>
+</div>
+</nav>
+
+</header>
+
+<main class="container">
+
+<div class="breadcrumb">
+خانه / محصولات مو / مراقبت از مو
+</div>
+
+<section class="hero">
+
+<div class="hero-label">
+HAIR CARE
+</div>
+
+<h1>مراقبت از مو</h1>
+
+<p>
+محصولات مراقبت از مو برای پاکسازی، آبرسانی، تقویت،
+نرمی و مراقبت روزانه از مو و پوست سر.
+</p>
+
+</section>
+
+<section class="layout">
+
+<aside class="sidebar">
+
+<h2>فیلتر محصولات</h2>
+
+<div class="filter-group">
+
+<h3>نوع محصول</h3>
+
+<label class="filter">
+<input type="checkbox">
+شامپو
+</label>
+
+<label class="filter">
+<input type="checkbox">
+ماسک مو
+</label>
+
+<label class="filter">
+<input type="checkbox">
+روغن مو
+</label>
+
+<label class="filter">
+<input type="checkbox">
+سرم مو
+</label>
+
+</div>
+
+<div class="filter-group">
+
+<h3>ویژگی</h3>
+
+<label class="filter">
+<input type="checkbox">
+آبرسان
+</label>
+
+<label class="filter">
+<input type="checkbox">
+تقویت کننده
+</label>
+
+<label class="filter">
+<input type="checkbox">
+ترمیم کننده
+</label>
+
+</div>
+
+</aside>
+
+<section>
+
+<div class="products-head">
+
+<h2>محصولات مراقبت از مو</h2>
+
+<select class="sort">
+<option>مرتب‌سازی: محبوب‌ترین</option>
+<option>جدیدترین</option>
+<option>ارزان‌ترین</option>
+<option>گران‌ترین</option>
+</select>
+
+</div>
+
+<div class="product-grid">
+
+<article class="product-card">
+
+<div class="product-image">🧴</div>
+
+<div class="product-info">
+
+<div class="product-category">
+HAIR CARE
+</div>
+
+<h3 class="product-title">
+محصولات مراقبت روزانه مو
+</h3>
+
+<p class="product-description">
+مناسب روتین روزانه برای مراقبت و حفظ نرمی مو.
+</p>
+
+<div class="product-bottom">
+<div class="price">تماس بگیرید</div>
+<button class="add-btn">افزودن به سبد</button>
+</div>
+
+</div>
+</article>
+
+<article class="product-card">
+
+<div class="product-image">🌿</div>
+
+<div class="product-info">
+
+<div class="product-category">
+NOURISHING CARE
+</div>
+
+<h3 class="product-title">
+محصولات تغذیه و تقویت مو
+</h3>
+
+<p class="product-description">
+برای مراقبت از موهای خشک، ضعیف و آسیب‌دیده.
+</p>
+
+<div class="product-bottom">
+<div class="price">تماس بگیرید</div>
+<button class="add-btn">افزودن به سبد</button>
+</div>
+
+</div>
+</article>
+
+<article class="product-card">
+
+<div class="product-image">✨</div>
+
+<div class="product-info">
+
+<div class="product-category">
+HAIR REPAIR
+</div>
+
+<h3 class="product-title">
+محصولات ترمیم و نرمی مو
+</h3>
+
+<p class="product-description">
+کمک به حفظ ظاهر مرتب، نرم و سالم مو.
+</p>
+
+<div class="product-bottom">
+<div class="price">تماس بگیرید</div>
+<button class="add-btn">افزودن به سبد</button>
+</div>
+
+</div>
+</article>
+
+</div>
+
+</section>
+
+</section>
+
+</main>
+
+<footer>
+
+<div class="container footer-grid">
+
+<div>
+<h3>ALKAMOONE</h3>
+<p>فروشگاه تخصصی محصولات زیبایی و مراقبتی.</p>
+</div>
+
+<div>
+<h3>دسته‌بندی‌ها</h3>
+<a href="hair-products.html">محصولات مو</a>
+<a href="hair-shampoo.html">شامپو</a>
+</div>
+
+<div>
+<h3>خدمات</h3>
+<a href="#">پیگیری سفارش</a>
+<a href="#">پشتیبانی</a>
+</div>
+
+<div>
+<h3>ارتباط با ما</h3>
+<p>پشتیبانی آنلاین</p>
+<p>هر روز از ۹ تا ۲۱</p>
+</div>
+
+</div>
+
+<div class="container copyright">
+© 2026 ALKAMOONE - تمامی حقوق محفوظ است.
+</div>
+
+</footer>
+
+<script>
+document.querySelectorAll(".add-btn").forEach(button=>{
+    button.addEventListener("click",()=>{
+        const old=button.textContent;
+        button.textContent="✓ اضافه شد";
+
+        setTimeout(()=>{
+            button.textContent=old;
+        },1200);
+    });
+});
+</script>
+
+</body>
+</html>ئ

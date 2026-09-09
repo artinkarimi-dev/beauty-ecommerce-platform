@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>سبد خرید | ALKAMOONE</title>
+
+<style>
+:root {
+    --green:#183f36;
+    --dark:#102f29;
+    --gold:#b18a52;
+    --bg:#f7f8f6;
+    --soft:#eef3f0;
+    --text:#202824;
+    --muted:#74807b;
+    --border:#dfe6e2;
+}
+
+* {
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body {
+    font-family:Tahoma,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.8;
+}
+
+a {
+    color:inherit;
+    text-decoration:none;
+}
+
+button,input,textarea {
+    font:inherit;
+}
+
+.container {
+    width:min(1380px,calc(100% - 40px));
+    margin:auto;
+}
+
+.topbar {
+    background:var(--green);
+    color:white;
+    text-align:center;
+    padding:7px;
+    font-size:11px;
+}
+
+header {
+    background:white;
+    border-bottom:1px solid var(--border);
+}
+
+.header-main {
+    min-height:82px;
+    display:grid;
+    grid-template-columns:190px 1fr 190px;
+    align-items:center;
+    gap:25px;
+}
+
+.logo {
+    color:var(--green);
+    font-size:23px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+.search input {
+    width:100%;
+    height:46px;
+    padding:0 18px;
+    border:1px solid var(--border);
+    border-radius:12px;
+    background:var(--soft);
+    outline:none;
+}
+
+.actions {
+    display:flex;
+    justify-content:flex-end;
+    gap:8px;
+}
+
+.action {
+    width:42px;
+    height:42px;
+    display:grid;
+    place-items:center;
+    border:1px solid var(--border);
+    border-radius:10px;
+    background:white;
+    cursor:pointer;
+}
+
+nav {
+    border-top:1px solid var(--border);
+}
+
+nav ul {
+    min-height:50px;
+    display:flex;
+    align-items:center;
+    gap:30px;
+    list-style:none;
+    overflow-x:auto;
+}
+
+nav a {
+    white-space:nowrap;
+    font-size:12px;
+}
+
+nav a:hover,
+nav a.active {
+    color:var(--gold);
+}
+
+.breadcrumb {
+    padding:20px 0;
+    color:var(--muted);
+    font-size:10px;
+}
+
+.hero {
+    padding:45px;
+    border:1px solid var(--border);
+    border-radius:22px;
+    background:linear-gradient(120deg,#e8f0ea,#f3eee7);
+}
+
+.hero-label {
+    color:var(--gold);
+    font-size:10px;
+    font-weight:bold;
+}
+
+.hero h1 {
+    color:var(--green);
+    font-size:clamp(30px,5vw,46px);
+    margin:8px 0;
+}
+
+.hero p {
+    max-width:720px;
+    color:var(--muted);
+    font-size:12px;
+}
+
+.cart-layout {
+    padding:45px 0 70px;
+    display:grid;
+    grid-template-columns:1fr 360px;
+    gap:25px;
+    align-items:start;
+}
+
+.cart-panel,
+.checkout-panel {
+    background:white;
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:20px;
+}
+
+.panel-head {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:14px;
+    margin-bottom:18px;
+}
+
+.panel-head h2 {
+    color:var(--green);
+    font-size:19px;
+}
+
+.status {
+    padding:14px;
+    margin-bottom:14px;
+    border:1px solid var(--border);
+    border-radius:12px;
+    color:var(--muted);
+    background:var(--soft);
+    font-size:11px;
+}
+
+.status[data-status="error"] {
+    color:#8a2d2d;
+    background:#fff2f2;
+}
+
+.status[data-status="success"] {
+    color:var(--green);
+    background:#eef6f2;
+}
+
+.empty {
+    padding:35px;
+    text-align:center;
+    color:var(--muted);
+    border:1px solid var(--border);
+    border-radius:16px;
+    background:var(--soft);
+    font-size:12px;
+}
+
+.cart-list {
+    display:grid;
+    gap:12px;
+}
+
+.cart-item {
+    display:grid;
+    grid-template-columns:84px 1fr auto;
+    gap:14px;
+    align-items:center;
+    padding:14px;
+    border:1px solid var(--border);
+    border-radius:16px;
+}
+
+.cart-item-image {
+    width:84px;
+    height:84px;
+    display:grid;
+    place-items:center;
+    background:var(--soft);
+    border-radius:12px;
+    color:var(--green);
+    font-size:28px;
+}
+
+.cart-item-image img {
+    max-width:100%;
+    max-height:100%;
+    object-fit:contain;
+}
+
+.cart-item-details h3 {
+    color:var(--green);
+    font-size:13px;
+}
+
+.cart-item-details p {
+    color:var(--muted);
+    font-size:10px;
+}
+
+.cart-item-details strong {
+    color:var(--green);
+    font-size:11px;
+}
+
+.cart-item-controls {
+    display:grid;
+    grid-template-columns:34px 38px 34px;
+    gap:8px;
+    align-items:center;
+    justify-items:center;
+}
+
+.cart-item-controls button,
+.submit-btn,
+.secondary-btn {
+    border:0;
+    border-radius:8px;
+    background:var(--green);
+    color:white;
+    cursor:pointer;
+}
+
+.cart-item-controls button {
+    width:34px;
+    height:34px;
+}
+
+.cart-item-controls .remove {
+    grid-column:1/-1;
+    width:100%;
+    font-size:10px;
+    background:var(--dark);
+}
+
+.quantity,
+.line-total {
+    color:var(--green);
+    font-size:11px;
+    font-weight:bold;
+}
+
+.line-total {
+    grid-column:1/-1;
+}
+
+.summary {
+    display:grid;
+    gap:10px;
+    margin-bottom:18px;
+}
+
+.summary-row {
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    color:var(--muted);
+    font-size:12px;
+}
+
+.summary-row strong {
+    color:var(--green);
+}
+
+.checkout-form {
+    display:grid;
+    gap:12px;
+}
+
+.checkout-form label {
+    display:grid;
+    gap:6px;
+    color:var(--green);
+    font-size:11px;
+}
+
+.checkout-form input,
+.checkout-form textarea {
+    width:100%;
+    border:1px solid var(--border);
+    border-radius:10px;
+    background:var(--soft);
+    padding:10px 12px;
+    outline:none;
+    color:var(--text);
+}
+
+.checkout-form textarea {
+    min-height:90px;
+    resize:vertical;
+}
+
+.submit-btn,
+.secondary-btn {
+    min-height:40px;
+    padding:9px 14px;
+    font-size:11px;
+}
+
+.submit-btn:disabled {
+    cursor:not-allowed;
+    opacity:.55;
+}
+
+.secondary-btn {
+    display:inline-grid;
+    place-items:center;
+    background:var(--gold);
+}
+
+.order-success {
+    margin-top:16px;
+    padding:16px;
+    border:1px solid var(--border);
+    border-radius:14px;
+    background:var(--soft);
+}
+
+.order-success h3 {
+    color:var(--green);
+    font-size:13px;
+}
+
+.tracking-code {
+    display:block;
+    direction:ltr;
+    text-align:left;
+    margin:10px 0;
+    color:var(--green);
+    font-size:18px;
+    font-weight:bold;
+}
+
+footer {
+    background:var(--dark);
+    color:white;
+    padding:45px 0 20px;
+}
+
+.footer-grid {
+    display:grid;
+    grid-template-columns:1.5fr repeat(3,1fr);
+    gap:30px;
+}
+
+footer h3 {
+    font-size:13px;
+    margin-bottom:10px;
+}
+
+footer p,
+footer a {
+    display:block;
+    color:#b8c9c3;
+    font-size:10px;
+    margin-bottom:7px;
+}
+
+.copyright {
+    margin-top:30px;
+    padding-top:15px;
+    border-top:1px solid rgba(255,255,255,.1);
+    text-align:center;
+    color:#8fa7a0;
+    font-size:9px;
+}
+
+@media(max-width:950px) {
+    .header-main {
+        grid-template-columns:1fr auto;
+        padding:14px 0;
+    }
+
+    .search {
+        grid-column:1/-1;
+        grid-row:2;
+    }
+
+    .cart-layout {
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:600px) {
+    .container {
+        width:calc(100% - 24px);
+    }
+
+    .hero {
+        padding:28px 22px;
+    }
+
+    .cart-item {
+        grid-template-columns:70px 1fr;
+    }
+
+    .cart-item-controls {
+        grid-column:1/-1;
+        grid-template-columns:34px 38px 34px 1fr;
+        justify-items:start;
+    }
+
+    .cart-item-controls .remove,
+    .line-total {
+        grid-column:auto;
+    }
+
+    .footer-grid {
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">ارسال سریع | تضمین اصالت کالا | پشتیبانی آنلاین</div>
+
+<header>
+<div class="container header-main">
+<a href="index.html" class="logo">ALKAMOONE</a>
+<div class="search">
+<input type="search" placeholder="جستجو در محصولات آلکامون...">
+</div>
+<div class="actions">
+<button class="action" type="button" aria-label="حساب کاربری">♙</button>
+<button class="action" type="button" aria-label="علاقه‌مندی‌ها">♡</button>
+<a class="action" href="cart.html" aria-label="سبد خرید">🛒</a>
+</div>
+</div>
+
+<nav>
+<div class="container">
+<ul>
+<li><a href="index.html">خانه</a></li>
+<li><a href="care/care.html">محصولات مراقبتی</a></li>
+<li><a href="HAIR/hair-products.html">محصولات مو</a></li>
+<li><a href="HAIR/hair-shampoo.html">شامپو</a></li>
+<li><a href="order-tracking.html">پیگیری سفارش</a></li>
+</ul>
+</div>
+</nav>
+</header>
+
+<main class="container">
+<div class="breadcrumb">خانه / سبد خرید</div>
+
+<section class="hero">
+<div class="hero-label">SHOPPING CART</div>
+<h1>سبد خرید</h1>
+<p>محصولات انتخاب‌شده شما اینجا نمایش داده می‌شوند و پس از ثبت سفارش، کد رهگیری واقعی سفارش را دریافت می‌کنید.</p>
+</section>
+
+<section class="cart-layout">
+<div class="cart-panel">
+<div class="panel-head">
+<h2>محصولات سبد خرید</h2>
+<span><strong data-cart-count>0</strong> کالا</span>
+</div>
+<div class="status" data-cart-status data-status="loading">در حال دریافت سبد خرید...</div>
+<div class="empty" data-cart-empty hidden>سبد خرید شما خالی است.</div>
+<div class="cart-list" data-cart-items hidden></div>
+</div>
+
+<aside class="checkout-panel">
+<div class="panel-head">
+<h2>ثبت سفارش</h2>
+</div>
+<div class="summary">
+<div class="summary-row">
+<span>جمع کل</span>
+<strong data-cart-total>0 تومان</strong>
+</div>
+</div>
+<div class="status" data-checkout-status hidden></div>
+<form class="checkout-form" data-checkout-form>
+<label>
+نام و نام خانوادگی
+<input name="name" type="text" minlength="2" maxlength="120" required>
+</label>
+<label>
+شماره تماس
+<input name="phone" type="tel" minlength="10" maxlength="20" required>
+</label>
+<label>
+آدرس کامل
+<textarea name="address" minlength="10" maxlength="500" required></textarea>
+</label>
+<label>
+توضیحات سفارش
+<textarea name="note" maxlength="500"></textarea>
+</label>
+<button class="submit-btn" type="submit" data-submit-order disabled>ثبت سفارش</button>
+</form>
+
+<div class="order-success" data-order-success hidden>
+<h3>سفارش ثبت شد</h3>
+<span class="tracking-code" data-success-tracking></span>
+<a class="secondary-btn" href="order-tracking.html">پیگیری سفارش</a>
+</div>
+</aside>
+</section>
+</main>
+
+<footer>
+<div class="container footer-grid">
+<div>
+<h3>ALKAMOONE</h3>
+<p>فروشگاه تخصصی محصولات زیبایی و مراقبتی.</p>
+</div>
+<div>
+<h3>دسته‌بندی‌ها</h3>
+<a href="care/care.html">مراقبتی</a>
+<a href="HAIR/hair-shampoo.html">شامپو</a>
+</div>
+<div>
+<h3>خدمات</h3>
+<a href="cart.html">سبد خرید</a>
+<a href="order-tracking.html">پیگیری سفارش</a>
+</div>
+<div>
+<h3>ارتباط با ما</h3>
+<p>پشتیبانی آنلاین</p>
+<p>هر روز از ۹ تا ۲۱</p>
+</div>
+</div>
+<div class="container copyright">© 2026 ALKAMOONE - تمامی حقوق محفوظ است.</div>
+</footer>
+
+<script src="assets/js/commerce.js" defer></script>
+<script src="assets/js/cart-page.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>روشن کننده پوست | ALKAMOONE</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #183f36;
+            --dark: #102f29;
+            --gold: #b18a52;
+            --bg: #f7f8f6;
+            --white: #ffffff;
+            --soft: #eef3f0;
+            --text: #202824;
+            --muted: #74807b;
+            --border: #dfe6e2;
+        }
+
+        body {
+            font-family: Tahoma, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        select {
+            font-family: inherit;
+        }
+
+        .container {
+            width: min(1380px, calc(100% - 40px));
+            margin-inline: auto;
+        }
+
+        .top-bar {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 7px 15px;
+            font-size: 11px;
+        }
+
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-main {
+            min-height: 82px;
+            display: grid;
+            grid-template-columns: 190px minmax(250px, 1fr) 190px;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .logo {
+            color: var(--primary);
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .search {
+            position: relative;
+        }
+
+        .search input {
+            width: 100%;
+            height: 46px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--soft);
+            padding: 0 18px;
+            outline: none;
+        }
+
+        .search input:focus {
+            border-color: var(--primary);
+        }
+
+        .actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        .action {
+            width: 40px;
+            height: 40px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: white;
+        }
+
+        .action:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        nav {
+            border-top: 1px solid var(--border);
+        }
+
+        nav ul {
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            list-style: none;
+            overflow-x: auto;
+        }
+
+        nav a {
+            white-space: nowrap;
+            font-size: 12px;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--gold);
+        }
+
+        .breadcrumb {
+            padding: 20px 0 15px;
+            color: var(--muted);
+            font-size: 10px;
+        }
+
+        .hero {
+            padding: 42px;
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            background: linear-gradient(120deg, #e8f0eb, #faf6ee);
+        }
+
+        .hero-label {
+            color: var(--gold);
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .hero h1 {
+            margin: 7px 0;
+            color: var(--primary);
+            font-size: clamp(30px, 5vw, 46px);
+            line-height: 1.35;
+        }
+
+        .hero p {
+            max-width: 720px;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .content {
+            padding: 45px 0 70px;
+            display: grid;
+            grid-template-columns: 235px minmax(0, 1fr);
+            gap: 25px;
+        }
+
+        .filters {
+            height: fit-content;
+            padding: 20px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+        }
+
+        .filters h2 {
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-size: 16px;
+        }
+
+        .filter-group {
+            padding-bottom: 18px;
+            margin-bottom: 18px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .filter-group:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+
+        .filter-group h3 {
+            margin-bottom: 10px;
+            font-size: 12px;
+        }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            margin: 9px 0;
+            color: var(--muted);
+            font-size: 10px;
+        }
+
+        .filter-option input {
+            accent-color: var(--primary);
+        }
+
+        .products-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 18px;
+        }
+
+        .products-header h2 {
+            color: var(--primary);
+            font-size: 18px;
+        }
+
+        .sort {
+            min-width: 165px;
+            padding: 10px;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            background: white;
+            outline: none;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .product-card {
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .product-image {
+            height: 170px;
+            display: grid;
+            place-items: center;
+            background: var(--soft);
+            color: var(--primary);
+            font-size: 35px;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-brand {
+            color: var(--gold);
+            font-size: 9px;
+        }
+
+        .product-name {
+            margin: 4px 0;
+            color: var(--primary);
+            font-size: 12px;
+        }
+
+        .product-price {
+            color: var(--text);
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .empty {
+            min-height: 320px;
+            display: grid;
+            place-items: center;
+            padding: 30px;
+            background: white;
+            border: 1px dashed var(--border);
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .empty-icon {
+            width: 65px;
+            height: 65px;
+            display: grid;
+            place-items: center;
+            margin: auto auto 15px;
+            border-radius: 50%;
+            background: var(--soft);
+            color: var(--primary);
+            font-size: 25px;
+        }
+
+        .empty h3 {
+            color: var(--primary);
+            font-size: 16px;
+        }
+
+        .empty p {
+            margin-top: 7px;
+            color: var(--muted);
+            font-size: 10px;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 45px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        footer h3 {
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+
+        footer a,
+        footer p {
+            display: block;
+            margin-bottom: 7px;
+            color: #b8c9c3;
+            font-size: 10px;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        .copyright {
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,.1);
+            text-align: center;
+            color: #8fa7a0;
+            font-size: 9px;
+        }
+
+        @media (max-width: 950px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 800px) {
+            .header-main {
+                grid-template-columns: 1fr auto;
+                padding: 14px 0;
+            }
+
+            .search {
+                grid-column: 1 / -1;
+                grid-row: 2;
+            }
+
+            .content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 550px) {
+            .container {
+                width: calc(100% - 24px);
+            }
+
+            .hero {
+                padding: 27px 22px;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .products-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .sort {
+                width: 100%;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-bar">
+        ارسال سریع | تضمین اصالت کالا | پشتیبانی آنلاین
+    </div>
+
+    <header>
+
+        <div class="container">
+
+            <div class="header-main">
+
+                <a href="../index.html" class="logo">
+                    ALKAMOONE
+                </a>
+
+                <form class="search">
+                    <input
+                        type="search"
+                        placeholder="جستجوی محصول، برند یا دسته‌بندی..."
+                        aria-label="جستجوی سایت"
+                    >
+                </form>
+
+                <div class="actions">
+                    <a href="#" class="action" aria-label="علاقه‌مندی‌ها">♡</a>
+                    <a href="#" class="action" aria-label="حساب کاربری">♙</a>
+                    <a href="#" class="action" aria-label="سبد خرید">🛒</a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <nav>
+            <div class="container">
+                <ul>
+                    <li>
+                        <a href="../index.html">خانه</a>
+                    </li>
+                    <li>
+                        <a href="care.html" class="active">مراقبتی</a>
+                    </li>
+                    <li>
+                        <a href="../MAKEUP/makeup.html">آرایشی</a>
+                    </li>
+                    <li>
+                        <a href="../HYGIENE/hygiene.html">بهداشتی</a>
+                    </li>
+                    <li>
+                        <a href="../KOREAN/korean.html">محصولات کره‌ای</a>
+                    </li>
+                    <li>
+                        <a href="../BRANDS/brands.html">برندها</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <div class="container">
+
+            <nav class="breadcrumb" aria-label="مسیر صفحه">
+                <a href="../index.html">خانه</a>
+                /
+                <a href="care.html">مراقبتی</a>
+                /
+                روشن کننده پوست
+            </nav>
+
+        </div>
+
+        <section class="container">
+
+            <div class="hero">
+
+                <span class="hero-label">
+                    CARE / SKIN BRIGHTENING
+                </span>
+
+                <h1>
+                    روشن کننده پوست
+                </h1>
+
+                <p>
+                    مجموعه محصولات مراقبتی مرتبط با روتین روشن‌کنندگی
+                    و بهبود ظاهر یکنواخت پوست.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section class="container content">
+
+            <aside class="filters">
+
+                <h2>
+                    فیلتر محصولات
+                </h2>
+
+                <div class="filter-group">
+
+                    <h3>
+                        نوع محصول
+                    </h3>
+
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        سرم
+                    </label>
+
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        کرم
+                    </label>
+
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        ماسک
+                    </label>
+
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        تونر
+                    </label>
+
+                </div>
+
+                <div class="filter-group">
+
+                    <h3>
+                        نوع پوست
+                    </h3>
+
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        خشک
+                    </label>
+
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        چرب
+                    </label>
+
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        مختلط
+                    </label>
+
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        حساس
+                    </label>
+
+                </div>
+
+                <div class="filter-group">
+
+                    <h3>
+                        برند
+                    </h3>
+
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        برندهای کره‌ای
+                    </label>
+
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        برندهای اروپایی
+                    </label>
+
+                </div>
+
+            </aside>
+
+            <div>
+
+                <div class="products-header">
+
+                    <div>
+                        <h2>
+                            محصولات روشن کننده
+                        </h2>
+                    </div>
+
+                    <select class="sort">
+                        <option>جدیدترین</option>
+                        <option>محبوب‌ترین</option>
+                        <option>ارزان‌ترین</option>
+                        <option>گران‌ترین</option>
+                    </select>
+
+                </div>
+
+                <div class="empty">
+
+                    <div>
+
+                        <div class="empty-icon">
+                            ✦
+                        </div>
+
+                        <h3>
+                            محصولات این دسته هنوز اضافه نشده‌اند
+                        </h3>
+
+                        <p>
+                            در مرحله بعد محصولات از دیتابیس دریافت شده
+                            و به صورت کارت‌های محصول در این قسمت نمایش داده می‌شوند.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div>
+                    <h3>ALKAMOONE</h3>
+                    <p>
+                        فروشگاه تخصصی محصولات زیبایی،
+                        مراقبتی و بهداشتی.
+                    </p>
+                </div>
+
+                <div>
+                    <h3>دسته‌بندی‌ها</h3>
+                    <a href="care.html">مراقبتی</a>
+                    <a href="../MAKEUP/makeup.html">آرایشی</a>
+                    <a href="../HYGIENE/hygiene.html">بهداشتی</a>
+                </div>
+
+                <div>
+                    <h3>فروشگاه</h3>
+                    <a href="../KOREAN/korean.html">محصولات کره‌ای</a>
+                    <a href="../BRANDS/brands.html">برندها</a>
+                </div>
+
+                <div>
+                    <h3>پشتیبانی</h3>
+                    <a href="#">تماس با ما</a>
+                    <a href="#">سؤالات متداول</a>
+                    <a href="#">قوانین و مقررات</a>
+                </div>
+
+            </div>
+
+            <div class="copyright">
+                © 2026 ALKAMOONE — تمامی حقوق محفوظ است.
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>

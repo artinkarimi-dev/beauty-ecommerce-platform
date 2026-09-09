@@ -1,0 +1,1664 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>پاک کننده آرایش چشم | ALKAMOONE</title>
+
+    <meta
+        name="description"
+        content="خرید پاک کننده آرایش چشم از فروشگاه ALKAMOONE"
+    >
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        :root{
+            --brown:#513f35;
+            --brown-dark:#392d27;
+            --accent:#b98572;
+            --cream:#faf7f4;
+            --white:#fff;
+            --text:#403833;
+            --muted:#81766f;
+            --border:#e9e1dc;
+        }
+
+        body{
+            font-family:Tahoma,Arial,sans-serif;
+            direction:rtl;
+            background:var(--cream);
+            color:var(--text);
+            line-height:1.8;
+        }
+
+        a{
+            color:inherit;
+            text-decoration:none;
+        }
+
+        button,
+        input,
+        select{
+            font-family:inherit;
+        }
+
+        button{
+            cursor:pointer;
+        }
+
+        .top-bar{
+            padding:9px 15px;
+            text-align:center;
+            background:var(--brown);
+            color:#fff;
+            font-size:13px;
+        }
+
+        header{
+            position:sticky;
+            top:0;
+            z-index:1000;
+            background:#fff;
+            border-bottom:1px solid var(--border);
+        }
+
+        .header-main{
+            max-width:1400px;
+            margin:auto;
+            padding:18px 25px;
+            display:flex;
+            align-items:center;
+            gap:25px;
+        }
+
+        .logo{
+            min-width:185px;
+            color:var(--brown);
+            font-size:28px;
+            font-weight:700;
+            letter-spacing:2px;
+        }
+
+        .logo span{
+            color:var(--accent);
+        }
+
+        .search-box{
+            flex:1;
+            position:relative;
+        }
+
+        .search-box input{
+            width:100%;
+            height:46px;
+            padding:0 50px 0 20px;
+            border:1px solid var(--border);
+            border-radius:30px;
+            background:#fafafa;
+            outline:none;
+        }
+
+        .search-box input:focus{
+            border-color:var(--accent);
+            background:#fff;
+        }
+
+        .search-icon{
+            position:absolute;
+            right:18px;
+            top:9px;
+            color:var(--muted);
+            font-size:21px;
+        }
+
+        .header-actions{
+            display:flex;
+            gap:12px;
+        }
+
+        .header-btn{
+            position:relative;
+            width:43px;
+            height:43px;
+            border:1px solid var(--border);
+            border-radius:50%;
+            background:#fff;
+            color:var(--brown);
+            font-size:18px;
+            transition:.25s;
+        }
+
+        .header-btn:hover{
+            background:var(--brown);
+            color:#fff;
+        }
+
+        .counter{
+            position:absolute;
+            top:-5px;
+            left:-5px;
+            min-width:18px;
+            height:18px;
+            padding:0 4px;
+            border-radius:30px;
+            background:var(--accent);
+            color:#fff;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-size:10px;
+        }
+
+        nav{
+            border-top:1px solid #f2ece8;
+        }
+
+        .nav-inner{
+            max-width:1400px;
+            margin:auto;
+            padding:11px 25px;
+            display:flex;
+            gap:28px;
+            overflow-x:auto;
+            white-space:nowrap;
+        }
+
+        .nav-inner a{
+            font-size:14px;
+        }
+
+        .nav-inner a:hover,
+        .nav-inner .active{
+            color:var(--accent);
+        }
+
+        .breadcrumb{
+            max-width:1400px;
+            margin:auto;
+            padding:20px 25px 8px;
+            color:var(--muted);
+            font-size:13px;
+        }
+
+        .breadcrumb a{
+            color:var(--accent);
+        }
+
+        .hero{
+            max-width:1400px;
+            margin:15px auto 30px;
+            padding:48px 36px;
+            border-radius:20px;
+            color:#fff;
+            background:
+                linear-gradient(90deg,rgba(57,45,39,.95),rgba(81,63,53,.67)),
+                url("../assets/images/categories/eye-makeup-remover.jpg") center/cover;
+        }
+
+        .hero h1{
+            margin-bottom:8px;
+            font-size:34px;
+        }
+
+        .hero p{
+            max-width:680px;
+            color:#f5ece8;
+            font-size:14px;
+        }
+
+        .page-layout{
+            max-width:1400px;
+            margin:auto;
+            padding:0 25px 60px;
+            display:grid;
+            grid-template-columns:260px 1fr;
+            gap:30px;
+            align-items:start;
+        }
+
+        .filters{
+            position:sticky;
+            top:135px;
+            padding:20px;
+            background:#fff;
+            border:1px solid var(--border);
+            border-radius:16px;
+        }
+
+        .filter-title{
+            padding-bottom:14px;
+            margin-bottom:17px;
+            border-bottom:1px solid var(--border);
+            font-size:18px;
+            font-weight:700;
+        }
+
+        .filter-group{
+            padding-bottom:18px;
+            margin-bottom:18px;
+            border-bottom:1px solid var(--border);
+        }
+
+        .filter-group:last-child{
+            border-bottom:0;
+            margin-bottom:0;
+        }
+
+        .filter-group h3{
+            font-size:14px;
+            margin-bottom:10px;
+        }
+
+        .filter-option{
+            display:flex;
+            align-items:center;
+            gap:8px;
+            margin:9px 0;
+            color:var(--muted);
+            font-size:13px;
+            cursor:pointer;
+        }
+
+        .filter-option input{
+            accent-color:var(--accent);
+        }
+
+        .price-inputs{
+            display:flex;
+            gap:7px;
+        }
+
+        .price-inputs input{
+            width:50%;
+            min-width:0;
+            padding:9px;
+            border:1px solid var(--border);
+            border-radius:8px;
+            outline:none;
+        }
+
+        .products-toolbar{
+            margin-bottom:20px;
+            padding:14px 17px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:15px;
+            background:#fff;
+            border:1px solid var(--border);
+            border-radius:14px;
+        }
+
+        .result-count{
+            color:var(--muted);
+            font-size:13px;
+        }
+
+        .sort-box{
+            padding:9px 13px;
+            border:1px solid var(--border);
+            border-radius:8px;
+            background:#fff;
+            outline:none;
+        }
+
+        .product-grid{
+            display:grid;
+            grid-template-columns:repeat(3,minmax(0,1fr));
+            gap:20px;
+        }
+
+        .product-card{
+            overflow:hidden;
+            background:#fff;
+            border:1px solid var(--border);
+            border-radius:16px;
+            transition:.28s;
+        }
+
+        .product-card:hover{
+            transform:translateY(-5px);
+            box-shadow:0 12px 30px rgba(81,63,53,.09);
+        }
+
+        .product-image{
+            position:relative;
+            height:270px;
+            overflow:hidden;
+            background:#f4eeea;
+        }
+
+        .product-image img{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            display:block;
+            transition:.35s;
+        }
+
+        .product-card:hover .product-image img{
+            transform:scale(1.04);
+        }
+
+        .badge{
+            position:absolute;
+            z-index:2;
+            top:12px;
+            right:12px;
+            padding:4px 10px;
+            border-radius:30px;
+            background:var(--accent);
+            color:#fff;
+            font-size:10px;
+        }
+
+        .heart{
+            position:absolute;
+            z-index:3;
+            top:11px;
+            left:11px;
+            width:35px;
+            height:35px;
+            border:none;
+            border-radius:50%;
+            background:rgba(255,255,255,.93);
+            color:var(--brown);
+            font-size:18px;
+        }
+
+        .heart.active{
+            color:#b64f61;
+        }
+
+        .image-fallback{
+            width:100%;
+            height:100%;
+            padding:20px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            background:linear-gradient(135deg,#f8f2ee,#eadfd9);
+            color:#9b8b82;
+            font-size:14px;
+        }
+
+        .product-info{
+            padding:16px;
+        }
+
+        .brand{
+            margin-bottom:4px;
+            color:var(--accent);
+            font-size:11px;
+        }
+
+        .product-name{
+            min-height:50px;
+            font-size:14px;
+        }
+
+        .rating{
+            margin:7px 0;
+            color:#c2964b;
+            font-size:12px;
+        }
+
+        .rating span{
+            margin-right:5px;
+            color:var(--muted);
+        }
+
+        .price-row{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:10px;
+            margin-top:10px;
+        }
+
+        .price{
+            color:var(--brown);
+            font-weight:700;
+            font-size:15px;
+        }
+
+        .price small{
+            font-size:10px;
+            font-weight:400;
+        }
+
+        .add-cart{
+            padding:8px 11px;
+            border:none;
+            border-radius:8px;
+            background:var(--brown);
+            color:#fff;
+            font-size:11px;
+            transition:.2s;
+        }
+
+        .add-cart:hover{
+            background:var(--accent);
+        }
+
+        .empty-state{
+            display:none;
+            grid-column:1/-1;
+            padding:35px;
+            text-align:center;
+            color:var(--muted);
+            background:#fff;
+            border:1px dashed var(--border);
+            border-radius:16px;
+        }
+
+        .pagination{
+            margin-top:35px;
+            display:flex;
+            justify-content:center;
+            gap:7px;
+        }
+
+        .pagination button{
+            width:38px;
+            height:38px;
+            border:1px solid var(--border);
+            border-radius:8px;
+            background:#fff;
+        }
+
+        .pagination button.active,
+        .pagination button:hover{
+            background:var(--brown);
+            color:#fff;
+        }
+
+        .info-section{
+            max-width:1400px;
+            margin:0 auto 60px;
+            padding:0 25px;
+        }
+
+        .info-box{
+            padding:30px;
+            background:#fff;
+            border:1px solid var(--border);
+            border-radius:18px;
+        }
+
+        .info-box h2{
+            margin-bottom:12px;
+            color:var(--brown);
+            font-size:21px;
+        }
+
+        .info-box p{
+            color:var(--muted);
+            font-size:14px;
+        }
+
+        footer{
+            padding:50px 25px 20px;
+            background:var(--brown-dark);
+            color:#fff;
+        }
+
+        .footer-inner{
+            max-width:1400px;
+            margin:auto;
+            display:grid;
+            grid-template-columns:2fr 1fr 1fr 1fr;
+            gap:35px;
+        }
+
+        footer h3{
+            margin-bottom:14px;
+            font-size:17px;
+        }
+
+        footer p,
+        footer li,
+        footer a{
+            color:#cec1bb;
+            font-size:13px;
+        }
+
+        footer li{
+            list-style:none;
+            margin:7px 0;
+        }
+
+        footer a:hover{
+            color:#fff;
+        }
+
+        .copyright{
+            max-width:1400px;
+            margin:35px auto 0;
+            padding-top:18px;
+            border-top:1px solid rgba(255,255,255,.12);
+            text-align:center;
+            color:#b8aaa3;
+            font-size:12px;
+        }
+
+        .toast{
+            position:fixed;
+            z-index:5000;
+            right:25px;
+            bottom:25px;
+            padding:13px 20px;
+            border-radius:10px;
+            background:var(--brown);
+            color:#fff;
+            font-size:13px;
+            opacity:0;
+            transform:translateY(100px);
+            transition:.3s;
+        }
+
+        .toast.show{
+            opacity:1;
+            transform:translateY(0);
+        }
+
+        @media(max-width:1050px){
+            .product-grid{
+                grid-template-columns:repeat(2,1fr);
+            }
+
+            .footer-inner{
+                grid-template-columns:repeat(2,1fr);
+            }
+        }
+
+        @media(max-width:800px){
+            .header-main{
+                flex-wrap:wrap;
+            }
+
+            .logo{
+                min-width:auto;
+            }
+
+            .search-box{
+                order:3;
+                flex-basis:100%;
+            }
+
+            .page-layout{
+                grid-template-columns:1fr;
+            }
+
+            .filters{
+                position:static;
+            }
+        }
+
+        @media(max-width:600px){
+            .header-main{
+                padding:13px 14px;
+                gap:10px;
+            }
+
+            .logo{
+                font-size:21px;
+            }
+
+            .header-actions{
+                margin-right:auto;
+            }
+
+            .header-btn{
+                width:37px;
+                height:37px;
+            }
+
+            .hero{
+                margin:10px 12px 25px;
+                padding:30px 22px;
+            }
+
+            .hero h1{
+                font-size:25px;
+            }
+
+            .breadcrumb{
+                padding-right:15px;
+                padding-left:15px;
+            }
+
+            .page-layout{
+                padding:0 12px 40px;
+            }
+
+            .product-grid{
+                grid-template-columns:repeat(2,minmax(0,1fr));
+                gap:10px;
+            }
+
+            .product-image{
+                height:190px;
+            }
+
+            .product-info{
+                padding:11px;
+            }
+
+            .product-name{
+                font-size:12px;
+            }
+
+            .price-row{
+                flex-direction:column;
+                align-items:stretch;
+            }
+
+            .add-cart{
+                width:100%;
+            }
+
+            .products-toolbar{
+                flex-direction:column;
+                align-items:stretch;
+            }
+
+            .sort-box{
+                width:100%;
+            }
+
+            .footer-inner{
+                grid-template-columns:1fr;
+            }
+
+            .info-section{
+                padding:0 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-bar">
+        خرید محصولات مراقبتی و زیبایی از ALKAMOONE
+    </div>
+
+    <header>
+
+        <div class="header-main">
+
+            <a href="../index.html" class="logo">
+                ALKA<span>MOONE</span>
+            </a>
+
+            <div class="search-box">
+
+                <span class="search-icon">⌕</span>
+
+                <input
+                    id="searchInput"
+                    type="search"
+                    placeholder="جستجوی محصول..."
+                    aria-label="جستجوی محصولات"
+                >
+
+            </div>
+
+            <div class="header-actions">
+
+                <button
+                    class="header-btn"
+                    type="button"
+                    aria-label="حساب کاربری"
+                >
+                    ♙
+                </button>
+
+                <button
+                    class="header-btn"
+                    type="button"
+                    aria-label="علاقه‌مندی‌ها"
+                >
+                    ♡
+                    <span class="counter" id="wishlistCount">0</span>
+                </button>
+
+                <button
+                    class="header-btn"
+                    type="button"
+                    aria-label="سبد خرید"
+                >
+                    🛒
+                    <span class="counter" id="cartCount">0</span>
+                </button>
+
+            </div>
+
+        </div>
+
+        <nav aria-label="منوی اصلی">
+
+            <div class="nav-inner">
+
+                <a href="../index.html">خانه</a>
+                <a href="../skincare.html">محصولات مراقبتی</a>
+                <a href="../makeup.html">لوازم آرایشی</a>
+                <a href="../hygiene.html">لوازم بهداشتی</a>
+                <a href="../korean-products.html">محصولات کره‌ای</a>
+                <a href="#" class="active">پاک کننده صورت</a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <div class="breadcrumb">
+
+        <a href="../index.html">خانه</a>
+        <span> ← </span>
+
+        <a href="#">محصولات مراقبتی</a>
+        <span> ← </span>
+
+        <a href="#">پاک کننده صورت</a>
+        <span> ← </span>
+
+        <strong>پاک کننده آرایش چشم</strong>
+
+    </div>
+
+    <section class="hero">
+
+        <h1>پاک کننده آرایش چشم</h1>
+
+        <p>
+            مجموعه پاک کننده‌های مخصوص آرایش چشم برای پاکسازی آرایش روزانه
+            و انتخاب محصول متناسب با نیاز و نوع پوست اطراف چشم.
+        </p>
+
+    </section>
+
+    <main class="page-layout">
+
+        <aside class="filters">
+
+            <div class="filter-title">
+                فیلتر محصولات
+            </div>
+
+            <div class="filter-group">
+
+                <h3>نوع محصول</h3>
+
+                <label class="filter-option">
+                    <input type="checkbox">
+                    پاک کننده دو فاز
+                </label>
+
+                <label class="filter-option">
+                    <input type="checkbox">
+                    محلول پاک کننده
+                </label>
+
+                <label class="filter-option">
+                    <input type="checkbox">
+                    مناسب آرایش ضدآب
+                </label>
+
+                <label class="filter-option">
+                    <input type="checkbox">
+                    مناسب پوست حساس
+                </label>
+
+            </div>
+
+            <div class="filter-group">
+
+                <h3>ویژگی</h3>
+
+                <label class="filter-option">
+                    <input type="checkbox">
+                    بدون عطر
+                </label>
+
+                <label class="filter-option">
+                    <input type="checkbox">
+                    پاکسازی ملایم
+                </label>
+
+                <label class="filter-option">
+                    <input type="checkbox">
+                    مناسب استفاده روزانه
+                </label>
+
+            </div>
+
+            <div class="filter-group">
+
+                <h3>محدوده قیمت</h3>
+
+                <div class="price-inputs">
+                    <input type="number" placeholder="از">
+                    <input type="number" placeholder="تا">
+                </div>
+
+            </div>
+
+        </aside>
+
+        <section>
+
+            <div class="products-toolbar">
+
+                <div class="result-count">
+                    نمایش
+                    <strong id="resultCount">6</strong>
+                    محصول
+                </div>
+
+                <select
+                    class="sort-box"
+                    id="sortSelect"
+                    aria-label="مرتب سازی محصولات"
+                >
+
+                    <option value="default">
+                        مرتب‌سازی پیش‌فرض
+                    </option>
+
+                    <option value="cheap">
+                        ارزان‌ترین
+                    </option>
+
+                    <option value="expensive">
+                        گران‌ترین
+                    </option>
+
+                    <option value="name">
+                        بر اساس نام
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="product-grid" id="productGrid">
+
+                <article
+                    class="product-card"
+                    data-name="پاک کننده دو فاز آرایش چشم"
+                    data-price="690000"
+                >
+
+                    <div class="product-image">
+
+                        <span class="badge">
+                            پرفروش
+                        </span>
+
+                        <button
+                            class="heart"
+                            type="button"
+                            aria-label="افزودن به علاقه‌مندی"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="../assets/images/products/eye-makeup-remover-01.jpg"
+                            alt="پاک کننده دو فاز آرایش چشم"
+                            onerror="imageFallback(this,'پاک کننده دو فاز آرایش چشم')"
+                        >
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <div class="brand">
+                            DEMO BEAUTY
+                        </div>
+
+                        <div class="product-name">
+                            پاک کننده دو فاز آرایش چشم
+                        </div>
+
+                        <div class="rating">
+                            ★★★★★
+                            <span>(24)</span>
+                        </div>
+
+                        <div class="price-row">
+
+                            <div class="price">
+                                ۶۹۰,۰۰۰
+                                <small>تومان</small>
+                            </div>
+
+                            <button
+                                class="add-cart"
+                                type="button"
+                                onclick="addToCart('پاک کننده دو فاز آرایش چشم')"
+                            >
+                                افزودن به سبد
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+                <article
+                    class="product-card"
+                    data-name="پاک کننده آرایش چشم پوست حساس"
+                    data-price="790000"
+                >
+
+                    <div class="product-image">
+
+                        <span class="badge">
+                            ویژه
+                        </span>
+
+                        <button
+                            class="heart"
+                            type="button"
+                            aria-label="افزودن به علاقه‌مندی"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="../assets/images/products/eye-makeup-remover-02.jpg"
+                            alt="پاک کننده آرایش چشم پوست حساس"
+                            onerror="imageFallback(this,'پاک کننده آرایش چشم پوست حساس')"
+                        >
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <div class="brand">
+                            DEMO CARE
+                        </div>
+
+                        <div class="product-name">
+                            پاک کننده ملایم آرایش چشم برای پوست حساس
+                        </div>
+
+                        <div class="rating">
+                            ★★★★★
+                            <span>(16)</span>
+                        </div>
+
+                        <div class="price-row">
+
+                            <div class="price">
+                                ۷۹۰,۰۰۰
+                                <small>تومان</small>
+                            </div>
+
+                            <button
+                                class="add-cart"
+                                type="button"
+                                onclick="addToCart('پاک کننده آرایش چشم پوست حساس')"
+                            >
+                                افزودن به سبد
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+                <article
+                    class="product-card"
+                    data-name="پاک کننده آرایش ضدآب چشم"
+                    data-price="920000"
+                >
+
+                    <div class="product-image">
+
+                        <button
+                            class="heart"
+                            type="button"
+                            aria-label="افزودن به علاقه‌مندی"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="../assets/images/products/eye-makeup-remover-03.jpg"
+                            alt="پاک کننده آرایش ضدآب چشم"
+                            onerror="imageFallback(this,'پاک کننده آرایش ضدآب چشم')"
+                        >
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <div class="brand">
+                            DEMO LAB
+                        </div>
+
+                        <div class="product-name">
+                            پاک کننده مخصوص آرایش ضدآب چشم
+                        </div>
+
+                        <div class="rating">
+                            ★★★★☆
+                            <span>(19)</span>
+                        </div>
+
+                        <div class="price-row">
+
+                            <div class="price">
+                                ۹۲۰,۰۰۰
+                                <small>تومان</small>
+                            </div>
+
+                            <button
+                                class="add-cart"
+                                type="button"
+                                onclick="addToCart('پاک کننده آرایش ضدآب چشم')"
+                            >
+                                افزودن به سبد
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+                <article
+                    class="product-card"
+                    data-name="پاک کننده آرایش چشم بدون عطر"
+                    data-price="860000"
+                >
+
+                    <div class="product-image">
+
+                        <span class="badge">
+                            جدید
+                        </span>
+
+                        <button
+                            class="heart"
+                            type="button"
+                            aria-label="افزودن به علاقه‌مندی"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="../assets/images/products/eye-makeup-remover-04.jpg"
+                            alt="پاک کننده آرایش چشم بدون عطر"
+                            onerror="imageFallback(this,'پاک کننده آرایش چشم بدون عطر')"
+                        >
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <div class="brand">
+                            DEMO SENSITIVE
+                        </div>
+
+                        <div class="product-name">
+                            محلول پاک کننده آرایش چشم بدون عطر
+                        </div>
+
+                        <div class="rating">
+                            ★★★★★
+                            <span>(12)</span>
+                        </div>
+
+                        <div class="price-row">
+
+                            <div class="price">
+                                ۸۶۰,۰۰۰
+                                <small>تومان</small>
+                            </div>
+
+                            <button
+                                class="add-cart"
+                                type="button"
+                                onclick="addToCart('پاک کننده آرایش چشم بدون عطر')"
+                            >
+                                افزودن به سبد
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+                <article
+                    class="product-card"
+                    data-name="محلول پاک کننده روزانه آرایش چشم"
+                    data-price="610000"
+                >
+
+                    <div class="product-image">
+
+                        <button
+                            class="heart"
+                            type="button"
+                            aria-label="افزودن به علاقه‌مندی"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="../assets/images/products/eye-makeup-remover-05.jpg"
+                            alt="محلول پاک کننده روزانه آرایش چشم"
+                            onerror="imageFallback(this,'پاک کننده روزانه آرایش چشم')"
+                        >
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <div class="brand">
+                            DEMO DAILY
+                        </div>
+
+                        <div class="product-name">
+                            محلول پاک کننده روزانه آرایش چشم
+                        </div>
+
+                        <div class="rating">
+                            ★★★★☆
+                            <span>(27)</span>
+                        </div>
+
+                        <div class="price-row">
+
+                            <div class="price">
+                                ۶۱۰,۰۰۰
+                                <small>تومان</small>
+                            </div>
+
+                            <button
+                                class="add-cart"
+                                type="button"
+                                onclick="addToCart('محلول پاک کننده روزانه آرایش چشم')"
+                            >
+                                افزودن به سبد
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+                <article
+                    class="product-card"
+                    data-name="پاک کننده دو فاز آرایش ضدآب"
+                    data-price="1050000"
+                >
+
+                    <div class="product-image">
+
+                        <span class="badge">
+                            پیشنهاد
+                        </span>
+
+                        <button
+                            class="heart"
+                            type="button"
+                            aria-label="افزودن به علاقه‌مندی"
+                            onclick="toggleWishlist(this)"
+                        >
+                            ♡
+                        </button>
+
+                        <img
+                            src="../assets/images/products/eye-makeup-remover-06.jpg"
+                            alt="پاک کننده دو فاز آرایش ضدآب"
+                            onerror="imageFallback(this,'پاک کننده دو فاز ضدآب')"
+                        >
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <div class="brand">
+                            DEMO PURE
+                        </div>
+
+                        <div class="product-name">
+                            پاک کننده دو فاز برای آرایش چشم ضدآب
+                        </div>
+
+                        <div class="rating">
+                            ★★★★★
+                            <span>(15)</span>
+                        </div>
+
+                        <div class="price-row">
+
+                            <div class="price">
+                                ۱,۰۵۰,۰۰۰
+                                <small>تومان</small>
+                            </div>
+
+                            <button
+                                class="add-cart"
+                                type="button"
+                                onclick="addToCart('پاک کننده دو فاز آرایش ضدآب')"
+                            >
+                                افزودن به سبد
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+                <div
+                    id="emptyState"
+                    class="empty-state"
+                >
+                    محصولی مطابق جستجوی شما پیدا نشد.
+                </div>
+
+            </div>
+
+            <div class="pagination">
+
+                <button class="active" type="button">
+                    ۱
+                </button>
+
+                <button type="button">
+                    ۲
+                </button>
+
+                <button type="button">
+                    ۳
+                </button>
+
+                <button type="button">
+                    ←
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <section class="info-section">
+
+        <div class="info-box">
+
+            <h2>
+                پاک کننده آرایش چشم
+            </h2>
+
+            <p>
+                پاک کننده‌های مخصوص آرایش چشم در مدل‌های مختلف مانند محلول
+                پاک کننده و محصولات دو فاز عرضه می‌شوند. در زمان انتخاب محصول،
+                نوع آرایش و حساسیت پوست اطراف چشم را در نظر بگیرید.
+            </p>
+
+        </div>
+
+    </section>
+
+    <footer>
+
+        <div class="footer-inner">
+
+            <div>
+
+                <h3>
+                    ALKAMOONE
+                </h3>
+
+                <p>
+                    فروشگاه محصولات مراقبت از پوست، مو،
+                    آرایشی و بهداشتی.
+                </p>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    دسترسی سریع
+                </h3>
+
+                <ul>
+                    <li>
+                        <a href="../index.html">
+                            خانه
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../skincare.html">
+                            مراقبت پوست
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../makeup.html">
+                            لوازم آرایشی
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    خدمات مشتریان
+                </h3>
+
+                <ul>
+                    <li>
+                        <a href="#">
+                            سوالات متداول
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            شرایط ارسال
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            شرایط بازگشت
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    ارتباط با ما
+                </h3>
+
+                <ul>
+                    <li>پشتیبانی ALKAMOONE</li>
+                    <li>support@alkamoone.ir</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 ALKAMOONE - تمامی حقوق محفوظ است.
+        </div>
+
+    </footer>
+
+    <div
+        class="toast"
+        id="toast"
+        role="status"
+        aria-live="polite"
+    ></div>
+
+    <script>
+
+        let cartCount = 0;
+        let wishlistCount = 0;
+
+        const cartCounter =
+            document.getElementById("cartCount");
+
+        const wishlistCounter =
+            document.getElementById("wishlistCount");
+
+        const toast =
+            document.getElementById("toast");
+
+        const searchInput =
+            document.getElementById("searchInput");
+
+        const sortSelect =
+            document.getElementById("sortSelect");
+
+        const grid =
+            document.getElementById("productGrid");
+
+        const products =
+            [...document.querySelectorAll(".product-card")];
+
+        const resultCount =
+            document.getElementById("resultCount");
+
+        const emptyState =
+            document.getElementById("emptyState");
+
+
+        function showToast(message){
+
+            toast.textContent =
+                message;
+
+            toast.classList.add("show");
+
+            clearTimeout(window.toastTimer);
+
+            window.toastTimer =
+                setTimeout(() => {
+
+                    toast.classList.remove("show");
+
+                },2200);
+        }
+
+
+        function addToCart(name){
+
+            cartCount++;
+
+            cartCounter.textContent =
+                cartCount;
+
+            showToast(
+                "«" + name + "» به سبد خرید اضافه شد."
+            );
+        }
+
+
+        function toggleWishlist(button){
+
+            button.classList.toggle("active");
+
+            if(
+                button.classList.contains("active")
+            ){
+
+                button.textContent =
+                    "♥";
+
+                button.setAttribute(
+                    "aria-label",
+                    "حذف از علاقه‌مندی"
+                );
+
+                wishlistCount++;
+
+                showToast(
+                    "محصول به علاقه‌مندی‌ها اضافه شد."
+                );
+
+            }else{
+
+                button.textContent =
+                    "♡";
+
+                button.setAttribute(
+                    "aria-label",
+                    "افزودن به علاقه‌مندی"
+                );
+
+                wishlistCount =
+                    Math.max(
+                        0,
+                        wishlistCount - 1
+                    );
+
+                showToast(
+                    "محصول از علاقه‌مندی‌ها حذف شد."
+                );
+
+            }
+
+            wishlistCounter.textContent =
+                wishlistCount;
+        }
+
+
+        function imageFallback(image,title){
+
+            const fallback =
+                document.createElement("div");
+
+            fallback.className =
+                "image-fallback";
+
+            fallback.textContent =
+                title;
+
+            image.replaceWith(fallback);
+        }
+
+
+        searchInput.addEventListener(
+            "input",
+            function(){
+
+                const query =
+                    this.value
+                    .trim()
+                    .toLowerCase();
+
+                let visibleCount = 0;
+
+                products.forEach(product => {
+
+                    const name =
+                        product.dataset.name
+                        .toLowerCase();
+
+                    const show =
+                        name.includes(query);
+
+                    product.style.display =
+                        show
+                        ? ""
+                        : "none";
+
+                    if(show){
+                        visibleCount++;
+                    }
+
+                });
+
+                resultCount.textContent =
+                    visibleCount;
+
+                emptyState.style.display =
+                    visibleCount === 0
+                    ? "block"
+                    : "none";
+
+            }
+        );
+
+
+        sortSelect.addEventListener(
+            "change",
+            function(){
+
+                const sorted =
+                    [...products];
+
+                if(
+                    this.value === "cheap"
+                ){
+
+                    sorted.sort(
+                        (a,b) =>
+                        Number(a.dataset.price) -
+                        Number(b.dataset.price)
+                    );
+
+                }
+
+
+                if(
+                    this.value === "expensive"
+                ){
+
+                    sorted.sort(
+                        (a,b) =>
+                        Number(b.dataset.price) -
+                        Number(a.dataset.price)
+                    );
+
+                }
+
+
+                if(
+                    this.value === "name"
+                ){
+
+                    sorted.sort(
+                        (a,b) =>
+                        a.dataset.name.localeCompare(
+                            b.dataset.name,
+                            "fa"
+                        )
+                    );
+
+                }
+
+
+                sorted.forEach(product => {
+
+                    grid.insertBefore(
+                        product,
+                        emptyState
+                    );
+
+                });
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>

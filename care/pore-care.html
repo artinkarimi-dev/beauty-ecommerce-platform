@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>مراقبت از منافذ پوست | BEAUTY</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #183f36;
+            --dark: #102f29;
+            --gold: #b18a52;
+            --bg: #f7f8f6;
+            --white: #fff;
+            --soft: #eef3f0;
+            --text: #202824;
+            --muted: #74807b;
+            --border: #dfe6e2;
+        }
+
+        body {
+            font-family: Tahoma, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: min(1380px, calc(100% - 40px));
+            margin: auto;
+        }
+
+        .top {
+            text-align: center;
+            background: var(--primary);
+            color: white;
+            padding: 7px;
+            font-size: 11px;
+        }
+
+        header {
+            background: white;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-content {
+            display: grid;
+            grid-template-columns: 180px 1fr 180px;
+            gap: 25px;
+            align-items: center;
+            min-height: 80px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            background: var(--soft);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+
+        .icons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        .icons a {
+            border: 1px solid var(--border);
+            width: 40px;
+            height: 40px;
+            display: grid;
+            place-items: center;
+            border-radius: 10px;
+        }
+
+        nav {
+            border-top: 1px solid var(--border);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            min-height: 50px;
+            align-items: center;
+            overflow-x: auto;
+        }
+
+        nav li {
+            white-space: nowrap;
+            font-size: 12px;
+        }
+
+        .breadcrumb {
+            padding: 20px 0;
+            color: var(--muted);
+            font-size: 10px;
+        }
+
+        .hero {
+            padding: 40px;
+            border-radius: 20px;
+            background: linear-gradient(120deg, #e7f0ec, #f8f6ef);
+            border: 1px solid var(--border);
+        }
+
+        .hero small {
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        .hero h1 {
+            color: var(--primary);
+            font-size: clamp(30px, 5vw, 45px);
+            margin: 8px 0;
+        }
+
+        .hero p {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: 230px 1fr;
+            gap: 25px;
+            padding: 45px 0 70px;
+        }
+
+        aside {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px;
+            height: fit-content;
+        }
+
+        aside h2 {
+            color: var(--primary);
+            font-size: 16px;
+            margin-bottom: 18px;
+        }
+
+        .filter {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .filter:last-child {
+            border: none;
+        }
+
+        .filter h3 {
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        label {
+            display: block;
+            font-size: 11px;
+            color: var(--muted);
+            margin: 8px 0;
+        }
+
+        .head {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 18px;
+            gap: 20px;
+        }
+
+        .head h2 {
+            color: var(--primary);
+        }
+
+        select {
+            border: 1px solid var(--border);
+            padding: 10px;
+            border-radius: 8px;
+            background: white;
+        }
+
+        .empty {
+            min-height: 320px;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border: 1px dashed var(--border);
+            border-radius: 16px;
+        }
+
+        .empty h3 {
+            color: var(--primary);
+        }
+
+        .empty p {
+            color: var(--muted);
+            font-size: 11px;
+            margin-top: 8px;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 45px 0 20px;
+        }
+
+        .footer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        footer h3 {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        footer a,
+        footer p {
+            display: block;
+            color: #b8c9c3;
+            font-size: 10px;
+            margin-bottom: 8px;
+        }
+
+        .copy {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,.1);
+            color: #8fa7a0;
+            font-size: 10px;
+        }
+
+        @media(max-width: 800px) {
+            .header-content {
+                grid-template-columns: 1fr auto;
+                padding: 15px 0;
+            }
+
+            .search {
+                grid-column: 1 / -1;
+            }
+
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
+            .footer {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width: 500px) {
+            .container {
+                width: calc(100% - 24px);
+            }
+
+            .hero {
+                padding: 25px;
+            }
+
+            .footer {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top">
+        ارسال سریع | تضمین اصالت کالا | پشتیبانی آنلاین
+    </div>
+
+    <header>
+
+        <div class="container">
+
+            <div class="header-content">
+
+                <a href="../index.html" class="logo">
+                    BEAUTY
+                </a>
+
+                <div class="search">
+                    <input type="search" placeholder="جستجوی محصول...">
+                </div>
+
+                <div class="icons">
+                    <a href="#">♡</a>
+                    <a href="#">♙</a>
+                    <a href="#">🛒</a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <nav>
+            <div class="container">
+                <ul>
+                    <li><a href="../index.html">خانه</a></li>
+                    <li><a href="care.html">مراقبتی</a></li>
+                    <li><a href="../makeup/makeup.html">آرایشی</a></li>
+                    <li><a href="../hygiene/hygiene.html">بهداشتی</a></li>
+                    <li><a href="../korean/korean.html">محصولات کره‌ای</a></li>
+                    <li><a href="../brands/brands.html">برندها</a></li>
+                </ul>
+            </div>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <div class="container breadcrumb">
+            خانه / مراقبتی / مراقبت از منافذ
+        </div>
+
+        <section class="container">
+
+            <div class="hero">
+
+                <small>CARE / PORE CARE</small>
+
+                <h1>مراقبت از منافذ پوست</h1>
+
+                <p>
+                    محصولات تخصصی برای مراقبت از ظاهر منافذ و تکمیل روتین پوستی.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section class="container layout">
+
+            <aside>
+
+                <h2>فیلتر محصولات</h2>
+
+                <div class="filter">
+
+                    <h3>نوع محصول</h3>
+
+                    <label><input type="checkbox"> تونر</label>
+                    <label><input type="checkbox"> سرم</label>
+                    <label><input type="checkbox"> ماسک</label>
+                    <label><input type="checkbox"> شوینده</label>
+
+                </div>
+
+                <div class="filter">
+
+                    <h3>نوع پوست</h3>
+
+                    <label><input type="checkbox"> چرب</label>
+                    <label><input type="checkbox"> مختلط</label>
+                    <label><input type="checkbox"> معمولی</label>
+
+                </div>
+
+            </aside>
+
+            <div>
+
+                <div class="head">
+
+                    <h2>محصولات مراقبت از منافذ</h2>
+
+                    <select>
+                        <option>جدیدترین</option>
+                        <option>محبوب‌ترین</option>
+                        <option>ارزان‌ترین</option>
+                        <option>گران‌ترین</option>
+                    </select>
+
+                </div>
+
+                <div class="empty">
+
+                    <div>
+                        <h3>محصولی هنوز ثبت نشده است</h3>
+
+                        <p>
+                            پس از اتصال بخش محصولات به دیتابیس، محصولات این دسته در اینجا نمایش داده می‌شوند.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer">
+
+                <div>
+                    <h3>BEAUTY</h3>
+                    <p>فروشگاه تخصصی محصولات زیبایی.</p>
+                </div>
+
+                <div>
+                    <h3>دسته‌بندی‌ها</h3>
+                    <a href="care.html">مراقبتی</a>
+                    <a href="../makeup/makeup.html">آرایشی</a>
+                    <a href="../hygiene/hygiene.html">بهداشتی</a>
+                </div>
+
+                <div>
+                    <h3>فروشگاه</h3>
+                    <a href="../korean/korean.html">محصولات کره‌ای</a>
+                    <a href="../brands/brands.html">برندها</a>
+                </div>
+
+                <div>
+                    <h3>پشتیبانی</h3>
+                    <a href="#">تماس با ما</a>
+                    <a href="#">سوالات متداول</a>
+                </div>
+
+            </div>
+
+            <div class="copy">
+                © 2026 BEAUTY
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>

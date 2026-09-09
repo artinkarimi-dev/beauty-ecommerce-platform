@@ -1,0 +1,7 @@
+backend/storage/logs/*.log
+backend/storage/sessions/*
+backend/config/local.php
+.env
+*.log
+.DS_Store
+Thumbs.db
