@@ -715,12 +715,12 @@
     <nav>
         <div class="nav-inner">
             <a href="../index.html">خانه</a>
-            <a href="../skincare.html">محصولات مراقبتی</a>
-            <a href="../makeup.html">لوازم آرایشی</a>
-            <a href="../hygiene.html">لوازم بهداشتی</a>
-            <a href="../korean-products.html">محصولات کره‌ای</a>
-            <a href="#" class="active">پاک کننده صورت</a>
-            <a href="../contact.html">تماس با ما</a>
+            <a href="../care/care.html">محصولات مراقبتی</a>
+            <a aria-disabled="true" role="link" tabindex="-1" title="این بخش هنوز فعال نیست">لوازم آرایشی</a>
+            <a aria-disabled="true" role="link" tabindex="-1" title="این بخش هنوز فعال نیست">لوازم بهداشتی</a>
+            <a aria-disabled="true" role="link" tabindex="-1" title="این بخش هنوز فعال نیست">محصولات کره‌ای</a>
+            <span class="active" aria-current="page">پاک کننده صورت</span>
+            <a aria-disabled="true" role="link" tabindex="-1" title="این بخش هنوز فعال نیست">تماس با ما</a>
         </div>
     </nav>
 
@@ -729,9 +729,9 @@
 <div class="breadcrumb">
     <a href="../index.html">خانه</a>
     <span> ← </span>
-    <a href="#">محصولات مراقبتی</a>
+    <a href="../care/care.html">محصولات مراقبتی</a>
     <span> ← </span>
-    <a href="#">پاک کننده صورت</a>
+    <a href="face-cleanser.html">پاک کننده صورت</a>
     <span> ← </span>
     <strong>ژل شست‌وشوی صورت</strong>
 </div>
@@ -874,10 +874,7 @@
                         پرفروش
                     </span>
 
-                    <button
-                        class="heart"
-                        onclick="toggleWishlist(this)"
-                    >
+                    <button class="heart" type="button" disabled aria-disabled="true" title="علاقه‌مندی‌ها هنوز فعال نیست">
                         ♡
                     </button>
 
@@ -936,10 +933,7 @@
                         ویژه
                     </span>
 
-                    <button
-                        class="heart"
-                        onclick="toggleWishlist(this)"
-                    >
+                    <button class="heart" type="button" disabled aria-disabled="true" title="علاقه‌مندی‌ها هنوز فعال نیست">
                         ♡
                     </button>
 
@@ -994,10 +988,7 @@
 
                 <div class="product-image">
 
-                    <button
-                        class="heart"
-                        onclick="toggleWishlist(this)"
-                    >
+                    <button class="heart" type="button" disabled aria-disabled="true" title="علاقه‌مندی‌ها هنوز فعال نیست">
                         ♡
                     </button>
 
@@ -1056,10 +1047,7 @@
                         جدید
                     </span>
 
-                    <button
-                        class="heart"
-                        onclick="toggleWishlist(this)"
-                    >
+                    <button class="heart" type="button" disabled aria-disabled="true" title="علاقه‌مندی‌ها هنوز فعال نیست">
                         ♡
                     </button>
 
@@ -1114,10 +1102,7 @@
 
                 <div class="product-image">
 
-                    <button
-                        class="heart"
-                        onclick="toggleWishlist(this)"
-                    >
+                    <button class="heart" type="button" disabled aria-disabled="true" title="علاقه‌مندی‌ها هنوز فعال نیست">
                         ♡
                     </button>
 
@@ -1176,10 +1161,7 @@
                         پیشنهاد
                     </span>
 
-                    <button
-                        class="heart"
-                        onclick="toggleWishlist(this)"
-                    >
+                    <button class="heart" type="button" disabled aria-disabled="true" title="علاقه‌مندی‌ها هنوز فعال نیست">
                         ♡
                     </button>
 
@@ -1234,10 +1216,7 @@
 
                 <div class="product-image">
 
-                    <button
-                        class="heart"
-                        onclick="toggleWishlist(this)"
-                    >
+                    <button class="heart" type="button" disabled aria-disabled="true" title="علاقه‌مندی‌ها هنوز فعال نیست">
                         ♡
                     </button>
 
@@ -1292,10 +1271,7 @@
 
                 <div class="product-image">
 
-                    <button
-                        class="heart"
-                        onclick="toggleWishlist(this)"
-                    >
+                    <button class="heart" type="button" disabled aria-disabled="true" title="علاقه‌مندی‌ها هنوز فعال نیست">
                         ♡
                     </button>
 
@@ -1354,10 +1330,7 @@
                         جدید
                     </span>
 
-                    <button
-                        class="heart"
-                        onclick="toggleWishlist(this)"
-                    >
+                    <button class="heart" type="button" disabled aria-disabled="true" title="علاقه‌مندی‌ها هنوز فعال نیست">
                         ♡
                     </button>
 
@@ -1461,19 +1434,19 @@
                 </li>
 
                 <li>
-                    <a href="../skincare.html">
+                    <a href="../care/care.html">
                         مراقبت پوست
                     </a>
                 </li>
 
                 <li>
-                    <a href="../hair-care.html">
+                    <a href="../HAIR/hair-care.html">
                         مراقبت مو
                     </a>
                 </li>
 
                 <li>
-                    <a href="../makeup.html">
+                    <a aria-disabled="true" role="link" tabindex="-1" title="این بخش هنوز فعال نیست">
                         لوازم آرایشی
                     </a>
                 </li>
@@ -1487,27 +1460,19 @@
 
             <ul>
                 <li>
-                    <a href="#">
-                        سوالات متداول
-                    </a>
+                    <span class="disabled-link" aria-disabled="true" style="display:block;opacity:.65;cursor:not-allowed">سوالات متداول</span>
                 </li>
 
                 <li>
-                    <a href="#">
-                        شرایط ارسال
-                    </a>
+                    <span class="disabled-link" aria-disabled="true" style="display:block;opacity:.65;cursor:not-allowed">شرایط ارسال</span>
                 </li>
 
                 <li>
-                    <a href="#">
-                        شرایط بازگشت
-                    </a>
+                    <span class="disabled-link" aria-disabled="true" style="display:block;opacity:.65;cursor:not-allowed">شرایط بازگشت</span>
                 </li>
 
                 <li>
-                    <a href="#">
-                        حریم خصوصی
-                    </a>
+                    <span class="disabled-link" aria-disabled="true" style="display:block;opacity:.65;cursor:not-allowed">حریم خصوصی</span>
                 </li>
             </ul>
 
@@ -1551,36 +1516,9 @@
         setTimeout(() => {
             toast.classList.remove("show");
         }, 2200);
-    }function toggleWishlist(button) {
-
-        button.classList.toggle("active");
-
-        if (button.classList.contains("active")) {
-
-            button.textContent = "♥";
-
-            wishlistCount++;
-
-            showToast(
-                "محصول به علاقه‌مندی‌ها اضافه شد."
-            );
-
-        } else {
-
-            button.textContent = "♡";
-
-            wishlistCount--;
-
-            showToast(
-                "محصول از علاقه‌مندی‌ها حذف شد."
-            );
-        }
-
-        document.getElementById("wishlistCount").textContent =
-            wishlistCount;
     }
 
-    function imageFallback(image, title) {
+        function imageFallback(image, title) {
 
         const box = document.createElement("div");
 

@@ -434,11 +434,11 @@
                 <ul>
                     <li><a href="../index.html">خانه</a></li>
                     <li><a href="../CARE/care.html">مراقبتی</a></li>
-                    <li><a href="../MAKEUP/makeup.html">آرایشی</a></li>
+                    <li><a aria-disabled="true" role="link" tabindex="-1" title="این بخش هنوز فعال نیست">آرایشی</a></li>
                     <li><a class="active" href="face-cleanser.html">پاک کننده صورت</a></li>
                     <li><a href="../HYGIENE/hygiene.html">بهداشتی</a></li>
                     <li><a href="../KOREAN/korean.html">محصولات کره‌ای</a></li>
-                    <li><a href="../BRANDS/brands.html">برندها</a></li>
+                    <li><a aria-disabled="true" role="link" tabindex="-1" title="این بخش هنوز فعال نیست">برندها</a></li>
                 </ul>
 
             </div>
@@ -564,80 +564,10 @@
 
                     </div>
 
-                    <div class="product-grid">
-
-                        <article class="product-card">
-
-                            <div class="product-image">
-                                ◇
-                            </div>
-
-                            <div class="product-info">
-
-                                <span class="product-category">
-                                    روغن پاک‌کننده
-                                </span>
-
-                                <h3 class="product-title">
-                                    محصول نمونه روغن پاک‌کننده
-                                </h3>
-
-                                <p class="product-description">
-                                    محل نمایش توضیحات محصول
-                                </p>
-
-                                <div class="product-bottom">
-
-                                    <span class="price">
-                                        قیمت محصول
-                                    </span>
-
-                                    <button class="add-btn" type="button">
-                                        مشاهده
-                                    </button>
-
-                                </div>
-
-                            </div>
-
-                        </article>
-
-                        <article class="product-card">
-
-                            <div class="product-image">
-                                ◇
-                            </div>
-
-                            <div class="product-info">
-
-                                <span class="product-category">
-                                    بالم پاک‌کننده
-                                </span>
-
-                                <h3 class="product-title">
-                                    محصول نمونه بالم پاک‌کننده
-                                </h3>
-
-                                <p class="product-description">
-                                    محل نمایش توضیحات محصول
-                                </p>
-
-                                <div class="product-bottom">
-
-                                    <span class="price">
-                                        قیمت محصول
-                                    </span>
-
-                                    <button class="add-btn" type="button">
-                                        مشاهده
-                                    </button>
-
-                                </div>
-
-                            </div>
-
-                        </article>
-
+                    <div class="product-grid" data-product-listing data-category="cleaning-oil-balm" data-sort-target="#sortSelect" data-count-target="[data-product-count]" data-button-text="افزودن به سبد" data-cart-enabled="true">
+                        <div class="empty-state" style="grid-column:1/-1;text-align:center;padding:32px;border:1px dashed #d8c7bd;border-radius:12px;color:#7a6257;background:#fffaf7;">
+                            محصولات این دسته پس از تکمیل اطلاعات قابل نمایش و خرید خواهند بود.
+                        </div>
                     </div>
 
                 </div>
@@ -665,21 +595,21 @@
                 <div>
                     <h3>دسته‌بندی‌ها</h3>
                     <a href="../CARE/care.html">مراقبتی</a>
-                    <a href="../MAKEUP/makeup.html">آرایشی</a>
+                    <a aria-disabled="true" role="link" tabindex="-1" title="این بخش هنوز فعال نیست">آرایشی</a>
                     <a href="../HYGIENE/hygiene.html">بهداشتی</a>
                 </div>
 
                 <div>
                     <h3>فروشگاه</h3>
                     <a href="../KOREAN/korean.html">محصولات کره‌ای</a>
-                    <a href="../BRANDS/brands.html">برندها</a>
+                    <a aria-disabled="true" role="link" tabindex="-1" title="این بخش هنوز فعال نیست">برندها</a>
                 </div>
 
                 <div>
                     <h3>پشتیبانی</h3>
-                    <a href="#">تماس با ما</a>
-                    <a href="#">سؤالات متداول</a>
-                    <a href="#">قوانین و مقررات</a>
+                    <span class="disabled-link" aria-disabled="true" style="display:block;opacity:.65;cursor:not-allowed">تماس با ما</span>
+                    <span class="disabled-link" aria-disabled="true" style="display:block;opacity:.65;cursor:not-allowed">سؤالات متداول</span>
+                    <span class="disabled-link" aria-disabled="true" style="display:block;opacity:.65;cursor:not-allowed">قوانین و مقررات</span>
                 </div>
 
             </div>
@@ -692,5 +622,7 @@
 
     </footer>
 
+<script src="../assets/js/commerce.js" defer></script>
+<script src="../assets/js/product-listing.js" defer></script>
 </body>
 </html>

@@ -474,8 +474,8 @@
         </div>
 
         <div class="actions">
-            <button class="action">♙</button>
-            <button class="action">♡</button>
+            <button class="action" type="button" disabled aria-disabled="true" aria-label="حساب کاربری" title="این قابلیت هنوز فعال نیست">♙</button>
+            <button class="action" type="button" disabled aria-disabled="true" aria-label="علاقه‌مندی‌ها" title="این قابلیت هنوز فعال نیست">♡</button>
             <a class="action" href="../cart.html" aria-label="سبد خرید">🛒</a>
         </div>
 
@@ -485,10 +485,10 @@
         <div class="container">
             <ul>
                 <li><a href="../index.html">خانه</a></li>
-                <li><a href="../SKIN-CARE/index.html">محصولات مراقبتی</a></li>
+                <li><a href="../care/care.html">محصولات مراقبتی</a></li>
                 <li><a href="body-care.html" class="active">مراقبت بدن</a></li>
-                <li><a href="../HAIR-CARE/index.html">محصولات مو</a></li>
-                <li><a href="../LIP-CARE/index.html">مراقبت لب</a></li>
+                <li><a href="../HAIR/hair-care.html">محصولات مو</a></li>
+                <li><a href="../LIP-CARE/lip-care.html">مراقبت لب</a></li>
             </ul>
         </div>
     </nav>
@@ -631,7 +631,7 @@
 
                     <div class="product-image">
                         <span class="badge">پرفروش</span>
-                        <button class="heart">♡</button>
+                        <button class="heart" type="button" disabled aria-disabled="true" title="علاقه‌مندی‌ها هنوز فعال نیست">♡</button>
                         🧴
                         <small>HAND CREAM</small>
                     </div>
@@ -655,7 +655,7 @@
                 <article class="product-card">
 
                     <div class="product-image">
-                        <button class="heart">♡</button>
+                        <button class="heart" type="button" disabled aria-disabled="true" title="علاقه‌مندی‌ها هنوز فعال نیست">♡</button>
                         🧴
                         <small>FOOT CREAM</small>
                     </div>
@@ -680,7 +680,7 @@
 
                     <div class="product-image">
                         <span class="badge">جدید</span>
-                        <button class="heart">♡</button>
+                        <button class="heart" type="button" disabled aria-disabled="true" title="علاقه‌مندی‌ها هنوز فعال نیست">♡</button>
                         🧴
                         <small>REPAIR CARE</small>
                     </div>
@@ -704,7 +704,7 @@
                 <article class="product-card">
 
                     <div class="product-image">
-                        <button class="heart">♡</button>
+                        <button class="heart" type="button" disabled aria-disabled="true" title="علاقه‌مندی‌ها هنوز فعال نیست">♡</button>
                         🧴
                         <small>MOISTURE</small>
                     </div>
@@ -728,7 +728,7 @@
                 <article class="product-card">
 
                     <div class="product-image">
-                        <button class="heart">♡</button>
+                        <button class="heart" type="button" disabled aria-disabled="true" title="علاقه‌مندی‌ها هنوز فعال نیست">♡</button>
                         🧴
                         <small>HEEL CARE</small>
                     </div>
@@ -752,7 +752,7 @@
                 <article class="product-card">
 
                     <div class="product-image">
-                        <button class="heart">♡</button>
+                        <button class="heart" type="button" disabled aria-disabled="true" title="علاقه‌مندی‌ها هنوز فعال نیست">♡</button>
                         🧴
                         <small>SOFT HANDS</small>
                     </div>
@@ -777,7 +777,7 @@
 
                     <div class="product-image">
                         <span class="badge">محبوب</span>
-                        <button class="heart">♡</button>
+                        <button class="heart" type="button" disabled aria-disabled="true" title="علاقه‌مندی‌ها هنوز فعال نیست">♡</button>
                         🧴
                         <small>INTENSIVE CARE</small>
                     </div>
@@ -801,7 +801,7 @@
                 <article class="product-card">
 
                     <div class="product-image">
-                        <button class="heart">♡</button>
+                        <button class="heart" type="button" disabled aria-disabled="true" title="علاقه‌مندی‌ها هنوز فعال نیست">♡</button>
                         🧴
                         <small>DAILY CARE</small>
                     </div>
@@ -850,8 +850,8 @@
         <div>
             <h3>خدمات</h3>
             <a href="../order-tracking.html">پیگیری سفارش</a>
-            <a href="#">پشتیبانی</a>
-            <a href="#">قوانین و مقررات</a>
+            <span class="disabled-link" aria-disabled="true" style="display:block;opacity:.65;cursor:not-allowed">پشتیبانی</span>
+            <span class="disabled-link" aria-disabled="true" style="display:block;opacity:.65;cursor:not-allowed">قوانین و مقررات</span>
         </div>
 
         <div>
@@ -868,15 +868,6 @@
 
 </footer>
 
-<script>
-    document.querySelectorAll(".heart").forEach(button => {
-        button.addEventListener("click", function() {
-            this.classList.toggle("active");
-            this.textContent =
-                this.classList.contains("active") ? "♥" : "♡";
-        });
-    });
-</script>
 <script src="../assets/js/static-cart-integration.js" defer></script>
 
 </body>

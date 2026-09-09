@@ -743,11 +743,11 @@
             <div class="nav-inner">
 
                 <a href="../index.html">خانه</a>
-                <a href="../skincare.html">محصولات مراقبتی</a>
-                <a href="../makeup.html">لوازم آرایشی</a>
-                <a href="../hygiene.html">لوازم بهداشتی</a>
-                <a href="../korean-products.html">محصولات کره‌ای</a>
-                <a href="#" class="active">پاک کننده صورت</a>
+                <a href="../care/care.html">محصولات مراقبتی</a>
+                <a aria-disabled="true" role="link" tabindex="-1" title="این بخش هنوز فعال نیست">لوازم آرایشی</a>
+                <a aria-disabled="true" role="link" tabindex="-1" title="این بخش هنوز فعال نیست">لوازم بهداشتی</a>
+                <a aria-disabled="true" role="link" tabindex="-1" title="این بخش هنوز فعال نیست">محصولات کره‌ای</a>
+                <span class="active" aria-current="page">پاک کننده صورت</span>
 
             </div>
         </nav>
@@ -759,10 +759,10 @@
         <a href="../index.html">خانه</a>
         <span> ← </span>
 
-        <a href="#">محصولات مراقبتی</a>
+        <a href="../care/care.html">محصولات مراقبتی</a>
         <span> ← </span>
 
-        <a href="#">پاک کننده صورت</a>
+        <a href="face-cleanser.html">پاک کننده صورت</a>
         <span> ← </span>
 
         <strong>فوم شست‌وشوی صورت</strong>
@@ -889,7 +889,7 @@
                             type="button"
                             class="heart"
                             aria-label="افزودن به علاقه‌مندی"
-                            onclick="toggleWishlist(this)"
+                            disabled aria-disabled="true" title="علاقه‌مندی‌ها هنوز فعال نیست"
                         >
                             ♡
                         </button>
@@ -949,7 +949,7 @@
                             class="heart"
                             type="button"
                             aria-label="افزودن به علاقه‌مندی"
-                            onclick="toggleWishlist(this)"
+                            disabled aria-disabled="true" title="علاقه‌مندی‌ها هنوز فعال نیست"
                         >
                             ♡
                         </button>
@@ -1007,7 +1007,7 @@
                             class="heart"
                             type="button"
                             aria-label="افزودن به علاقه‌مندی"
-                            onclick="toggleWishlist(this)"
+                            disabled aria-disabled="true" title="علاقه‌مندی‌ها هنوز فعال نیست"
                         >
                             ♡
                         </button>
@@ -1067,7 +1067,7 @@
                             class="heart"
                             type="button"
                             aria-label="افزودن به علاقه‌مندی"
-                            onclick="toggleWishlist(this)"
+                            disabled aria-disabled="true" title="علاقه‌مندی‌ها هنوز فعال نیست"
                         >
                             ♡
                         </button>
@@ -1125,7 +1125,7 @@
                             class="heart"
                             type="button"
                             aria-label="افزودن به علاقه‌مندی"
-                            onclick="toggleWishlist(this)"
+                            disabled aria-disabled="true" title="علاقه‌مندی‌ها هنوز فعال نیست"
                         >
                             ♡
                         </button>
@@ -1185,7 +1185,7 @@
                             class="heart"
                             type="button"
                             aria-label="افزودن به علاقه‌مندی"
-                            onclick="toggleWishlist(this)"
+                            disabled aria-disabled="true" title="علاقه‌مندی‌ها هنوز فعال نیست"
                         >
                             ♡
                         </button>
@@ -1280,8 +1280,8 @@
 
                 <ul>
                     <li><a href="../index.html">خانه</a></li>
-                    <li><a href="../skincare.html">مراقبت پوست</a></li>
-                    <li><a href="../makeup.html">لوازم آرایشی</a></li>
+                    <li><a href="../care/care.html">مراقبت پوست</a></li>
+                    <li><a aria-disabled="true" role="link" tabindex="-1" title="این بخش هنوز فعال نیست">لوازم آرایشی</a></li>
                 </ul>
             </div>
 
@@ -1289,9 +1289,9 @@
                 <h3>خدمات مشتریان</h3>
 
                 <ul>
-                    <li><a href="#">سوالات متداول</a></li>
-                    <li><a href="#">شرایط ارسال</a></li>
-                    <li><a href="#">شرایط بازگشت</a></li>
+                    <li><span class="disabled-link" aria-disabled="true" style="display:block;opacity:.65;cursor:not-allowed">سوالات متداول</span></li>
+                    <li><span class="disabled-link" aria-disabled="true" style="display:block;opacity:.65;cursor:not-allowed">شرایط ارسال</span></li>
+                    <li><span class="disabled-link" aria-disabled="true" style="display:block;opacity:.65;cursor:not-allowed">شرایط بازگشت</span></li>
                 </ul>
             </div>
 
@@ -1362,46 +1362,7 @@
             window.toastTimer = setTimeout(() => {
                 toast.classList.remove("show");
             },2200);
-        }function toggleWishlist(button){
-
-            button.classList.toggle("active");
-
-            if(button.classList.contains("active")){
-
-                button.textContent = "♥";
-
-                button.setAttribute(
-                    "aria-label",
-                    "حذف از علاقه‌مندی"
-                );
-
-                wishlistCount++;
-
-                showToast(
-                    "محصول به علاقه‌مندی‌ها اضافه شد."
-                );
-
-            }else{
-
-                button.textContent = "♡";
-
-                button.setAttribute(
-                    "aria-label",
-                    "افزودن به علاقه‌مندی"
-                );
-
-                wishlistCount =
-                    Math.max(0,wishlistCount - 1);
-
-                showToast(
-                    "محصول از علاقه‌مندی‌ها حذف شد."
-                );
-            }
-
-            wishlistCountElement.textContent =
-                wishlistCount;
         }
-
 
         function imageFallback(image,title){
 

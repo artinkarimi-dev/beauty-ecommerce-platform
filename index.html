@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ALKAMOONE | فروشگاه محصولات زیبایی</title>
+    <style>
+        body{margin:0;font-family:Tahoma,Arial,sans-serif;background:#fff8f5;color:#33221b;line-height:1.8}
+        .wrap{max-width:960px;margin:0 auto;padding:48px 20px}
+        header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:36px}
+        .brand{font-weight:800;font-size:1.5rem;color:#7b3f32;text-decoration:none}
+        nav{display:flex;gap:10px;flex-wrap:wrap}
+        a{color:#7b3f32;text-decoration:none}
+        .btn{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 16px;border:1px solid #d8b8aa;border-radius:999px;background:#fff;color:#7b3f32}
+        h1{font-size:clamp(1.6rem,4vw,2.6rem);margin:0 0 12px}
+        p{margin:0 0 20px;color:#6c554d}
+        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:28px}
+        .card{display:block;padding:18px;border:1px solid #ead7ce;border-radius:14px;background:#fff;min-height:88px}
+        .card strong{display:block;margin-bottom:6px;color:#3b2720}
+        footer{margin-top:36px;color:#7c675f;font-size:.95rem}
+        @media(max-width:560px){header{align-items:flex-start;flex-direction:column}.wrap{padding:28px 16px}.btn{width:100%}.grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <a class="brand" href="index.html">ALKAMOONE</a>
+            <nav aria-label="دسترسی سریع">
+                <a class="btn" href="cart.html">سبد خرید</a>
+                <a class="btn" href="order-tracking.html">پیگیری سفارش</a>
+            </nav>
+        </header>
+
+        <main>
+            <h1>فروشگاه محصولات زیبایی و مراقبتی</h1>
+            <p>از دسته‌بندی‌های فعال فروشگاه وارد شوید و محصولات قابل خرید یا نیازمند استعلام قیمت را شفاف بررسی کنید.</p>
+
+            <div class="grid" aria-label="دسته‌بندی‌های فعال">
+                <a class="card" href="care/care.html"><strong>مراقبت پوست</strong><span>محصولات مراقبتی صورت و روتین پوستی</span></a>
+                <a class="card" href="FACE-CLEANSER/face-cleanser.html"><strong>پاک کننده صورت</strong><span>ژل، فوم، میسلار و پاک‌کننده آرایش</span></a>
+                <a class="card" href="BODY-CARE/body-care.html"><strong>مراقبت بدن</strong><span>کرم، لوسیون، شوینده و مراقبت بدن</span></a>
+                <a class="card" href="HAIR/hair-products.html"><strong>مراقبت مو</strong><span>شامپو و محصولات مراقبت مو</span></a>
+                <a class="card" href="LIP-CARE/lip-care.html"><strong>مراقبت لب</strong><span>بالم، ماسک و اسکراب لب</span></a>
+            </div>
+        </main>
+
+        <footer>© 2026 ALKAMOONE</footer>
+    </div>
+</body>
+</html>

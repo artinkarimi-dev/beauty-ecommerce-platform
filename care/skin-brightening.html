@@ -441,9 +441,9 @@
                 </form>
 
                 <div class="actions">
-                    <a href="#" class="action" aria-label="علاقه‌مندی‌ها">♡</a>
-                    <a href="#" class="action" aria-label="حساب کاربری">♙</a>
-                    <a href="#" class="action" aria-label="سبد خرید">🛒</a>
+                    <button class="action" type="button" disabled aria-disabled="true" aria-label="علاقه‌مندی‌ها" title="این قابلیت هنوز فعال نیست">♡</button>
+                    <button class="action" type="button" disabled aria-disabled="true" aria-label="حساب کاربری" title="این قابلیت هنوز فعال نیست">♙</button>
+                    <a href="../cart.html" class="action" aria-label="سبد خرید">🛒</a>
                 </div>
 
             </div>
@@ -460,7 +460,7 @@
                         <a href="care.html" class="active">مراقبتی</a>
                     </li>
                     <li>
-                        <a href="../MAKEUP/makeup.html">آرایشی</a>
+                        <a aria-disabled="true" role="link" tabindex="-1" title="این بخش هنوز فعال نیست">آرایشی</a>
                     </li>
                     <li>
                         <a href="../HYGIENE/hygiene.html">بهداشتی</a>
@@ -469,7 +469,7 @@
                         <a href="../KOREAN/korean.html">محصولات کره‌ای</a>
                     </li>
                     <li>
-                        <a href="../BRANDS/brands.html">برندها</a>
+                        <a aria-disabled="true" role="link" tabindex="-1" title="این بخش هنوز فعال نیست">برندها</a>
                     </li>
                 </ul>
             </div>
@@ -659,21 +659,21 @@
                 <div>
                     <h3>دسته‌بندی‌ها</h3>
                     <a href="care.html">مراقبتی</a>
-                    <a href="../MAKEUP/makeup.html">آرایشی</a>
+                    <a aria-disabled="true" role="link" tabindex="-1" title="این بخش هنوز فعال نیست">آرایشی</a>
                     <a href="../HYGIENE/hygiene.html">بهداشتی</a>
                 </div>
 
                 <div>
                     <h3>فروشگاه</h3>
                     <a href="../KOREAN/korean.html">محصولات کره‌ای</a>
-                    <a href="../BRANDS/brands.html">برندها</a>
+                    <a aria-disabled="true" role="link" tabindex="-1" title="این بخش هنوز فعال نیست">برندها</a>
                 </div>
 
                 <div>
                     <h3>پشتیبانی</h3>
-                    <a href="#">تماس با ما</a>
-                    <a href="#">سؤالات متداول</a>
-                    <a href="#">قوانین و مقررات</a>
+                    <span class="disabled-link" aria-disabled="true" style="display:block;opacity:.65;cursor:not-allowed">تماس با ما</span>
+                    <span class="disabled-link" aria-disabled="true" style="display:block;opacity:.65;cursor:not-allowed">سؤالات متداول</span>
+                    <span class="disabled-link" aria-disabled="true" style="display:block;opacity:.65;cursor:not-allowed">قوانین و مقررات</span>
                 </div>
 
             </div>

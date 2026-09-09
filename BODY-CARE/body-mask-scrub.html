@@ -506,7 +506,7 @@
                 </li>
 
                 <li>
-                    <a href="../SKIN-CARE/index.html">
+                    <a href="../care/care.html">
                         محصولات مراقبتی
                     </a>
                 </li>
@@ -518,13 +518,13 @@
                 </li>
 
                 <li>
-                    <a href="../HAIR-CARE/index.html">
+                    <a href="../HAIR/hair-care.html">
                         محصولات مو
                     </a>
                 </li>
 
                 <li>
-                    <a href="../LIP-CARE/index.html">
+                    <a href="../LIP-CARE/lip-care.html">
                         مراقبت لب
                     </a>
                 </li>
@@ -742,7 +742,7 @@
                             پرفروش
                         </span>
 
-                        <button class="heart">
+                        <button class="heart" type="button" disabled aria-disabled="true" title="علاقه‌مندی‌ها هنوز فعال نیست">
                             ♡
                         </button>
 
@@ -793,7 +793,7 @@
 
                     <div class="product-image">
 
-                        <button class="heart">
+                        <button class="heart" type="button" disabled aria-disabled="true" title="علاقه‌مندی‌ها هنوز فعال نیست">
                             ♡
                         </button>
 
@@ -848,7 +848,7 @@
                             جدید
                         </span>
 
-                        <button class="heart">
+                        <button class="heart" type="button" disabled aria-disabled="true" title="علاقه‌مندی‌ها هنوز فعال نیست">
                             ♡
                         </button>
 
@@ -899,7 +899,7 @@
 
                     <div class="product-image">
 
-                        <button class="heart">
+                        <button class="heart" type="button" disabled aria-disabled="true" title="علاقه‌مندی‌ها هنوز فعال نیست">
                             ♡
                         </button>
 
@@ -950,7 +950,7 @@
 
                     <div class="product-image">
 
-                        <button class="heart">
+                        <button class="heart" type="button" disabled aria-disabled="true" title="علاقه‌مندی‌ها هنوز فعال نیست">
                             ♡
                         </button>
 
@@ -1001,7 +1001,7 @@
 
                     <div class="product-image">
 
-                        <button class="heart">
+                        <button class="heart" type="button" disabled aria-disabled="true" title="علاقه‌مندی‌ها هنوز فعال نیست">
                             ♡
                         </button>
 
@@ -1056,7 +1056,7 @@
                             محبوب
                         </span>
 
-                        <button class="heart">
+                        <button class="heart" type="button" disabled aria-disabled="true" title="علاقه‌مندی‌ها هنوز فعال نیست">
                             ♡
                         </button>
 
@@ -1107,7 +1107,7 @@
 
                     <div class="product-image">
 
-                        <button class="heart">
+                        <button class="heart" type="button" disabled aria-disabled="true" title="علاقه‌مندی‌ها هنوز فعال نیست">
                             ♡
                         </button>
 
@@ -1208,17 +1208,11 @@
                 خدمات
             </h3>
 
-            <a href="#">
-                پیگیری سفارش
-            </a>
+            <a href="../order-tracking.html">پیگیری سفارش</a>
 
-            <a href="#">
-                پشتیبانی
-            </a>
+            <span class="disabled-link" aria-disabled="true" style="display:block;opacity:.65;cursor:not-allowed">پشتیبانی</span>
 
-            <a href="#">
-                قوانین و مقررات
-            </a>
+            <span class="disabled-link" aria-disabled="true" style="display:block;opacity:.65;cursor:not-allowed">قوانین و مقررات</span>
 
         </div>
 
@@ -1247,24 +1241,6 @@
 </footer>
 
 
-<script>
-
-    document.querySelectorAll(".heart").forEach(button => {
-
-        button.addEventListener("click", function() {
-
-            this.classList.toggle("active");
-
-            this.textContent =
-                this.classList.contains("active")
-                ? "♥"
-                : "♡";
-
-        });
-
-    });
-
-</script>
 <script src="../assets/js/static-cart-integration.js" defer></script>
 
 </body>
