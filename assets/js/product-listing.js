@@ -244,6 +244,7 @@
             searchUrl: grid.dataset.searchUrl || defaultSearchUrl,
             sessionUrl: grid.dataset.sessionUrl || defaultSessionUrl,
             cartUrl: grid.dataset.cartUrl || defaultCartUrl,
+            countTarget: grid.dataset.countTarget ? document.querySelector(grid.dataset.countTarget) : null,
             category,
             perPage: grid.dataset.perPage || "24",
             buttonText: grid.dataset.buttonText || "مشاهده",
@@ -300,6 +301,10 @@
         }
 
         function render(products) {
+            if (options.countTarget) {
+                options.countTarget.textContent = new Intl.NumberFormat("fa-IR").format(products.length);
+            }
+
             grid.replaceChildren();
 
             if (products.length === 0) {

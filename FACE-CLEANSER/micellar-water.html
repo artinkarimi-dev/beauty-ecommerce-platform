@@ -394,12 +394,14 @@
             padding: 16px;
         }
 
+        .product-category,
         .brand {
             color: var(--accent);
             font-size: 11px;
             margin-bottom: 5px;
         }
 
+        .product-title,
         .product-name {
             font-size: 14px;
             min-height: 48px;
@@ -417,6 +419,7 @@
             margin-right: 5px;
         }
 
+        .product-bottom,
         .price-row {
             display: flex;
             align-items: center;
@@ -435,6 +438,7 @@
             font-size: 10px;
         }
 
+        .add-btn,
         .add-cart {
             border: 0;
             background: var(--brown);
@@ -446,6 +450,7 @@
             font-size: 11px;
         }
 
+        .add-btn:hover,
         .add-cart:hover {
             background: var(--accent);
         }
@@ -645,17 +650,20 @@
                 padding: 11px;
             }
 
-            .product-name {
+            .product-title,
+        .product-name {
                 font-size: 12px;
             }
 
-            .price-row {
+            .product-bottom,
+        .price-row {
                 align-items: flex-end;
                 flex-direction: column;
                 gap: 8px;
             }
 
-            .add-cart {
+            .add-btn,
+        .add-cart {
                 width: 100%;
             }
 
@@ -709,10 +717,9 @@
                 <span class="counter" id="wishlistCount">0</span>
             </button>
 
-            <button class="header-btn" id="cartBtn" title="سبد خرید">
+            <a class="header-btn" id="cartBtn" href="../cart.html" title="سبد خرید" aria-label="سبد خرید">
                 🛒
-                <span class="counter" id="cartCount">0</span>
-            </button>
+            </a>
         </div>
     </div>
 
@@ -821,327 +828,33 @@
 
         <div class="products-toolbar">
             <div class="result-count">
-                نمایش <strong id="resultCount">9</strong> محصول
+                نمایش <strong id="resultCount">0</strong> محصول
             </div>
 
-            <select class="sort-box" id="sortSelect">
-                <option value="default">مرتب‌سازی پیش‌فرض</option>
-                <option value="cheap">ارزان‌ترین</option>
-                <option value="expensive">گران‌ترین</option>
-                <option value="name">بر اساس نام</option>
+            <select class="sort-box" id="sortSelect" data-product-sort aria-label="مرتب‌سازی محصولات">
+                <option value="newest">جدیدترین</option>
+                <option value="price_asc">ارزان‌ترین</option>
+                <option value="price_desc">گران‌ترین</option>
+                <option value="name_asc">بر اساس نام</option>
             </select>
         </div>
 
-        <div class="product-grid" id="productGrid">
-
-            <article class="product-card" data-name="میسلار واتر آبرسان" data-price="690000">
-                <div class="product-image">
-                    <span class="badge">پرفروش</span>
-                    <button class="heart" onclick="toggleWishlist(this)">♡</button>
-
-                    <img
-                        src="../assets/images/products/micellar-water-01.jpg"
-                        alt="میسلار واتر آبرسان"
-                        onerror="imageFallback(this,'میسلار واتر')"
-                    >
-                </div>
-
-                <div class="product-info">
-                    <div class="brand">ALKAMOONE BEAUTY</div>
-                    <div class="product-name">میسلار واتر آبرسان مناسب انواع پوست</div>
-
-                    <div class="rating">
-                        ★★★★★
-                        <span>(24)</span>
-                    </div>
-
-                    <div class="price-row">
-                        <div class="price">
-                            ۶۹۰,۰۰۰ <small>تومان</small>
-                        </div>
-
-                        <button class="add-cart" onclick="addToCart('میسلار واتر آبرسان')">
-                            افزودن به سبد
-                        </button>
-                    </div>
-                </div>
-            </article>
-
-
-            <article class="product-card" data-name="میسلار واتر پوست حساس" data-price="750000">
-                <div class="product-image">
-                    <span class="badge">ویژه</span>
-                    <button class="heart" onclick="toggleWishlist(this)">♡</button>
-
-                    <img
-                        src="../assets/images/products/micellar-water-02.jpg"
-                        alt="میسلار واتر پوست حساس"
-                        onerror="imageFallback(this,'میسلار واتر پوست حساس')"
-                    >
-                </div>
-
-                <div class="product-info">
-                    <div class="brand">DERMA CARE</div>
-                    <div class="product-name">میسلار واتر پاک کننده مناسب پوست حساس</div>
-
-                    <div class="rating">
-                        ★★★★★
-                        <span>(18)</span>
-                    </div>
-
-                    <div class="price-row">
-                        <div class="price">
-                            ۷۵۰,۰۰۰ <small>تومان</small>
-                        </div>
-
-                        <button class="add-cart" onclick="addToCart('میسلار واتر پوست حساس')">
-                            افزودن به سبد
-                        </button>
-                    </div>
-                </div>
-            </article>
-
-
-            <article class="product-card" data-name="میسلار واتر پوست چرب" data-price="820000">
-                <div class="product-image">
-                    <button class="heart" onclick="toggleWishlist(this)">♡</button>
-
-                    <img
-                        src="../assets/images/products/micellar-water-03.jpg"
-                        alt="میسلار واتر پوست چرب"
-                        onerror="imageFallback(this,'میسلار واتر پوست چرب')"
-                    >
-                </div>
-
-                <div class="product-info">
-                    <div class="brand">PURE SKIN</div>
-                    <div class="product-name">میسلار واتر کنترل چربی پوست</div>
-
-                    <div class="rating">
-                        ★★★★☆
-                        <span>(13)</span>
-                    </div>
-
-                    <div class="price-row">
-                        <div class="price">
-                            ۸۲۰,۰۰۰ <small>تومان</small>
-                        </div>
-
-                        <button class="add-cart" onclick="addToCart('میسلار واتر پوست چرب')">
-                            افزودن به سبد
-                        </button>
-                    </div>
-                </div>
-            </article>
-
-
-            <article class="product-card" data-name="میسلار واتر روشن کننده" data-price="910000">
-                <div class="product-image">
-                    <span class="badge">جدید</span>
-                    <button class="heart" onclick="toggleWishlist(this)">♡</button>
-
-                    <img
-                        src="../assets/images/products/micellar-water-04.jpg"
-                        alt="میسلار واتر روشن کننده"
-                        onerror="imageFallback(this,'میسلار واتر روشن کننده')"
-                    >
-                </div>
-
-                <div class="product-info">
-                    <div class="brand">GLOW LAB</div>
-                    <div class="product-name">میسلار واتر پاک کننده و شفاف کننده</div>
-
-                    <div class="rating">
-                        ★★★★★
-                        <span>(9)</span>
-                    </div>
-
-                    <div class="price-row">
-                        <div class="price">
-                            ۹۱۰,۰۰۰ <small>تومان</small>
-                        </div>
-
-                        <button class="add-cart" onclick="addToCart('میسلار واتر روشن کننده')">
-                            افزودن به سبد
-                        </button>
-                    </div>
-                </div>
-            </article>
-
-
-            <article class="product-card" data-name="میسلار واتر روزانه" data-price="590000">
-                <div class="product-image">
-                    <button class="heart" onclick="toggleWishlist(this)">♡</button>
-
-                    <img
-                        src="../assets/images/products/micellar-water-05.jpg"
-                        alt="میسلار واتر روزانه"
-                        onerror="imageFallback(this,'میسلار واتر روزانه')"
-                    >
-                </div>
-
-                <div class="product-info">
-                    <div class="brand">SKIN DAILY</div>
-                    <div class="product-name">میسلار واتر روزانه برای پاکسازی پوست</div>
-
-                    <div class="rating">
-                        ★★★★☆
-                        <span>(31)</span>
-                    </div>
-
-                    <div class="price-row">
-                        <div class="price">
-                            ۵۹۰,۰۰۰ <small>تومان</small>
-                        </div>
-
-                        <button class="add-cart" onclick="addToCart('میسلار واتر روزانه')">
-                            افزودن به سبد
-                        </button>
-                    </div>
-                </div>
-            </article>
-
-
-            <article class="product-card" data-name="میسلار واتر دو فاز" data-price="980000">
-                <div class="product-image">
-                    <span class="badge">پیشنهاد</span>
-                    <button class="heart" onclick="toggleWishlist(this)">♡</button>
-
-                    <img
-                        src="../assets/images/products/micellar-water-06.jpg"
-                        alt="میسلار واتر دو فاز"
-                        onerror="imageFallback(this,'میسلار واتر دو فاز')"
-                    >
-                </div>
-
-                <div class="product-info">
-                    <div class="brand">BEAUTY LAB</div>
-                    <div class="product-name">میسلار واتر دو فاز پاک کننده آرایش</div>
-
-                    <div class="rating">
-                        ★★★★★
-                        <span>(16)</span>
-                    </div>
-
-                    <div class="price-row">
-                        <div class="price">
-                            ۹۸۰,۰۰۰ <small>تومان</small>
-                        </div>
-
-                        <button class="add-cart" onclick="addToCart('میسلار واتر دو فاز')">
-                            افزودن به سبد
-                        </button>
-                    </div>
-                </div>
-            </article>
-
-
-            <article class="product-card" data-name="میسلار واتر آلوئه ورا" data-price="720000">
-                <div class="product-image">
-                    <button class="heart" onclick="toggleWishlist(this)">♡</button>
-
-                    <img
-                        src="../assets/images/products/micellar-water-07.jpg"
-                        alt="میسلار واتر آلوئه ورا"
-                        onerror="imageFallback(this,'میسلار واتر آلوئه ورا')"
-                    >
-                </div>
-
-                <div class="product-info">
-                    <div class="brand">NATURE SKIN</div>
-                    <div class="product-name">میسلار واتر آلوئه ورا برای پوست خشک</div>
-
-                    <div class="rating">
-                        ★★★★☆
-                        <span>(12)</span>
-                    </div>
-
-                    <div class="price-row">
-                        <div class="price">
-                            ۷۲۰,۰۰۰ <small>تومان</small>
-                        </div>
-
-                        <button class="add-cart" onclick="addToCart('میسلار واتر آلوئه ورا')">
-                            افزودن به سبد
-                        </button>
-                    </div>
-                </div>
-            </article>
-
-
-            <article class="product-card" data-name="میسلار واتر بدون عطر" data-price="860000">
-                <div class="product-image">
-                    <button class="heart" onclick="toggleWishlist(this)">♡</button>
-
-                    <img
-                        src="../assets/images/products/micellar-water-08.jpg"
-                        alt="میسلار واتر بدون عطر"
-                        onerror="imageFallback(this,'میسلار واتر بدون عطر')"
-                    >
-                </div>
-
-                <div class="product-info">
-                    <div class="brand">SENSITIVE CARE</div>
-                    <div class="product-name">میسلار واتر بدون عطر برای پوست حساس</div>
-
-                    <div class="rating">
-                        ★★★★★
-                        <span>(20)</span>
-                    </div>
-
-                    <div class="price-row">
-                        <div class="price">
-                            ۸۶۰,۰۰۰ <small>تومان</small>
-                        </div>
-
-                        <button class="add-cart" onclick="addToCart('میسلار واتر بدون عطر')">
-                            افزودن به سبد
-                        </button>
-                    </div>
-                </div>
-            </article>
-
-
-            <article class="product-card" data-name="میسلار واتر مینرال" data-price="1100000">
-                <div class="product-image">
-                    <span class="badge">جدید</span>
-                    <button class="heart" onclick="toggleWishlist(this)">♡</button>
-
-                    <img
-                        src="../assets/images/products/micellar-water-09.jpg"
-                        alt="میسلار واتر مینرال"
-                        onerror="imageFallback(this,'میسلار واتر مینرال')"
-                    >
-                </div>
-
-                <div class="product-info">
-                    <div class="brand">MINERAL SKIN</div>
-                    <div class="product-name">میسلار واتر مینرال برای پاکسازی روزانه</div>
-
-                    <div class="rating">
-                        ★★★★★
-                        <span>(7)</span>
-                    </div>
-
-                    <div class="price-row">
-                        <div class="price">
-                            ۱,۱۰۰,۰۰۰ <small>تومان</small>
-                        </div>
-
-                        <button class="add-cart" onclick="addToCart('میسلار واتر مینرال')">
-                            افزودن به سبد
-                        </button>
-                    </div>
-                </div>
-            </article>
-
-        </div>
-
-        <div class="pagination">
-            <button class="active">۱</button>
-            <button>۲</button>
-            <button>۳</button>
-            <button>←</button>
+        <div
+            class="product-grid"
+            id="productGrid"
+            data-product-listing
+            data-category="micellar-water"
+            data-sort-target="#sortSelect"
+            data-search-target="#searchInput"
+            data-count-target="#resultCount"
+            data-per-page="24"
+            data-button-text="افزودن به سبد"
+            data-cart-enabled="true"
+            aria-live="polite"
+        >
+            <div class="product-status">
+                در حال دریافت محصولات...
+            </div>
         </div>
 
     </section>
@@ -1209,104 +922,7 @@
 
 <div class="toast" id="toast"></div>
 
-<script>
-    let cartCount = 0;
-    let wishlistCount = 0;
-
-    function showToast(message) {
-        const toast = document.getElementById("toast");
-
-        toast.textContent = message;
-        toast.classList.add("show");
-
-        setTimeout(() => {
-            toast.classList.remove("show");
-        }, 2200);
-    }
-
-    function addToCart(productName) {
-        cartCount++;
-
-        document.getElementById("cartCount").textContent = cartCount;
-
-        showToast("«" + productName + "» به سبد خرید اضافه شد.");
-    }
-
-    function toggleWishlist(button) {
-        button.classList.toggle("active");
-
-        if (button.classList.contains("active")) {
-            button.textContent = "♥";
-            wishlistCount++;
-            showToast("محصول به علاقه‌مندی‌ها اضافه شد.");
-        } else {
-            button.textContent = "♡";
-            wishlistCount--;
-            showToast("محصول از علاقه‌مندی‌ها حذف شد.");
-        }
-
-        document.getElementById("wishlistCount").textContent = wishlistCount;
-    }
-
-    function imageFallback(image, title) {
-        const box = document.createElement("div");
-
-        box.className = "image-fallback";
-        box.textContent = title;
-
-        image.replaceWith(box);
-    }
-
-    const searchInput = document.getElementById("searchInput");
-    const products = [...document.querySelectorAll(".product-card")];
-    const resultCount = document.getElementById("resultCount");
-
-    searchInput.addEventListener("input", function () {
-        const value = this.value.trim().toLowerCase();
-
-        let visible = 0;
-
-        products.forEach(product => {
-            const name = product.dataset.name.toLowerCase();
-
-            if (name.includes(value)) {
-                product.style.display = "";
-                visible++;
-            } else {
-                product.style.display = "none";
-            }
-        });
-
-        resultCount.textContent = visible;
-    });
-
-    document.getElementById("sortSelect").addEventListener("change", function () {
-
-        const grid = document.getElementById("productGrid");
-
-        const sorted = [...products];
-
-        if (this.value === "cheap") {
-            sorted.sort((a, b) =>
-                Number(a.dataset.price) - Number(b.dataset.price)
-            );
-        }
-
-        if (this.value === "expensive") {
-            sorted.sort((a, b) =>
-                Number(b.dataset.price) - Number(a.dataset.price)
-            );
-        }
-
-        if (this.value === "name") {
-            sorted.sort((a, b) =>
-                a.dataset.name.localeCompare(b.dataset.name, "fa")
-            );
-        }
-
-        sorted.forEach(product => grid.appendChild(product));
-    });
-</script>
+<script src="../assets/js/product-listing.js" defer></script>
 
 </body>
 </html>
