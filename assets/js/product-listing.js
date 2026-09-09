@@ -34,6 +34,43 @@
         return new Intl.NumberFormat("fa-IR").format(Number(amount)) + " تومان";
     }
 
+    const knownMissingProductImages = [
+        "/assets/images/products/eye-makeup-remover-01.jpg",
+        "/assets/images/products/eye-makeup-remover-02.jpg",
+        "/assets/images/products/eye-makeup-remover-03.jpg",
+        "/assets/images/products/eye-makeup-remover-04.jpg",
+        "/assets/images/products/eye-makeup-remover-05.jpg",
+        "/assets/images/products/eye-makeup-remover-06.jpg",
+        "/assets/images/products/face-wash-foam-01.jpg",
+        "/assets/images/products/face-wash-foam-02.jpg",
+        "/assets/images/products/face-wash-foam-03.jpg",
+        "/assets/images/products/face-wash-foam-04.jpg",
+        "/assets/images/products/face-wash-foam-05.jpg",
+        "/assets/images/products/face-wash-foam-06.jpg",
+        "/assets/images/products/face-wash-gel-01.jpg",
+        "/assets/images/products/face-wash-gel-02.jpg",
+        "/assets/images/products/face-wash-gel-03.jpg",
+        "/assets/images/products/face-wash-gel-04.jpg",
+        "/assets/images/products/face-wash-gel-05.jpg",
+        "/assets/images/products/face-wash-gel-06.jpg",
+        "/assets/images/products/face-wash-gel-07.jpg",
+        "/assets/images/products/face-wash-gel-08.jpg",
+        "/assets/images/products/face-wash-gel-09.jpg"
+    ];
+
+    function isKnownMissingProductImage(value) {
+        return knownMissingProductImages.some(function (path) {
+            return String(value || "").endsWith(path);
+        });
+    }
+
+    function appendImageFallback(box, label) {
+        const fallback = document.createElement("div");
+        fallback.className = "image-fallback";
+        fallback.textContent = label || "تصویر محصول";
+        box.appendChild(fallback);
+    }
+
     function isSafeImagePath(value) {
         if (!value || /[\u0000-\u001f]/.test(value)) {
             return false;
@@ -55,6 +92,11 @@
 
         if (!isSafeImagePath(imageValue)) {
             box.textContent = imageValue;
+            return;
+        }
+
+        if (isKnownMissingProductImage(imageValue)) {
+            appendImageFallback(box, product.name || "تصویر محصول");
             return;
         }
 

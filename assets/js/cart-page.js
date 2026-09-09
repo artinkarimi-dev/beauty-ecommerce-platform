@@ -135,11 +135,46 @@
         return row;
     }
 
+    const knownMissingProductImages = [
+        "/assets/images/products/eye-makeup-remover-01.jpg",
+        "/assets/images/products/eye-makeup-remover-02.jpg",
+        "/assets/images/products/eye-makeup-remover-03.jpg",
+        "/assets/images/products/eye-makeup-remover-04.jpg",
+        "/assets/images/products/eye-makeup-remover-05.jpg",
+        "/assets/images/products/eye-makeup-remover-06.jpg",
+        "/assets/images/products/face-wash-foam-01.jpg",
+        "/assets/images/products/face-wash-foam-02.jpg",
+        "/assets/images/products/face-wash-foam-03.jpg",
+        "/assets/images/products/face-wash-foam-04.jpg",
+        "/assets/images/products/face-wash-foam-05.jpg",
+        "/assets/images/products/face-wash-foam-06.jpg",
+        "/assets/images/products/face-wash-gel-01.jpg",
+        "/assets/images/products/face-wash-gel-02.jpg",
+        "/assets/images/products/face-wash-gel-03.jpg",
+        "/assets/images/products/face-wash-gel-04.jpg",
+        "/assets/images/products/face-wash-gel-05.jpg",
+        "/assets/images/products/face-wash-gel-06.jpg",
+        "/assets/images/products/face-wash-gel-07.jpg",
+        "/assets/images/products/face-wash-gel-08.jpg",
+        "/assets/images/products/face-wash-gel-09.jpg"
+    ];
+
+    function isKnownMissingProductImage(value) {
+        return knownMissingProductImages.some(function (path) {
+            return String(value || "").endsWith(path);
+        });
+    }
+
     function appendImageContent(box, product) {
         const imageValue = commerce.safeText(product.image, "○");
 
         if (!isSafeImagePath(imageValue)) {
             box.textContent = imageValue;
+            return;
+        }
+
+        if (isKnownMissingProductImage(imageValue)) {
+            box.textContent = commerce.safeText(product.name, "محصول");
             return;
         }
 
