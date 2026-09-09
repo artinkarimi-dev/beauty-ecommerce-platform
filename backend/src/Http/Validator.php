@@ -77,13 +77,19 @@ final class Validator
         return self::int($value ?? (string) $default, $field, $min, $max);
     }
 
-    public static function oneOf(string $value, array $allowed, string $field): string
+    public static function oneOf($value, array $allowed, string $field): string
     {
-        if (!in_array($value, $allowed, true)) {
+        if (is_array($value) || is_object($value) || $value === null) {
             throw new HttpException(422, 'VALIDATION_ERROR', $field . ' is invalid.');
         }
 
-        return $value;
+        $text = trim((string) $value);
+
+        if (!in_array($text, $allowed, true)) {
+            throw new HttpException(422, 'VALIDATION_ERROR', $field . ' is invalid.');
+        }
+
+        return $text;
     }
 
     public static function phone($value): string
@@ -143,3 +149,4 @@ final class Validator
         return function_exists('mb_strlen') ? mb_strlen($text) : strlen($text);
     }
 }
+

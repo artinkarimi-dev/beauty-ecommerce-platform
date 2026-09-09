@@ -24,7 +24,7 @@ ApiGuard::run($app, static function (): void {
     $category = Validator::slug($_GET['category'] ?? '', 'category', false);
     $page = Validator::page($_GET['page'] ?? '1', 'page', 1, 1, 10000);
     $perPage = Validator::page($_GET['per_page'] ?? '24', 'per_page', 24, 1, 48);
-    $sort = Validator::oneOf(trim((string) ($_GET['sort'] ?? 'newest')), ['newest', 'price_asc', 'price_desc', 'name_asc', 'name_desc'], 'sort');
+    $sort = Validator::oneOf($_GET['sort'] ?? 'newest', ['newest', 'price_asc', 'price_desc', 'name_asc', 'name_desc'], 'sort');
     $pdo = Connection::make(require __DIR__ . '/../backend/config/database.php');
     $repository = new ProductRepository($pdo);
     $categoryIds = null;
