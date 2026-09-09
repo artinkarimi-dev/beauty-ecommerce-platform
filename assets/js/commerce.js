@@ -145,6 +145,13 @@
         });
     }
 
+    async function addToCart(productId, quantity) {
+        return mutateCart("POST", {
+            product_id: productId,
+            quantity: quantity || 1
+        });
+    }
+
     async function createOrder(customer) {
         const token = await getCsrfToken(false);
 
@@ -178,6 +185,7 @@
         safeText,
         messageForCode,
         getCart,
+        addToCart,
         updateCartItem,
         removeCartItem,
         createOrder,
