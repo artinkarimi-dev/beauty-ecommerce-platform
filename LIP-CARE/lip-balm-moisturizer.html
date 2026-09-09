@@ -383,7 +383,7 @@ footer a {
 <div class="actions">
 <button class="action">♙</button>
 <button class="action">♡</button>
-<button class="action">🛒</button>
+<a class="action" href="../cart.html" aria-label="سبد خرید">🛒</a>
 </div>
 
 </div>
@@ -594,21 +594,7 @@ footer a {
 
 </footer>
 
-<script>
-document.querySelectorAll('.add-btn').forEach(btn => {
-
-    btn.addEventListener('click', () => {
-
-        btn.textContent = '✓ اضافه شد';
-
-        setTimeout(() => {
-            btn.textContent = 'افزودن به سبد';
-        },1200);
-
-    });
-
-});
-</script>
+<script src="../assets/js/static-cart-integration.js" defer></script>
 
 </body>
 </html>
