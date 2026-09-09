@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App\Http;
 
-use RuntimeException;
-
 final class Request
 {
     public static function json(int $maxBytes = 65536): array
@@ -13,23 +11,27 @@ final class Request
         $contentType = isset($_SERVER['CONTENT_TYPE']) ? strtolower((string) $_SERVER['CONTENT_TYPE']) : '';
 
         if (strpos($contentType, 'application/json') === false) {
-            throw new RuntimeException('CONTENT_TYPE');
+            throw new HttpException(415, 'UNSUPPORTED_CONTENT_TYPE', 'Content-Type must be application/json.');
         }
 
         $raw = file_get_contents('php://input');
 
-        if ($raw === false || trim($raw) === '') {
-            return [];
+        if ($raw === false) {
+            throw new HttpException(400, 'INVALID_JSON', 'Request body could not be read.');
         }
 
         if (strlen($raw) > $maxBytes) {
-            throw new RuntimeException('PAYLOAD_TOO_LARGE');
+            throw new HttpException(413, 'PAYLOAD_TOO_LARGE', 'Request body is too large.');
+        }
+
+        if (trim($raw) === '') {
+            return [];
         }
 
         $data = json_decode($raw, true);
 
         if (!is_array($data) || json_last_error() !== JSON_ERROR_NONE) {
-            throw new RuntimeException('INVALID_JSON');
+            throw new HttpException(400, 'INVALID_JSON', 'Request body contains invalid JSON.');
         }
 
         return $data;

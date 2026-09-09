@@ -3,130 +3,99 @@
 declare(strict_types=1);
 
 use App\Database\Connection;
+use App\Http\ApiGuard;
+use App\Http\HttpException;
 use App\Http\JsonResponse;
 use App\Http\ProductPresenter;
 use App\Http\Request;
+use App\Http\Validator;
 use App\Repository\ProductRepository;
 use App\Security\Csrf;
 use App\Service\SessionCart;
 use App\Service\SessionManager;
-use App\Support\Logger;
 
 $app = require __DIR__ . '/../backend/bootstrap.php';
 
 date_default_timezone_set($app['timezone']);
 SessionManager::start($app['session_name'], $app['session_save_path']);
 
-$method = $_SERVER['REQUEST_METHOD'];
-$allowedMethods = ['GET', 'POST', 'PATCH', 'DELETE'];
+ApiGuard::run($app, static function () use ($app): void {
+    $method = $_SERVER['REQUEST_METHOD'];
+    $allowedMethods = ['GET', 'POST', 'PATCH', 'DELETE'];
 
-if (!in_array($method, $allowedMethods, true)) {
-    header('Allow: GET, POST, PATCH, DELETE');
-    JsonResponse::error('METHOD_NOT_ALLOWED', 'Request method is not supported.', 405);
-    exit;
-}
-
-$productId = null;
-$quantity = null;
-
-if ($method !== 'GET') {
-    if (!Csrf::verify(Request::header('X-CSRF-Token'))) {
-        JsonResponse::error('CSRF_FAILED', 'CSRF token is invalid.', 403);
-        exit;
+    if (!in_array($method, $allowedMethods, true)) {
+        header('Allow: GET, POST, PATCH, DELETE');
+        throw new HttpException(405, 'METHOD_NOT_ALLOWED', 'Request method is not supported.');
     }
 
-    try {
+    $productId = null;
+    $productSlug = null;
+    $quantity = null;
+
+    if ($method !== 'GET') {
+        if (!Csrf::verify(Request::header('X-CSRF-Token'))) {
+            throw new HttpException(403, 'CSRF_FAILED', 'CSRF token is invalid.');
+        }
+
         $payload = Request::json();
-    } catch (RuntimeException $exception) {
-        $code = $exception->getMessage();
+        $hasProductId = array_key_exists('product_id', $payload) && $payload['product_id'] !== null && $payload['product_id'] !== '';
+        $hasProductSlug = array_key_exists('product_slug', $payload) && $payload['product_slug'] !== null && $payload['product_slug'] !== '';
 
-        if ($code === 'PAYLOAD_TOO_LARGE') {
-            JsonResponse::error('PAYLOAD_TOO_LARGE', 'Request body is too large.', 413);
-            exit;
+        if ($hasProductId) {
+            $productId = Validator::int($payload['product_id'], 'product_id', 1, 2147483647);
+        } elseif ($hasProductSlug) {
+            $productSlug = Validator::slug($payload['product_slug'], 'product_slug');
+        } else {
+            throw new HttpException(422, 'VALIDATION_ERROR', 'product_id or product_slug is required.');
         }
 
-        JsonResponse::error(
-            $code === 'CONTENT_TYPE' ? 'UNSUPPORTED_CONTENT_TYPE' : 'INVALID_JSON',
-            $code === 'CONTENT_TYPE' ? 'Content-Type must be application/json.' : 'Request body contains invalid JSON.',
-            $code === 'CONTENT_TYPE' ? 415 : 400
-        );
-        exit;
-    }
-
-    $productId = filter_var($payload['product_id'] ?? null, FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]);
-    $productSlug = isset($payload['product_slug']) ? trim((string) $payload['product_slug']) : null;
-
-    if ($productId === false && ($productSlug === null || preg_match('/\A[a-z0-9][a-z0-9-]{1,199}\z/', $productSlug) !== 1)) {
-        JsonResponse::error('VALIDATION_ERROR', 'product_id or product_slug is required.', 422);
-        exit;
-    }
-
-    if ($method === 'POST' || $method === 'PATCH') {
-        $quantity = filter_var($payload['quantity'] ?? null, FILTER_VALIDATE_INT, ['options' => ['min_range' => 1, 'max_range' => 99]]);
-
-        if ($quantity === false) {
-            JsonResponse::error('VALIDATION_ERROR', 'quantity must be between 1 and 99.', 422);
-            exit;
+        if ($method === 'POST' || $method === 'PATCH') {
+            $quantity = Validator::int($payload['quantity'] ?? null, 'quantity', 1, 99);
         }
     }
-}
 
-try {
     $pdo = Connection::make(require __DIR__ . '/../backend/config/database.php');
     $repository = new ProductRepository($pdo);
 
     if ($method === 'POST' || $method === 'PATCH') {
-        if ($productId !== false) {
-            $products = $repository->findActiveByIds([(int) $productId]);
+        if ($productId !== null) {
+            $products = $repository->findActiveByIds([$productId]);
             $product = $products[0] ?? null;
         } else {
             $product = $productSlug === null ? null : $repository->findActiveBySlug($productSlug);
         }
 
         if ($product === null) {
-            JsonResponse::error('NOT_FOUND', 'Product was not found.', 404);
-            exit;
+            throw new HttpException(404, 'NOT_FOUND', 'Product was not found.');
         }
 
         if ($product['price_amount'] === null) {
-
-
-            JsonResponse::error('PRICE_UNAVAILABLE', 'Product requires price confirmation before ordering.', 409);
-
-
-            exit;
-
-
+            throw new HttpException(409, 'PRICE_UNAVAILABLE', 'Product requires price confirmation before ordering.');
         }
 
-
-
         $productId = (int) $product['id'];
-
-
         $availableStock = (int) $product['stock'];
         $cartItems = SessionCart::items();
-        $existingQuantity = isset($cartItems[(int) $productId]) ? (int) $cartItems[(int) $productId] : 0;
+        $existingQuantity = isset($cartItems[$productId]) ? (int) $cartItems[$productId] : 0;
         $requestedQuantity = $method === 'POST' ? $existingQuantity + (int) $quantity : (int) $quantity;
 
         if ($requestedQuantity > $availableStock) {
-            JsonResponse::error('INSUFFICIENT_STOCK', 'Requested quantity is not available.', 409);
-            exit;
+            throw new HttpException(409, 'INSUFFICIENT_STOCK', 'Requested quantity is not available.');
         }
 
         if ($method === 'POST') {
-            SessionCart::add((int) $productId, (int) $quantity);
+            SessionCart::add($productId, (int) $quantity);
         } else {
-            SessionCart::set((int) $productId, (int) $quantity);
+            SessionCart::set($productId, (int) $quantity);
         }
     } elseif ($method === 'DELETE') {
-        if ($productId === false) {
-            $product = $productSlug === null ? null : $repository->findActiveBySlug($productSlug);
-            $productId = $product === null ? 0 : (int) $product['id'];
+        if ($productId === null && $productSlug !== null) {
+            $product = $repository->findActiveBySlug($productSlug);
+            $productId = $product === null ? null : (int) $product['id'];
         }
 
-        if ((int) $productId > 0) {
-            SessionCart::remove((int) $productId);
+        if ($productId !== null) {
+            SessionCart::remove($productId);
         }
     }
 
@@ -166,7 +135,4 @@ try {
         'total_label' => number_format($total) . ' تومان',
         'csrf_token' => Csrf::token(),
     ]);
-} catch (Throwable $exception) {
-    Logger::exception($exception, $app['log_file']);
-    JsonResponse::error('SERVER_ERROR', 'Cart is temporarily unavailable.', 500);
-}
+});

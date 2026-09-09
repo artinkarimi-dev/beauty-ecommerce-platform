@@ -6,6 +6,8 @@ namespace App\Service;
 
 final class SessionManager
 {
+    private const INIT_KEY = '_session_initialized';
+
     public static function start(string $name, ?string $savePath = null): void
     {
         if (session_status() === PHP_SESSION_ACTIVE) {
@@ -22,6 +24,11 @@ final class SessionManager
             }
         }
 
+        ini_set('session.use_strict_mode', '1');
+        ini_set('session.use_only_cookies', '1');
+        ini_set('session.cookie_httponly', '1');
+        ini_set('session.cookie_samesite', 'Lax');
+
         session_name($name);
         session_set_cookie_params([
             'lifetime' => 0,
@@ -31,6 +38,11 @@ final class SessionManager
             'samesite' => 'Lax',
         ]);
         session_start();
+
+        if (empty($_SESSION[self::INIT_KEY])) {
+            session_regenerate_id(true);
+            $_SESSION[self::INIT_KEY] = time();
+        }
     }
 
     private static function isHttps(): bool

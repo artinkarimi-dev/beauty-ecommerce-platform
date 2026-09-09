@@ -23,6 +23,8 @@ spl_autoload_register(static function (string $className): void {
 $appConfig = require __DIR__ . '/config/app.php';
 
 ini_set('display_errors', $appConfig['debug'] ? '1' : '0');
+ini_set('display_startup_errors', $appConfig['debug'] ? '1' : '0');
 ini_set('log_errors', '1');
+ini_set('error_log', $appConfig['log_file']);
 
 return $appConfig;
