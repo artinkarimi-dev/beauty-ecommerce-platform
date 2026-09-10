@@ -1,8 +1,11 @@
-backend/storage/logs/*.log
+backend/storage/logs/*
+!backend/storage/logs/.gitkeep
 backend/storage/sessions/*
+!backend/storage/sessions/.gitkeep
+backend/storage/rate_limits/*
+!backend/storage/rate_limits/.gitkeep
 backend/config/local.php
 .env
 *.log
 .DS_Store
 Thumbs.db
-backend/storage/rate_limits/*

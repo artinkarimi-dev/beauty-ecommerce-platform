@@ -5,8 +5,8 @@ declare(strict_types=1);
 return [
     'host' => '127.0.0.1',
     'port' => 3306,
-    'database' => 'alkamoone',
-    'username' => 'root',
-    'password' => '',
+    'database' => 'alkamoone_local',
+    'username' => 'alkamoone_user',
+    'password' => 'change-this-local-password',
     'charset' => 'utf8mb4',
 ];
