@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /backend/
+Disallow: /backend/storage/
+
+# Add a production sitemap after the final public domain is confirmed.
