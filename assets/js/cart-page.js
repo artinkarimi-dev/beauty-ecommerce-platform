@@ -20,6 +20,8 @@
         status.textContent = message || "";
         status.dataset.status = type || "";
         status.hidden = !message;
+        status.setAttribute("role", type === "error" ? "alert" : "status");
+        status.setAttribute("aria-live", type === "error" ? "assertive" : "polite");
     }
 
     function setCheckoutStatus(message, type) {
@@ -31,6 +33,8 @@
         status.textContent = message || "";
         status.dataset.status = type || "";
         status.hidden = !message;
+        status.setAttribute("role", type === "error" ? "alert" : "status");
+        status.setAttribute("aria-live", type === "error" ? "assertive" : "polite");
     }
 
     function renderCart(cart) {

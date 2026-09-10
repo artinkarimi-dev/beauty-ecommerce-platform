@@ -23,6 +23,7 @@
         button.textContent = button.dataset.unavailableText || unavailableText;
         button.title = "این محصول هنوز به کالای قابل خرید در فروشگاه متصل نشده است.";
         button.setAttribute("aria-disabled", "true");
+        button.setAttribute("aria-label", button.textContent);
     }
 
     async function handleClick(button, productIdentity) {
